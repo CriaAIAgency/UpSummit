@@ -81,7 +81,7 @@ const Home = () => {
                         <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="bg-gradient-to-r from-customPink to-customPink2 text-white px-6 md:px-8 py-3 md:py-4 rounded-md text-base md:text-lg font-semibold mt-6 md:mt-8"
+                        className="bg-gradient-to-r from-customPink to-customPink2 text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold mt-6 md:mt-8"
                         >
                         GARANTA SEU INGRESSO
                         </motion.button>
