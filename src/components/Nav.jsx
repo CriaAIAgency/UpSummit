@@ -111,7 +111,7 @@ const CTAs = () => {
         <Cast className="w-5 text-white group-hover:text-customPink" />
         <span>Área de Membros</span>
       </button> */}
-      <button className="group flex h-10 items-center gap-2 rounded-full text-white bg-gradient-to-r from-customPink to-customPink2 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-customPurple hover:to-customPurple hover:pl-2 hover:text-white active:bg-customPurple">
+      <button className="group flex h-10 items-center gap-2 rounded-full text-white bg-gradient-to-r from-customPink to-customPink2 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-purple-800 hover:to-purple-950 hover:pl-2 hover:text-white active:bg-customPurple">
         <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
           <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPurple group-active:-rotate-45" />
         </span>
