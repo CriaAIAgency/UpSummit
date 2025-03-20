@@ -107,8 +107,14 @@ const NavLink = ({ children, href, FlyoutContent }) => {
 const CTAs = () => {
   return (
     <div className="flex items-center gap-3">
-      <button className="flex items-center gap-2 rounded-md px-5 py-3 font-semibold bg-customPink text-white transition-colors hover:bg-[#E5005D] hover:text-white group">
+      {/* <button className="flex items-center gap-2 rounded-md px-5 py-3 font-semibold bg-customPink text-white transition-colors hover:bg-[#E5005D] hover:text-white group">
         <Cast className="w-5 text-white group-hover:text-customPink" />
+        <span>Área de Membros</span>
+      </button> */}
+      <button className="group flex h-10 items-center gap-2 rounded-full text-white bg-gradient-to-r from-customPink to-customPink2 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-customPurple hover:to-customPurple hover:pl-2 hover:text-white active:bg-customPurple">
+        <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
+          <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPurple group-active:-rotate-45" />
+        </span>
         <span>Área de Membros</span>
       </button>
     </div>
@@ -183,7 +189,7 @@ const Parceria = () => {
           <a href="/patrocinar" className="block text-sm hover:underline">
           Quero ser um patrocinador
           </a>
-          <a href="#" className="block text-sm hover:underline">
+          <a href="/motivos" className="block text-sm hover:underline">
           Por que patrocinar
           </a>
           <a href="#" className="block text-sm hover:underline">
@@ -391,7 +397,7 @@ const LINKS = [
   },
   {
     text: "Parceria",
-    href: "#",
+    href: "/patrocinar",
     component: Parceria,
   },
   {
