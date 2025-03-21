@@ -65,6 +65,9 @@ const TranslateWrapper = ({ children, reverse = false }) => {
 };
 
 const LogoItem = ({ src }) => {
+  // Verifica se é o logo Santri pelo nome do arquivo na src
+  const isSantri = src.includes('santri');
+
   return (
     <a
       href="/"
@@ -72,7 +75,13 @@ const LogoItem = ({ src }) => {
       target="_blank"
       className="w-16 md:w-24 h-16 md:h-24 flex justify-center items-center hover:bg-slate-200 transition-colors"
     >
-      <img src={src} alt="Logo" className="max-w-full max-h-full object-contain" />
+      <img 
+        src={src} 
+        alt="Logo" 
+        className={`max-w-full max-h-full object-contain ${
+          isSantri ? 'brightness-50 contrast-200 saturate-200' : ''
+        }`}
+      />
     </a>
   );
 };

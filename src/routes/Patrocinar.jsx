@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Building2, Globe, BadgeDollarSign, Target, AlertCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { FiArrowRight } from 'react-icons/fi';
 
 const investmentRanges = [
   { id: 1, value: 'R$10.000 - R$50.000', label: 'R$ 10.000 - R$ 50.000' },
@@ -87,16 +89,22 @@ const Patrocinar = () => {
         <section className="relative bg-gray-50 py-32">
             <div className="max-w-4xl mx-auto px-6">
                 <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-center mb-12"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center mb-16"
                 >
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-customPink via-customPink to-customPink2 bg-clip-text text-transparent">
-                    Reserve sua cota para 2026
-                </h2>
-                <p className="text-gray-600 text-lg">
-                    Faça parte do maior evento de marketing do Brasil
-                </p>
+                    <span className="inline-block text-sm font-semibold text-customPink2 uppercase tracking-wider mb-4">
+                        Seja parte do maior evento de marketing do Brasil
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-customPink via-customPink to-customPink2 bg-clip-text text-transparent">
+                        RESERVE SUA COTA DE PATROCÍNIO
+                    </h2>
+                    <div className="w-24 h-1 bg-gradient-to-r from-customPink to-customPink2 mx-auto rounded-full mb-6" />
+                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                        Conecte sua marca com mais de <span className="text-customPink2 font-semibold">10.000 participantes</span> e 
+                        faça parte de uma experiência única de <span className="text-customPink2 font-semibold">networking</span> e 
+                        <span className="text-customPink2 font-semibold"> oportunidades de negócios</span>.
+                    </p>
                 </motion.div>
 
                 {formErrors.length > 0 && (
@@ -316,6 +324,33 @@ const Patrocinar = () => {
                     </motion.div>
                 </div>
                 </motion.form>
+            </div>
+
+            <div className="max-w-4xl mx-auto px-6 mt-32">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center"
+                >
+                    <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
+                        Dúvidas sobre patrocínio?
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
+                        Por que patrocinar o UP Summit?
+                    </h2>
+                    <p className="text-gray-600 text-lg mb-8">
+                        Descubra os benefícios exclusivos e o retorno que sua marca pode ter ao patrocinar o maior evento de marketing do Brasil.
+                    </p>
+                    <Link to="/motivos" className="inline-flex justify-center">
+                        <button className="group flex h-12 items-center gap-2 rounded-full text-white bg-gradient-to-r from-purple-800 to-purple-950 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-purple-900 hover:to-purple-950 hover:pl-2 hover:text-white active:bg-purple-950">
+                            <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
+                                <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-purple-800 group-active:-rotate-45" />
+                            </span>
+                            <span>Descobrir Benefícios</span>
+                        </button>
+                    </Link>
+                </motion.div>
             </div>
         </section>
     );

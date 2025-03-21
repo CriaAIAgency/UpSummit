@@ -1,45 +1,43 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Crown, Star, Diamond, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-
-const CURSOR_WIDTH = 32;
-const HOVER_PADDING = 24;
+import LogoHero from '../components/homeSections/LogoHero';
 
 const benefits = [
   {
     title: 'Visibilidade',
-    highlight: 'destacada em um dos maiores eventos de empreendedorismo do Brasil',
-    color: 'from-[#FF0066]'
+    highlight: 'destacada em um dos maiores eventos de empreendedorismo do Brasil.',
+    color: 'from-purple-800'
   },
   {
     title: 'Oportunidades estratégicas',
-    highlight: 'de networking com líderes empresariais e investidores influentes',
-    color: 'from-[#7928CA]'
+    highlight: 'de networking com líderes empresariais e investidores influentes.',
+    color: 'from-purple-900'
   },
   {
     title: 'Fortalecimento da reputação da marca',
-    highlight: 'e aumento do reconhecimento no mercado',
-    color: 'from-[#FF0066]'
+    highlight: 'e aumento do reconhecimento no mercado.',
+    color: 'from-purple-800'
   },
   {
     title: 'Potencial para',
-    highlight: 'geração de leads qualificados',
-    description: 'e oportunidades de negócios',
-    color: 'from-[#7928CA]'
+    highlight: 'geração de leads qualificados ',
+    description: 'e oportunidades de negócios.',
+    color: 'from-purple-900'
   },
   {
     title: 'Elevada possibilidade de',
     highlight: 'retorno sobre o investimento (ROI)',
-    description: ', comprovado pelos resultados positivos dos patrocinadores anteriores',
-    color: 'from-[#FF0066]'
+    description: ', comprovado pelos resultados positivos dos patrocinadores anteriores.',
+    color: 'from-purple-800'
   }
 ];
 
 const sponsorshipTiers = [
   {
-    name: 'COTA OURO',
+    name: 'Ouro',
     icon: Crown,
     color: 'text-yellow-500',
     bgGradient: 'from-yellow-500/20 to-transparent',
@@ -54,7 +52,7 @@ const sponsorshipTiers = [
     ]
   },
   {
-    name: 'COTA PLATINA',
+    name: 'Platina',
     icon: Star,
     color: 'text-gray-400',
     bgGradient: 'from-gray-400/20 to-transparent',
@@ -73,7 +71,7 @@ const sponsorshipTiers = [
     ]
   },
   {
-    name: 'COTA DIAMANTE',
+    name: 'Diamante',
     icon: Diamond,
     color: 'text-blue-400',
     bgGradient: 'from-blue-400/20 to-transparent',
@@ -104,7 +102,7 @@ const Card = ({ bgUrl, title, onClick }) => {
             backgroundImage: `url(${bgUrl})`,
             backgroundPosition: "center",
             }}
-            className="outline-card relative flex aspect-square w-full flex-col justify-end overflow-hidden rounded-lg bg-neutral-400 bg-[size:100%] shadow-xl shadow-neutral-900/30 transition-[background-size] duration-500 hover:bg-[size:110%]"
+            className="relative flex aspect-square w-full flex-col justify-end overflow-hidden rounded-lg bg-neutral-400 bg-[size:100%] shadow-xl shadow-neutral-900/30 transition-[background-size] duration-500 hover:bg-[size:110%]"
         >
             <div className="pointer-events-none flex items-center justify-between bg-gradient-to-t from-black to-black/0 p-6 pt-8 text-xl font-medium text-white md:text-2xl">
             <h3>{title}</h3>
@@ -113,26 +111,6 @@ const Card = ({ bgUrl, title, onClick }) => {
         </button>
     );
 };
-  
-const Cursor = ({ cursorRef }) => {
-    return (
-        <div
-            ref={cursorRef}
-            style={{
-            width: CURSOR_WIDTH,
-            height: CURSOR_WIDTH,
-            borderRadius: CURSOR_WIDTH,
-            position: 'absolute',
-            pointerEvents: 'none',
-            zIndex: 50,
-            top: 0,
-            left: 0,
-            }}
-            className="border border-neutral-900 -translate-x-1/2 -translate-y-1/2"
-        />
-    );
-};
-  
 
 function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext }) {
   const tier = sponsorshipTiers[selectedTier];
@@ -173,7 +151,7 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-gradient-to-br from-customPink2 to-customPurple text-white rounded-2xl w-full max-w-2xl shadow-xl cursor-default relative overflow-hidden max-h-[90vh] flex flex-col"
+            className="bg-[#11111A] text-white rounded-2xl w-full max-w-2xl shadow-xl cursor-default relative overflow-hidden max-h-[90vh] flex flex-col"
           >
             {/* Background Icon */}
             <tier.icon className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
@@ -240,47 +218,6 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
 
 const Motivos = () => {
     const [selectedTier, setSelectedTier] = useState(null);
-    const cursorRef = useRef(null);
-    const containerRef = useRef(null);
-  
-    const handleMouseMove = (e) => {
-      const el = e.target;
-      const cursorEl = cursorRef.current;
-      const containerEl = containerRef.current;
-      if (!cursorEl || !containerEl) return;
-  
-      const isCardHover = el.classList.contains("outline-card");
-      const rect = containerEl.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-  
-      if (isCardHover) {
-        const { width, height, top, left } = el.getBoundingClientRect();
-        const relativeTop = top - rect.top;
-        const relativeLeft = left - rect.left;
-  
-        cursorEl.style.transition = "0.25s all";
-        cursorEl.style.width = `${width + HOVER_PADDING}px`;
-        cursorEl.style.height = `${height + HOVER_PADDING}px`;
-        cursorEl.style.borderRadius = `${HOVER_PADDING / 2}px`;
-        cursorEl.style.top = `${relativeTop + height / 2}px`;
-        cursorEl.style.left = `${relativeLeft + width / 2}px`;
-      } else {
-        cursorEl.style.transition = "0s all";
-        cursorEl.style.width = `${CURSOR_WIDTH}px`;
-        cursorEl.style.height = `${CURSOR_WIDTH}px`;
-        cursorEl.style.borderRadius = `${CURSOR_WIDTH}px`;
-        cursorEl.style.top = `${y}px`;
-        cursorEl.style.left = `${x}px`;
-      }
-    };
-  
-    const handleMouseLeave = () => {
-      const cursorEl = cursorRef.current;
-      if (!cursorEl) return;
-      cursorEl.style.width = "0px";
-      cursorEl.style.height = "0px";
-    };
   
     const handlePrevious = () => {
       setSelectedTier((prev) =>
@@ -317,11 +254,11 @@ const Motivos = () => {
       </div> */}
 
       {/* Decorative Elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-l from-pink-500/10 to-purple-500/10 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2" />
         <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
-      </div>
+      </div> */}
 
       <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div
@@ -330,13 +267,13 @@ const Motivos = () => {
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <span className="inline-block text-sm font-semibold text-customPink2 uppercase tracking-wider mb-4">
+          <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
             Seja um patrocinador
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
             POR QUE PATROCINAR?
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-customPink2 to-customPurple mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-800 to-purple-950 mx-auto rounded-full" />
         </motion.div>
 
         {/* Benefits Grid */}
@@ -351,17 +288,17 @@ const Motivos = () => {
               className="group relative"
             >
               {/* Card Background with Gradient Border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-customPink to-customPurple rounded-2xl transform transition-transform duration-300 group-hover:scale-[1.02]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-800 to-purple-950 rounded-2xl transform transition-transform duration-300 group-hover:scale-[1.02]" />
               
               {/* Card Content */}
               <div className="relative bg-white m-[2px] p-6 rounded-2xl h-full transition-colors duration-300">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-pink-500/5 to-purple-500/5 rounded-full blur-xl transform translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-500/5 to-purple-900/5 rounded-full blur-xl transform translate-x-1/2 -translate-y-1/2" />
                 
                 <div className="flex items-start gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-customPink flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-purple-800 flex-shrink-0 mt-1" />
                   <p className="text-gray-900">
                     <span className="font-medium">{benefit.title} </span>
-                    <span className="text-customPink font-semibold">{benefit.highlight}</span>
+                    <span className="text-purple-800 font-semibold">{benefit.highlight}</span>
                     {benefit.description && (
                       <span className="text-gray-900">{benefit.description}</span>
                     )}
@@ -371,66 +308,27 @@ const Motivos = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Sponsorship Tiers */}
-        <div className="bg-[#20053D] rounded-3xl p-12 mb-12 relative overflow-hidden">
-          {/* Decorative Background */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 opacity-10" style={{
-              backgroundImage: `radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)`,
-              backgroundSize: '30px 30px'
-            }} />
-            <div className="absolute inset-0 bg-gradient-to-r from-customPink2/60 to-customPink2/30" />
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 relative">
+        
+        {/* Sponsorship Tiers with Outline Cards */}
+        <div className="relative overflow-hidden bg-neutral-50 p-8 rounded-3xl mb-12">
+          <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-8 sm:flex-row">
             {sponsorshipTiers.map((tier, index) => (
-              <motion.button
+              <motion.div
                 key={tier.name}
-                onClick={() => setSelectedTier(index)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="relative group cursor-pointer"
+                className="w-full sm:w-1/3"
               >
-                <div className={`absolute inset-0 bg-gradient-to-b ${tier.bgGradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                <div className="relative text-center p-6">
-                  <tier.icon className={`w-16 h-16 mx-auto mb-4 ${tier.color} transform transition-transform duration-300 group-hover:scale-110`} />
-                  <h3 className="text-2xl font-bold text-white">{tier.name}</h3>
-                </div>
-              </motion.button>
+                <Card
+                  title={tier.name}
+                  bgUrl={tier.bgUrl}
+                  onClick={() => setSelectedTier(index)}
+                />
+              </motion.div>
             ))}
           </div>
-        </div>
-
-        {/* Modal */}
-        <SponsorshipModal
-          isOpen={selectedTier !== null}
-          onClose={() => setSelectedTier(null)}
-          selectedTier={selectedTier ?? 0}
-          onPrevious={handlePrevious}
-          onNext={handleNext}
-        />
-        
-        {/* Sponsorship Tiers with Outline Cards */}
-        <div
-          ref={containerRef}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          className="relative overflow-hidden bg-neutral-50 p-8 rounded-3xl mb-12"
-        >
-          <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-8 sm:flex-row">
-            {sponsorshipTiers.map((tier, index) => (
-              <Card
-                key={tier.name}
-                title={tier.title}
-                bgUrl={tier.bgUrl}
-                onClick={() => setSelectedTier(index)}
-              />
-            ))}
-          </div>
-          <Cursor cursorRef={cursorRef} />
         </div>
 
         {/* Modal */}
@@ -443,13 +341,20 @@ const Motivos = () => {
         />
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="group flex h-12 items-center gap-2 rounded-full text-white bg-gradient-to-r from-customPink to-customPink2 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-customPurple hover:to-customPurple hover:pl-2 hover:text-white active:bg-customPurple">
-                <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
-                <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPurple group-active:-rotate-45" />
-                </span>
-            <span>Quero Patrocinar!</span>
-        </button>
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-32">
+            <Link to="/patrocinar">
+                <button className="group flex h-12 items-center gap-2 rounded-full text-white bg-gradient-to-r from-purple-800 to-purple-950 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-customPink hover:to-customPink2 hover:pl-2 hover:text-white active:bg-customPink">
+                    <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
+                        <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPink group-active:-rotate-45" />
+                    </span>
+                    <span>Quero Patrocinar!</span>
+                </button>
+            </Link>
+        </div>
+
+        {/* Replace Patrocinadores with LogoHero */}
+        <div className="mb-20">
+            <LogoHero />
         </div>
       </div>
     </section>

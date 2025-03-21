@@ -66,20 +66,27 @@ const Links = () => {
 
 const NavLink = ({ children, href, FlyoutContent }) => {
   const [open, setOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const showFlyout = FlyoutContent && open;
 
   return (
     <div
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={() => {
+        setOpen(true);
+        setIsHovered(true);
+      }}
+      onMouseLeave={() => {
+        setOpen(false);
+        setIsHovered(false);
+      }}
       className="relative h-fit w-fit"
     >
       <a href={href} className="relative">
         {children}
         <span
           style={{
-            transform: showFlyout ? "scaleX(1)" : "scaleX(0)",
+            transform: isHovered ? "scaleX(1)" : "scaleX(0)",
           }}
           className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left scale-x-0 rounded-full bg-[#E5005D] transition-transform duration-300 ease-out"
         />
@@ -111,7 +118,7 @@ const CTAs = () => {
         <Cast className="w-5 text-white group-hover:text-customPink" />
         <span>Área de Membros</span>
       </button> */}
-      <button className="group flex h-10 items-center gap-2 rounded-full text-white bg-gradient-to-r from-customPink to-customPink2 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-customPurple hover:to-customPurple hover:pl-2 hover:text-white active:bg-customPurple">
+      <button className="group flex h-10 items-center gap-2 rounded-full text-white bg-gradient-to-r from-customPink to-customPink2 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-purple-800 hover:to-purple-950 hover:pl-2 hover:text-white active:bg-customPurple">
         <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
           <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPurple group-active:-rotate-45" />
         </span>
@@ -124,7 +131,7 @@ const CTAs = () => {
 const AboutUsContent = () => {
   return (
     <div className="grid h-fit w-full grid-cols-12 shadow-xl lg:h-72 lg:w-[600px] lg:shadow-none xl:w-[750px]">
-      <div className="col-span-12 flex flex-col justify-between bg-gradient-to-br from-customPink2 to-customPurple p-6 lg:col-span-4">
+      <div className="col-span-12 flex flex-col justify-between bg-gradient-to-br from-customPink via-customPink2 to-customPink2 p-6 lg:col-span-4">
         <div>
           <h2 className="mb-2 text-xl font-semibold text-white">Sobre Nós</h2>
           <p className="mb-6 max-w-xs text-sm text-neutral-200">
@@ -203,16 +210,9 @@ const Parceria = () => {
           </a>
         </div>
       </div>
-      <button className="w-full rounded-lg border-2 border-[#E5005D] text-[#E5005D] px-4 py-2 font-semibold transition-colors hover:bg-[#E5005D] hover:text-white">
+      <button className="w-full rounded-lg border-2 border-customPink text-customPink px-4 py-2 font-semibold transition-colors hover:bg-customPink hover:text-white">
         Contato
       </button>
-    </div>
-  );
-};
-
-const CareersContent = () => {
-  return (
-    <div className="grid w-full grid-cols-12 shadow-xl lg:w-[750px]">
     </div>
   );
 };
@@ -328,7 +328,7 @@ export default Nav;
 const LINKS = [
   {
     text: "Sobre Nós",
-    href: "#",
+    href: "/sobre",
     component: AboutUsContent,
   },
   {
@@ -338,7 +338,6 @@ const LINKS = [
   },
   {
     text: "Contato",
-    href: "#",
-    component: CareersContent,
+    href: "/contato",
   }
 ];
