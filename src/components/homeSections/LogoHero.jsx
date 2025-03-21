@@ -11,63 +11,50 @@ import Logo9 from '../../assets/patrocinadores/conectada.png';
 import Logo10 from '../../assets/patrocinadores/cravo.png';
 import Logo11 from '../../assets/patrocinadores/empresa.png';
 import Logo12 from '../../assets/patrocinadores/epoca.png';
-// import Logo13 from '../../assets/patrocinadores/guide.PNG';
-import Logo14 from '../../assets/patrocinadores/kami.png';
-import Logo15 from '../../assets/patrocinadores/linq.png';
-import Logo16 from '../../assets/patrocinadores/lus.png';
-import Logo17 from '../../assets/patrocinadores/maissaude.png';
-import Logo18 from '../../assets/patrocinadores/qualityhotel.jpeg';
-import Logo19 from '../../assets/patrocinadores/santri.png';
-import Logo20 from '../../assets/patrocinadores/sqz.png';
-import Logo21 from '../../assets/patrocinadores/support.png';
-import Logo22 from '../../assets/patrocinadores/vsl.png';
+import Logo13 from '../../assets/patrocinadores/kami.png';
+import Logo14 from '../../assets/patrocinadores/linq.png';
+import Logo15 from '../../assets/patrocinadores/lus.png';
+import Logo16 from '../../assets/patrocinadores/maissaude.png';
+import Logo17 from '../../assets/patrocinadores/qualityhotel.jpeg';
+import Logo18 from '../../assets/patrocinadores/santri.png';
+import Logo19 from '../../assets/patrocinadores/sqz.png';
+import Logo20 from '../../assets/patrocinadores/support.png';
+import Logo21 from '../../assets/patrocinadores/vsl.png';
+
+const logos = [
+  Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7, Logo8, Logo9, Logo10,
+  Logo11, Logo12, Logo13, Logo14, Logo15, Logo16, Logo17, Logo18, Logo19, Logo20, Logo21
+];
 
 const LogoHero = () => {
   return (
     <section className="bg-white py-4">
-      <div className="flex overflow-hidden">
-        <TranslateWrapper>
-          <LogoItemsTop />
-        </TranslateWrapper>
-        <TranslateWrapper>
-          <LogoItemsTop />
-        </TranslateWrapper>
-        <TranslateWrapper>
-          <LogoItemsTop />
-        </TranslateWrapper>
-      </div>
-      <div className="flex overflow-hidden mt-4">
-        <TranslateWrapper reverse>
-          <LogoItemsBottom />
-        </TranslateWrapper>
-        <TranslateWrapper reverse>
-          <LogoItemsBottom />
-        </TranslateWrapper>
-        <TranslateWrapper reverse>
-          <LogoItemsBottom />
-        </TranslateWrapper>
-      </div>
+      {[false, true].map((reverse, index) => (
+        <div key={index} className="flex overflow-hidden mt-4">
+          {[...Array(3)].map((_, i) => (
+            <TranslateWrapper key={i} reverse={reverse}>
+              <LogoItems isBottom={reverse} />
+            </TranslateWrapper>
+          ))}
+        </div>
+      ))}
     </section>
   );
 };
 
-const TranslateWrapper = ({ children, reverse = false }) => {
-  return (
-    <motion.div
-      initial={{ translateX: reverse ? "-100%" : "0%" }}
-      animate={{ translateX: reverse ? "0%" : "-100%" }}
-      transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-      className="flex gap-4 px-2"
-    >
-      {children}
-    </motion.div>
-  );
-};
+const TranslateWrapper = ({ children, reverse = false }) => (
+  <motion.div
+    initial={{ translateX: reverse ? "-100%" : "0%" }}
+    animate={{ translateX: reverse ? "0%" : "-100%" }}
+    transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+    className="flex gap-4 px-2"
+  >
+    {children}
+  </motion.div>
+);
 
 const LogoItem = ({ src }) => {
-  // Verifica se é o logo Santri pelo nome do arquivo na src
-  const isSantri = src.includes('santri');
-
+  const isSantri = src === Logo18;
   return (
     <a
       href="/"
@@ -76,46 +63,20 @@ const LogoItem = ({ src }) => {
       className="w-16 md:w-24 h-16 md:h-24 flex justify-center items-center hover:bg-slate-200 transition-colors"
     >
       <img 
-        src={src} 
-        alt="Logo" 
+        src={src}
+        alt="Logo"
+        loading="lazy" // Aqui é onde adicionamos o lazy loading
         className={`max-w-full max-h-full object-contain ${
-          isSantri ? 'brightness-50 contrast-200 saturate-200' : ''
+          isSantri ? "brightness-50 contrast-200 saturate-200" : ""
         }`}
       />
     </a>
   );
 };
 
-const LogoItemsTop = () => (
-  <>
-    <LogoItem src={Logo1} />
-    <LogoItem src={Logo2} />
-    <LogoItem src={Logo3} />
-    <LogoItem src={Logo4} />
-    <LogoItem src={Logo5} />
-    <LogoItem src={Logo6} />
-    <LogoItem src={Logo7} />
-    <LogoItem src={Logo8} />
-    <LogoItem src={Logo9} />
-    <LogoItem src={Logo10} />
-    <LogoItem src={Logo11} />
-  </>
-);
-
-const LogoItemsBottom = () => (
-  <>
-    <LogoItem src={Logo12} />
-    {/* <LogoItem src={Logo13} /> */}
-    <LogoItem src={Logo14} />
-    <LogoItem src={Logo15} />
-    <LogoItem src={Logo16} />
-    <LogoItem src={Logo17} />
-    <LogoItem src={Logo18} />
-    <LogoItem src={Logo19} />
-    <LogoItem src={Logo20} />
-    <LogoItem src={Logo21} />
-    <LogoItem src={Logo22} />
-  </>
-);
+const LogoItems = ({ isBottom }) => {
+  const startIndex = isBottom ? 11 : 0;
+  return <>{logos.slice(startIndex, startIndex + 10).map((logo, index) => <LogoItem key={index} src={logo} />)}</>;
+};
 
 export default LogoHero;
