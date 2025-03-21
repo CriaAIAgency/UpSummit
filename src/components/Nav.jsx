@@ -158,7 +158,7 @@ const AboutUsContent = () => {
           </p>
         </a>
         <a
-          href="/Sobre"
+          href="/Edicoes"
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Edições</h3>
