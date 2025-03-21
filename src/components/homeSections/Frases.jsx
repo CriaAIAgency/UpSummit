@@ -78,7 +78,7 @@ const Frases = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-customPurple rounded-[32px] pt-0 p-4 relative group"
+                className="bg-purple-950 rounded-[32px] pt-0 p-4 relative group"
                 >
                 <div className="aspect-square -mt-8 mb-4 overflow-hidden rounded-2xl relative">
                     <img
@@ -86,7 +86,7 @@ const Frases = () => {
                     alt={speaker.name}
                     className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-customPurple via-transparent to-transparent opacity-50" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-transparent to-transparent opacity-50" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{speaker.name}</h3>
                 <p className="text-sm text-white/80 mb-4">{speaker.role}</p>

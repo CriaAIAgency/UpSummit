@@ -3,34 +3,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Crown, Star, Diamond, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import LogoHero from '../components/homeSections/LogoHero';
 
 const benefits = [
   {
     title: 'Visibilidade',
     highlight: 'destacada em um dos maiores eventos de empreendedorismo do Brasil.',
-    color: 'from-[#FF0066]'
+    color: 'from-purple-800'
   },
   {
     title: 'Oportunidades estratégicas',
     highlight: 'de networking com líderes empresariais e investidores influentes.',
-    color: 'from-[#7928CA]'
+    color: 'from-purple-900'
   },
   {
     title: 'Fortalecimento da reputação da marca',
     highlight: 'e aumento do reconhecimento no mercado.',
-    color: 'from-[#FF0066]'
+    color: 'from-purple-800'
   },
   {
     title: 'Potencial para',
     highlight: 'geração de leads qualificados',
     description: 'e oportunidades de negócios.',
-    color: 'from-[#7928CA]'
+    color: 'from-purple-900'
   },
   {
     title: 'Elevada possibilidade de',
     highlight: 'retorno sobre o investimento (ROI)',
     description: ', comprovado pelos resultados positivos dos patrocinadores anteriores.',
-    color: 'from-[#FF0066]'
+    color: 'from-purple-800'
   }
 ];
 
@@ -150,7 +151,7 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-gradient-to-br from-customPink2 to-customPurple text-white rounded-2xl w-full max-w-2xl shadow-xl cursor-default relative overflow-hidden max-h-[90vh] flex flex-col"
+            className="bg-[#11111A] text-white rounded-2xl w-full max-w-2xl shadow-xl cursor-default relative overflow-hidden max-h-[90vh] flex flex-col"
           >
             {/* Background Icon */}
             <tier.icon className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
@@ -287,17 +288,17 @@ const Motivos = () => {
               className="group relative"
             >
               {/* Card Background with Gradient Border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-customPink to-customPurple rounded-2xl transform transition-transform duration-300 group-hover:scale-[1.02]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-800 to-purple-950 rounded-2xl transform transition-transform duration-300 group-hover:scale-[1.02]" />
               
               {/* Card Content */}
               <div className="relative bg-white m-[2px] p-6 rounded-2xl h-full transition-colors duration-300">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-pink-500/5 to-purple-500/5 rounded-full blur-xl transform translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-500/5 to-purple-900/5 rounded-full blur-xl transform translate-x-1/2 -translate-y-1/2" />
                 
                 <div className="flex items-start gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-customPink flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-purple-800 flex-shrink-0 mt-1" />
                   <p className="text-gray-900">
                     <span className="font-medium">{benefit.title} </span>
-                    <span className="text-customPink font-semibold">{benefit.highlight}</span>
+                    <span className="text-purple-800 font-semibold">{benefit.highlight}</span>
                     {benefit.description && (
                       <span className="text-gray-900">{benefit.description}</span>
                     )}
@@ -340,13 +341,20 @@ const Motivos = () => {
         />
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="group flex h-12 items-center gap-2 rounded-full text-white bg-gradient-to-r from-customPink to-customPink2 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-purple-800 hover:to-purple-950 hover:pl-2 hover:text-white active:bg-customPurple">
-                <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
-                <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPurple group-active:-rotate-45" />
-                </span>
-            <span>Quero Patrocinar!</span>
-        </button>
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-32">
+            <Link to="/patrocinar">
+                <button className="group flex h-12 items-center gap-2 rounded-full text-white bg-gradient-to-r from-purple-800 to-purple-950 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-customPink hover:to-customPink2 hover:pl-2 hover:text-white active:bg-customPink">
+                    <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
+                        <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPink group-active:-rotate-45" />
+                    </span>
+                    <span>Quero Patrocinar!</span>
+                </button>
+            </Link>
+        </div>
+
+        {/* Replace Patrocinadores with LogoHero */}
+        <div className="mb-20">
+            <LogoHero />
         </div>
       </div>
     </section>
