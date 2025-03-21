@@ -132,7 +132,7 @@ const AboutUsContent = () => {
           </p>
         </div>
         <a
-          href="#"
+          href="/Sobre"
           className="flex items-center gap-1 text-sm text-white hover:underline"
         >
           Saiba Mais <FiArrowRight />
@@ -140,7 +140,7 @@ const AboutUsContent = () => {
       </div>
       <div className="col-span-12 grid grid-cols-2 grid-rows-2 gap-3 bg-white p-6 lg:col-span-8">
         <a
-          href="#"
+          href="/Sobre"
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Palestrantes</h3>
@@ -149,7 +149,7 @@ const AboutUsContent = () => {
           </p>
         </a>
         <a
-          href="#"
+          href="/Sobre"
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Depoimentos</h3>
@@ -158,7 +158,7 @@ const AboutUsContent = () => {
           </p>
         </a>
         <a
-          href="#"
+          href="/Sobre"
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Edições</h3>
@@ -167,7 +167,7 @@ const AboutUsContent = () => {
           </p>
         </a>
         <a
-          href="#"
+          href="/Sobre"
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Dúvidas</h3>

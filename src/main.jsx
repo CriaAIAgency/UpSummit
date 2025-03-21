@@ -8,6 +8,7 @@ import Patrocinar from './routes/Patrocinar'
 import Sobre from './routes/Sobre'
 import Error from './routes/Error'
 import Motivos from './routes/Motivos'
+import Midia from './routes/Midia'
 
 const router = createBrowserRouter ([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter ([
       { path: '/patrocinar', element: <Patrocinar /> },
       { path: '/sobre', element: <Sobre /> },
       { path: '/motivos', element: <Motivos /> },
+      { path: '/midia', element: <Midia />}
     ]
   }
 ])
