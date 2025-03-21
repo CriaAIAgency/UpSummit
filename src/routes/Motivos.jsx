@@ -540,7 +540,7 @@ const Motivos = () => {
         </div>
 
         {/* Terceira Seção - Depoimentos */}
-        <div className="py-24">
+        <div className="py-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -602,6 +602,18 @@ const Motivos = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+
+        {/* CTA após vídeos */}
+        <div className="mb-24 flex justify-center">
+            <Link to="/patrocinar" className="w-fit">
+                <button className="group flex h-12 items-center gap-2 rounded-full text-white bg-gradient-to-r from-purple-800 to-purple-950 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-customPink hover:to-customPink2 hover:pl-2 hover:text-white active:bg-customPink">
+                    <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
+                        <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPink group-active:-rotate-45" />
+                    </span>
+                    <span>Quero Patrocinar!</span>
+                </button>
+            </Link>
         </div>
 
         {/* Quarta Seção - Patrocinadores */}

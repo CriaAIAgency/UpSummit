@@ -152,7 +152,9 @@ const Home = () => {
             <Frases />
             <Historia />
             <Features />
-            <Patrocinadores />
+            <section id="patrocinadores">
+                <Patrocinadores />
+            </section>
         </>
     )
 }

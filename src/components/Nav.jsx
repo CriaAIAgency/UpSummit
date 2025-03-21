@@ -10,7 +10,7 @@ import {
 import useMeasure from "react-use-measure";
 import Logo from '../assets/logopreta.png'
 import { User, Cast } from 'lucide-react';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -165,7 +165,7 @@ const AboutUsContent = () => {
           </p>
         </a>
         <a
-          href="/Edicoes"
+          href="/edicoes"
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Edições</h3>
@@ -188,25 +188,56 @@ const AboutUsContent = () => {
 };
 
 const Parceria = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToPatrocinadores = (e) => {
+    e.preventDefault();
+    
+    const handleScroll = () => {
+      const element = document.getElementById('patrocinadores');
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    };
+
+    if (location.pathname !== '/') {
+      // Se não estiver na home, primeiro navega para home e depois rola
+      navigate('/');
+      // Aguarda a navegação completar antes de rolar
+      setTimeout(handleScroll, 100);
+    } else {
+      // Se já estiver na home, apenas rola suavemente
+      handleScroll();
+    }
+  };
+
   return (
     <div className="w-full bg-white p-6 shadow-none lg:w-[250px] lg:shadow-xl">
       <div className="grid grid-cols-2 lg:grid-cols-1">
         <div className="mb-3 space-y-3">
           <h3 className="font-semibold">Patrocinadores</h3>
           <a href="/patrocinar" className="block text-sm hover:underline">
-          Quero ser um patrocinador
+            Quero ser um patrocinador
           </a>
           <a href="/motivos" className="block text-sm hover:underline">
-          Por que patrocinar
+            Por que patrocinar
           </a>
-          <a href="#" className="block text-sm hover:underline">
-          Empresas que já fazem parte
+          <a 
+            href="/#patrocinadores" 
+            onClick={scrollToPatrocinadores}
+            className="block text-sm hover:underline"
+          >
+            Empresas que já fazem parte
           </a>
         </div>
         <div className="mb-6 space-y-3">
           <h3 className="font-semibold">Imprensa / Mídia</h3>
           <a href="#" className="block text-sm hover:underline">
-          Quero ser parceiro de mídia
+            Quero ser parceiro de mídia
           </a>
         </div>
       </div>
