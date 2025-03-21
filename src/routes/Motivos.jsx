@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Crown, Star, Diamond, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import Patrocinadores from '../components/homeSections/Patrocinadores';
+import LogoHero from '../components/homeSections/LogoHero';
 
 const benefits = [
   {
@@ -151,7 +151,7 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-gradient-to-br from-customPink2 to-customPurple text-white rounded-2xl w-full max-w-2xl shadow-xl cursor-default relative overflow-hidden max-h-[90vh] flex flex-col"
+            className="bg-[#11111A] text-white rounded-2xl w-full max-w-2xl shadow-xl cursor-default relative overflow-hidden max-h-[90vh] flex flex-col"
           >
             {/* Background Icon */}
             <tier.icon className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
@@ -352,9 +352,9 @@ const Motivos = () => {
             </Link>
         </div>
 
-        {/* Adicione uma cópia do componente Patrocinadores aqui */}
+        {/* Replace Patrocinadores with LogoHero */}
         <div className="mb-20">
-            <Patrocinadores />
+            <LogoHero />
         </div>
       </div>
     </section>
