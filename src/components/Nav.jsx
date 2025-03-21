@@ -132,7 +132,7 @@ const AboutUsContent = () => {
           </p>
         </div>
         <a
-          href="#"
+          href="/Sobre"
           className="flex items-center gap-1 text-sm text-white hover:underline"
         >
           Saiba Mais <FiArrowRight />
@@ -140,7 +140,7 @@ const AboutUsContent = () => {
       </div>
       <div className="col-span-12 grid grid-cols-2 grid-rows-2 gap-3 bg-white p-6 lg:col-span-8">
         <a
-          href="#"
+          href="/Sobre"
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Palestrantes</h3>
@@ -149,7 +149,7 @@ const AboutUsContent = () => {
           </p>
         </a>
         <a
-          href="#"
+          href="/Sobre"
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Depoimentos</h3>
@@ -158,7 +158,7 @@ const AboutUsContent = () => {
           </p>
         </a>
         <a
-          href="#"
+          href="/Sobre"
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Edições</h3>
@@ -167,7 +167,7 @@ const AboutUsContent = () => {
           </p>
         </a>
         <a
-          href="#"
+          href="/Sobre"
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Dúvidas</h3>
@@ -213,70 +213,6 @@ const Parceria = () => {
 const CareersContent = () => {
   return (
     <div className="grid w-full grid-cols-12 shadow-xl lg:w-[750px]">
-      <div className="col-span-12 flex flex-col justify-between bg-gradient-to-br from-customPink2 to-customPurple p-6 lg:col-span-4">
-        <div className="mb-6">
-          <h2 className="mb-2 text-xl font-semibold text-white">Careers</h2>
-          <p className="text-sm text-neutral-100">
-            Placeholder was rated a top place to work by Placeholder.
-          </p>
-        </div>
-        <a
-          href="#"
-          className="flex items-center gap-1 text-sm text-white hover:underline"
-        >
-          Careers site <FiArrowRight />
-        </a>
-      </div>
-      <div className="col-span-12 grid grid-cols-2 gap-3 bg-white p-6 lg:col-span-8 lg:grid-cols-3">
-        <div className="space-y-3">
-          <h3 className="font-semibold">Business</h3>
-          <a href="#" className="block text-sm hover:underline">
-            Marketing
-          </a>
-          <a href="#" className="block text-sm hover:underline">
-            Finance
-          </a>
-          <a href="#" className="block text-sm hover:underline">
-            Legal
-          </a>
-          <a href="#" className="block text-sm hover:underline">
-            Sales
-          </a>
-        </div>
-        <div className="space-y-3">
-          <h3 className="font-semibold">Engineering</h3>
-          <a href="#" className="block text-sm hover:underline">
-            Full stack
-          </a>
-          <a href="#" className="block text-sm hover:underline">
-            Dev ops
-          </a>
-          <a href="#" className="block text-sm hover:underline">
-            QA
-          </a>
-          <a href="#" className="block text-sm hover:underline">
-            Data
-          </a>
-          <a href="#" className="block text-sm hover:underline">
-            Machine learning
-          </a>
-          <a href="#" className="block text-sm hover:underline">
-            Management
-          </a>
-        </div>
-        <div className="space-y-3">
-          <h3 className="font-semibold">More</h3>
-          <a href="#" className="block text-sm hover:underline">
-            Support
-          </a>
-          <a href="#" className="block text-sm hover:underline">
-            Office
-          </a>
-          <a href="#" className="block text-sm hover:underline">
-            Other
-          </a>
-        </div>
-      </div>
     </div>
   );
 };
