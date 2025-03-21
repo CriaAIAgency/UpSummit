@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Crown, Star, Diamond, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { Crown, Star, Diamond, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, X, Play } from 'lucide-react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import LogoHero from '../components/homeSections/LogoHero';
@@ -217,17 +217,24 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
               <div className="flex gap-3">
                 <button
                   onClick={onClose}
-                  className="bg-white/10 hover:bg-white/20 transition-colors text-white font-semibold w-full py-3 rounded-xl"
+                  className="bg-white/10 hover:bg-white/20 transition-colors text-white font-semibold w-1/3 py-3 rounded-xl"
                 >
                   Voltar
                 </button>
-                <Link to='/patrocinar' className="bg-white hover:opacity-90 transition-opacity text-customPink2 font-semibold w-full py-3 rounded-xl flex items-center justify-center">
-                    <button
+                <Link 
+                  to='/patrocinar' 
+                  className="w-2/3"
+                >
+                  <button
                     onClick={onClose}
-                    className=""
-                    >
-                    Adquirir
-                    </button>
+                    className="group relative w-full bg-gradient-to-r from-purple-800 to-purple-950 hover:from-customPink hover:to-customPink2 text-white font-semibold py-4 rounded-xl overflow-hidden transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    <span className="relative z-10 text-lg">Adquirir agora</span>
+                    <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
+                      <FiArrowRight className="w-5 h-5" />
+                    </span>
+                    <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+                  </button>
                 </Link>
               </div>
             </div>
@@ -351,6 +358,40 @@ const UpBlackModal = ({ isOpen, onClose }) => {
   );
 };
 
+// Adicione este array de depoimentos antes do componente Motivos
+const testimonials = [
+  {
+    name: 'Bruno Cunha',
+    company: 'Vox 2 you',
+    image: '/path/to/bruno.jpg'
+  },
+  {
+    name: 'Elvira Leones',
+    company: 'Hiper Estrutura Solar',
+    image: '/path/to/elvira.jpg'
+  },
+  {
+    name: 'Waldemar Neto',
+    company: 'Wale Engenharia',
+    image: '/path/to/waldemar.jpg'
+  },
+  {
+    name: 'Márcia Queiroz',
+    company: 'Fast Escova',
+    image: '/path/to/marcia.jpg'
+  },
+  {
+    name: 'Flávio Lima',
+    company: 'Primodialle',
+    image: '/path/to/flavio.jpg'
+  },
+  {
+    name: 'Rodson Witovicz',
+    company: 'SEBRAE',
+    image: '/path/to/rodson.jpg'
+  }
+];
+
 const Motivos = () => {
     const [selectedTier, setSelectedTier] = useState(null);
     const [upBlackModalOpen, setUpBlackModalOpen] = useState(false);
@@ -379,114 +420,228 @@ const Motivos = () => {
     }, [selectedTier]);
 
   return (
-    // Adicionado overflow-x-hidden para impedir scroll horizontal
-    <section className="relative overflow-x-hidden bg-gradient-to-b from-white via-gray-50 to-white mt-8 py-20">
-      {/* Background Pattern */}
-      {/* <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #e5e7eb 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div> */}
-
-      {/* Decorative Elements */}
-      {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-l from-pink-500/10 to-purple-500/10 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2" />
-        <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
-      </div> */}
-
+    <section className="relative overflow-x-hidden bg-gradient-to-b from-white via-gray-50 to-white mt-8">
       <div className="max-w-7xl mx-auto px-6 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16 text-center"
-        >
-          <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
-            Seja um patrocinador
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
-            POR QUE PATROCINAR?
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-800 to-purple-950 mx-auto rounded-full" />
-        </motion.div>
-
-        {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mb-16">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`w-full max-w-md ${
-                index >= benefits.length - 2 ? 'lg:col-span-1.5 lg:mx-auto' : ''
-              }`}
-            >
-              <BenefitCard 
-                {...benefit} 
-                onClick={benefit.isUpBlack ? () => setUpBlackModalOpen(true) : undefined}
-              />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* CTA Button */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-32">
-          <Link to="/patrocinar" className="w-fit">
-            <button className="group flex h-12 items-center gap-2 rounded-full text-white bg-gradient-to-r from-purple-800 to-purple-950 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-customPink hover:to-customPink2 hover:pl-2 hover:text-white active:bg-customPink">
-              <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
-                <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPink group-active:-rotate-45" />
+        {/* Primeira Seção - Por que Patrocinar */}
+        <div className="py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
+              Seja um patrocinador
+            </span>
+            <h2 className="text-5xl md:text-6xl font-bold mb-8">
+              POR QUE <br className="hidden md:block" />
+              <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
+                PATROCINAR?
               </span>
-              <span>Quero Patrocinar!</span>
-            </button>
-          </Link>
-        </div>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Descubra os benefícios exclusivos de fazer parte do UP Summit
+            </p>
+          </motion.div>
 
-        {/* Sponsorship Tiers with Outline Cards */}
-        <div className="relative overflow-hidden bg-neutral-50 p-8 rounded-3xl mb-12">
-          <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-8 sm:flex-row">
-            {sponsorshipTiers.map((tier, index) => (
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mb-16">
+            {benefits.map((benefit, index) => (
               <motion.div
-                key={tier.name}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="w-full sm:w-1/3"
+                className={`w-full max-w-md ${
+                  index >= benefits.length - 2 ? 'lg:col-span-1.5 lg:mx-auto' : ''
+                }`}
               >
-                <Card
-                  title={tier.name}
-                  bgUrl={tier.bgUrl}
-                  onClick={() => setSelectedTier(index)}
+                <BenefitCard 
+                  {...benefit} 
+                  onClick={benefit.isUpBlack ? () => setUpBlackModalOpen(true) : undefined}
                 />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA Button após os benefícios */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <Link to="/patrocinar" className="w-fit">
+              <button className="group flex h-12 items-center gap-2 rounded-full text-white bg-gradient-to-r from-purple-800 to-purple-950 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-customPink hover:to-customPink2 hover:pl-2 hover:text-white active:bg-customPink">
+                <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
+                  <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPink group-active:-rotate-45" />
+                </span>
+                <span>Quero Patrocinar!</span>
+              </button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Separador centralizado */}
+        <div className="relative py-16">
+          <div className="w-full h-[3px] bg-gradient-to-r from-transparent via-purple-300 to-transparent" />
+          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-4 border-purple-200 top-1/2" />
+        </div>
+
+        {/* Segunda Seção - Cotas */}
+        <div className="py-24 relative">
+          {/* Background pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, purple 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }} />
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16 relative"
+          >
+            <div className="mb-6">
+              <span className="inline-block px-6 py-2 bg-purple-100 rounded-full text-purple-800 text-sm font-semibold">
+                Planos disponíveis
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 relative inline-block">
+              COTAS DE
+              <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
+                {" "}PATROCÍNIO
+              </span>
+              <div className="absolute -bottom-3 left-0 w-full h-4 bg-purple-200 -z-10 skew-x-3" />
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto mt-6">
+              Escolha o plano ideal para sua empresa
+            </p>
+          </motion.div>
+
+          <div className="relative overflow-hidden bg-neutral-50 p-8 rounded-3xl">
+            <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-8 sm:flex-row">
+              {sponsorshipTiers.map((tier, index) => (
+                <motion.div
+                  key={tier.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="w-full sm:w-1/3"
+                >
+                  <Card
+                    title={tier.name}
+                    bgUrl={tier.bgUrl}
+                    onClick={() => setSelectedTier(index)}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Terceira Seção - Depoimentos */}
+        <div className="py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 mb-4">
+              <div className="h-[1px] w-12 bg-purple-400" />
+              <span className="text-purple-800 font-semibold text-sm uppercase tracking-wider">
+                Histórias de sucesso
+              </span>
+              <div className="h-[1px] w-12 bg-purple-400" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              O QUE DIZEM{" "}
+              <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
+                NOSSOS PARCEIROS
+              </span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Confira os depoimentos de quem já faz parte desta história
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative group cursor-pointer"
+              >
+                {/* Thumbnail */}
+                <div className="relative aspect-video overflow-hidden rounded-xl">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
+                    <div className="w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Play className="w-6 h-6 text-white fill-white" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Info */}
+                <div className="mt-4 text-center">
+                  <h3 className="font-semibold text-gray-900 text-lg">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-gray-600">
+                    {testimonial.company}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Modal */}
-        <SponsorshipModal
-          isOpen={selectedTier !== null}
-          onClose={() => setSelectedTier(null)}
-          selectedTier={selectedTier ?? 0}
-          onPrevious={handlePrevious}
-          onNext={handleNext}
-        />
+        {/* Quarta Seção - Patrocinadores */}
+        <div className="py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-sm tracking-[0.3em] text-purple-800 uppercase mb-4 block">
+              Nossos patrocinadores
+            </span>
+            <h2 className="text-5xl md:text-6xl mb-6">
+              QUEM JÁ{" "}
+              <span className="font-bold bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
+                FAZ PARTE
+              </span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Empresas que confiam e investem no UP Summit
+            </p>
+          </motion.div>
 
-        {/* Replace Patrocinadores with LogoHero */}
-        <div className="mb-20">
-            <LogoHero />
+          <LogoHero />
         </div>
-
-        {/* UP Black Modal */}
-        <UpBlackModal 
-          isOpen={upBlackModalOpen} 
-          onClose={() => setUpBlackModalOpen(false)} 
-        />
       </div>
+
+      {/* Modais */}
+      <SponsorshipModal
+        isOpen={selectedTier !== null}
+        onClose={() => setSelectedTier(null)}
+        selectedTier={selectedTier ?? 0}
+        onPrevious={handlePrevious}
+        onNext={handleNext}
+      />
+      <UpBlackModal 
+        isOpen={upBlackModalOpen} 
+        onClose={() => setUpBlackModalOpen(false)} 
+      />
     </section>
   );
 }

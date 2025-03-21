@@ -93,17 +93,23 @@ const Patrocinar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center mb-16"
                 >
-                    <span className="inline-block text-sm font-semibold text-customPink2 uppercase tracking-wider mb-4">
+                    <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                         Seja parte do maior evento de marketing do Brasil
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-customPink via-customPink to-customPink2 bg-clip-text text-transparent">
-                        RESERVE SUA COTA DE PATROCÍNIO
+                    <h2 className="text-4xl md:text-5xl font-bold mb-8">
+                        POTENCIALIZE SEU{' '}
+                        <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
+                            ALCANCE
+                        </span>
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-customPink to-customPink2 mx-auto rounded-full mb-6" />
+                    <div className="flex items-center justify-center gap-3 mb-8">
+                        <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-customPink/30" />
+                        <div className="w-2 h-2 rounded-full bg-customPink" />
+                        <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-customPink/30" />
+                    </div>
                     <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                        Conecte sua marca com mais de <span className="text-customPink2 font-semibold">10.000 participantes</span> e 
-                        faça parte de uma experiência única de <span className="text-customPink2 font-semibold">networking</span> e 
-                        <span className="text-customPink2 font-semibold"> oportunidades de negócios</span>.
+                        Conecte sua marca com mais de <span className="text-customPink font-semibold">10.000 participantes</span>, 
+                        amplie sua visibilidade e acelere o crescimento do seu negócio através do <span className="text-customPink font-semibold">UP Summit</span>.
                     </p>
                 </motion.div>
 
