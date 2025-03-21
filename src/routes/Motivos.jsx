@@ -23,7 +23,7 @@ const benefits = [
   },
   {
     title: 'Potencial para',
-    highlight: 'geração de leads qualificados',
+    highlight: 'geração de leads qualificados ',
     description: 'e oportunidades de negócios.',
     color: 'from-purple-900'
   },

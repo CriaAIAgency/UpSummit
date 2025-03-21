@@ -217,13 +217,6 @@ const Parceria = () => {
   );
 };
 
-const CareersContent = () => {
-  return (
-    <div className="grid w-full grid-cols-12 shadow-xl lg:w-[750px]">
-    </div>
-  );
-};
-
 const MobileMenuLink = ({ children, href, FoldContent, setMenuOpen }) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(false);
@@ -335,7 +328,7 @@ export default Nav;
 const LINKS = [
   {
     text: "Sobre Nós",
-    href: "#",
+    href: "/sobre",
     component: AboutUsContent,
   },
   {
@@ -345,6 +338,6 @@ const LINKS = [
   },
   {
     text: "Contato",
-    href: "#",
+    href: "/contato",
   }
 ];
