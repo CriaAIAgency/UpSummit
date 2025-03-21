@@ -9,42 +9,42 @@ const Frases = () => {
           role: 'Breve descrição contendo até 3',
           image: 'src/assets/palestrantes/pv.jpg',
           linkedin: '#',
-          twitter: '#'
+          instagram: '#'
         },
         {
           name: 'RAY GONÇALVES',
           role: 'Breve descrição contendo até 3',
           image: 'src/assets/palestrantes/ray.png',
           linkedin: '#',
-          twitter: '#'
+          instagram: '#'
         },
         {
           name: 'PABLO MARÇAL',
           role: 'Médico, fisiculturista e influenciador',
           image: 'src/assets/palestrantes/pablo.jpg',
           linkedin: '#',
-          twitter: '#'
+          instagram: '#'
         },
         {
           name: 'THIAGO CONCER',
           role: 'Breve descrição contendo até 3',
           image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80',
           linkedin: '#',
-          twitter: '#'
+          instagram: '#'
         },
         {
           name: 'KENIA GAMA',
           role: 'Breve descrição contendo até 3',
           image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80',
           linkedin: '#',
-          twitter: '#'
+          instagram: '#'
         },
         {
           name: 'MARCOS FREITAS',
           role: 'Breve descrição contendo até 3',
           image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&q=80',
           linkedin: '#',
-          twitter: '#'
+          instagram: '#'
         }
     ];
 

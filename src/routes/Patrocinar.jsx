@@ -337,7 +337,7 @@ const Patrocinar = () => {
                         Dúvidas sobre patrocínio?
                     </span>
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
-                        Por que patrocinar o UP Summit?
+                        Por que patrocinar o UP Summit
                     </h2>
                     <p className="text-gray-600 text-lg mb-8">
                         Descubra os benefícios exclusivos e o retorno que sua marca pode ter ao patrocinar o maior evento de marketing do Brasil.
