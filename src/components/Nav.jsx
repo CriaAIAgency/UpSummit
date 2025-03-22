@@ -281,7 +281,7 @@ const Parceria = ({ setMenuOpen }) => {
         <div className="mb-6 space-y-3">
           <h3 className="font-semibold">Imprensa / Mídia</h3>
           <a 
-            href="#" 
+            href="/midia" 
             onClick={() => setMenuOpen(false)}
             className="block text-sm hover:underline"
           >
