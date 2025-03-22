@@ -31,6 +31,9 @@ const Patrocinadores = () => {
         silver: [Logo9, Logo10, Logo11, Logo12, Logo13, Logo14, Logo15, Logo16, Logo17, Logo19, Logo20, Logo21]
     };
 
+    // Combinar todos os logos em um único array
+    const allSponsors = [...sponsors.diamond, ...sponsors.gold, ...sponsors.silver];
+
     const LogoItem = ({ src }) => {
         const isSantri = src === Logo18;
         return (
@@ -64,7 +67,7 @@ const Patrocinadores = () => {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="mb-20 text-center">
                     <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
-                        Patrocinadores
+                        Nossos parceiros
                     </span>
                     
                     <h2 className="text-4xl md:text-5xl font-bold mb-8">
@@ -85,40 +88,11 @@ const Patrocinadores = () => {
                     </p>
                 </div>
 
-                {/* Diamond Sponsors */}
-                <div className="mb-16">
-                    <h4 className="text-xl font-bold text-neutral-900 mb-8 text-center">
-                        Patrocinadores Diamante
-                    </h4>
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {sponsors.diamond.map((logo, index) => (
-                            <LogoItem key={index} src={logo} />
-                        ))}
-                    </div>
-                </div>
-
-                {/* Gold Sponsors */}
-                <div className="mb-16">
-                    <h4 className="text-xl font-bold text-neutral-900 mb-8 text-center">
-                        Patrocinadores Ouro
-                    </h4>
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {sponsors.gold.map((logo, index) => (
-                            <LogoItem key={index} src={logo} />
-                        ))}
-                    </div>
-                </div>
-
-                {/* Silver Sponsors */}
-                <div>
-                    <h4 className="text-xl font-bold text-neutral-900 mb-8 text-center">
-                        Patrocinadores Prata
-                    </h4>
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {sponsors.silver.map((logo, index) => (
-                            <LogoItem key={index} src={logo} />
-                        ))}
-                    </div>
+                {/* Grid de logos unificado */}
+                <div className="flex flex-wrap justify-center gap-8">
+                    {allSponsors.map((logo, index) => (
+                        <LogoItem key={index} src={logo} />
+                    ))}
                 </div>
 
                 {/* CTA Buttons Section */}

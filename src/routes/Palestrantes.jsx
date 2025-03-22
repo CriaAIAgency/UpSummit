@@ -234,9 +234,12 @@ const Palestrantes = () => {
                     }}
                     className="flex justify-center mt-16"
                 >
-                    <button className="group flex items-center gap-2 bg-gradient-to-r from-customPink to-customPink2 px-8 py-4 rounded-full text-white hover:shadow-[0_0_20px_rgba(229,0,93,0.3)] transition-shadow duration-300">
-                        <span>Garanta sua vaga</span>
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <button className="group relative flex items-center gap-2 bg-gradient-to-r from-customPink to-customPink2 px-6 py-3 rounded-full text-white overflow-hidden transition-all duration-300">
+                        <span className="relative z-10 text-base">Garanta sua vaga</span>
+                        <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
+                            <ArrowRight className="w-5 h-5" />
+                        </span>
+                        <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
                     </button>
                 </motion.div>
             </div>
