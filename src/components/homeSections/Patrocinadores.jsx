@@ -78,8 +78,10 @@ const Patrocinadores = () => {
                         Nossos parceiros
                     </span>
                     
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
-                        PATROCINADORES
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                        <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
+                            Patrocinadores
+                        </span>
                     </h2>
                     
                     <div className="w-24 h-1 bg-gradient-to-r from-purple-800 to-purple-950 mx-auto rounded-full mb-8"></div>
@@ -91,7 +93,9 @@ const Patrocinadores = () => {
 
                 {/* Diamond Sponsors */}
                 <div className="mb-16">
-                    <h4 className="text-2xl font-bold text-neutral-900 mb-8 text-center">Patrocinadores Diamante</h4>
+                    <h4 className="text-xl font-bold text-neutral-900 mb-8 text-center">
+                        Patrocinadores Diamante
+                    </h4>
                     <div className="flex flex-wrap justify-center gap-8">
                         {sponsors.diamond.map((logo, index) => (
                             <LogoItem key={index} src={logo} />
@@ -101,7 +105,9 @@ const Patrocinadores = () => {
 
                 {/* Gold Sponsors */}
                 <div className="mb-16">
-                    <h4 className="text-2xl font-bold text-neutral-900 mb-8 text-center">Patrocinadores Ouro</h4>
+                    <h4 className="text-xl font-bold text-neutral-900 mb-8 text-center">
+                        Patrocinadores Ouro
+                    </h4>
                     <div className="flex flex-wrap justify-center gap-8">
                         {sponsors.gold.map((logo, index) => (
                             <LogoItem key={index} src={logo} />
@@ -111,7 +117,9 @@ const Patrocinadores = () => {
 
                 {/* Silver Sponsors */}
                 <div>
-                    <h4 className="text-2xl font-bold text-neutral-900 mb-8 text-center">Patrocinadores Prata</h4>
+                    <h4 className="text-xl font-bold text-neutral-900 mb-8 text-center">
+                        Patrocinadores Prata
+                    </h4>
                     <div className="flex flex-wrap justify-center gap-8">
                         {sponsors.silver.map((logo, index) => (
                             <LogoItem key={index} src={logo} />

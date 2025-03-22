@@ -433,10 +433,10 @@ const Motivos = () => {
             <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
               Seja um patrocinador
             </span>
-            <h2 className="text-5xl md:text-6xl font-bold mb-8">
-              POR QUE <br className="hidden md:block" />
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              Por que{' '}
               <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
-                PATROCINAR?
+                patrocinar
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -506,11 +506,10 @@ const Motivos = () => {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 relative inline-block">
-              COTAS DE
+              Cotas de{' '}
               <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
-                {" "}PATROCÍNIO
+                patrocínio
               </span>
-              <div className="absolute -bottom-3 left-0 w-full h-4 bg-purple-200 -z-10 skew-x-3" />
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto mt-6">
               Escolha o plano ideal para sua empresa
@@ -555,9 +554,9 @@ const Motivos = () => {
               <div className="h-[1px] w-12 bg-purple-400" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              O QUE DIZEM{" "}
+              O que dizem{' '}
               <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
-                NOSSOS PARCEIROS
+                nossos parceiros
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -627,10 +626,10 @@ const Motivos = () => {
             <span className="text-sm tracking-[0.3em] text-purple-800 uppercase mb-4 block">
               Nossos patrocinadores
             </span>
-            <h2 className="text-5xl md:text-6xl mb-6">
-              QUEM JÁ{" "}
+            <h2 className="text-4xl md:text-5xl mb-6">
+              Quem já{' '}
               <span className="font-bold bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
-                FAZ PARTE
+                faz parte
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">

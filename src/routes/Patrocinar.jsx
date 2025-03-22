@@ -97,9 +97,9 @@ const Patrocinar = () => {
                         Seja parte do maior evento de marketing do Brasil
                     </span>
                     <h2 className="text-4xl md:text-5xl font-bold mb-8">
-                        POTENCIALIZE SEU{' '}
+                        Potencialize seu{' '}
                         <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
-                            ALCANCE
+                            alcance
                         </span>
                     </h2>
                     <div className="flex items-center justify-center gap-3 mb-8">
@@ -342,8 +342,12 @@ const Patrocinar = () => {
                     <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
                         Dúvidas sobre patrocínio?
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
-                        Por que patrocinar o UP Summit
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                        Por que{' '}
+                        <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
+                            patrocinar
+                        </span>
+                        {' '}o UP Summit
                     </h2>
                     <p className="text-gray-600 text-lg mb-8">
                         Descubra os benefícios exclusivos e o retorno que sua marca pode ter ao patrocinar o maior evento de marketing do Brasil.

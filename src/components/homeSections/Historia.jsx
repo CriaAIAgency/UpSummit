@@ -37,17 +37,19 @@ const Historia = () => {
                         variants={textVariants}
                         className="text-customPink text-sm font-semibold uppercase tracking-wider"
                         >
-                        SOBRE O UP SUMMIT
+                        Sobre o Up Summit
                         </motion.span>
                         <motion.h2 
                         variants={textVariants}
                         className="text-4xl md:text-5xl font-bold mt-4 mb-6"
                         >
-                        A MELHOR
+                        A melhor
                         <br />
-                        EXPERIÊNCIA
+                        <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
+                            experiência
+                        </span>
                         <br />
-                        EM MKT
+                        em marketing
                         </motion.h2>
                         <motion.div 
                         variants={textVariants}
@@ -72,7 +74,7 @@ const Historia = () => {
                             to="/"
                             className="inline-flex items-center gap-2 text-customPink font-semibold mt-8 group group-hover:text-white  transition-colors"
                         >
-                            Conheça Nossa História
+                            Conheça nossa história
                             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 group-hover:text-white transition-transform" />
                         </Link>
                         </motion.div>

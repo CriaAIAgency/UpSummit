@@ -22,6 +22,7 @@ const editions = [
       partners: "45"
     },
     coverImage: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80",
+    videoUrl: "https://www.youtube.com/watch?v=tnhu3K0OMYU",
     highlights: [
       {
         title: "Joel Jota",
@@ -52,6 +53,7 @@ const editions = [
       partners: "35"
     },
     coverImage: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80",
+    videoUrl: "https://www.youtube.com/watch?v=RFR0VdMor0k",
     highlights: [
       {
         title: "Ana Costa",
@@ -79,182 +81,148 @@ const Edicoes = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
-    <section className="relative bg-[#11111A] py-32">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header Section - Agora alinhado à esquerda */}
+    <section className="relative bg-[#11111A] py-24 md:py-32">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6">
+        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-16"
+          className="mb-12 md:mb-16 pt-8 md:pt-0"
         >
           <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
             Nossa História
           </span>
-          <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              EDIÇÕES DO{' '}
+          <div className="max-w-3xl">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-white">
+              Edições do{' '}
               <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
-                UP SUMMIT
+                UpSummit
               </span>
             </h2>
-            <p className="text-gray-400 text-lg">
+            <p className="text-gray-400 text-base md:text-lg">
               Reviva os momentos mais marcantes de cada edição e acompanhe nossa evolução ao longo dos anos. 
               Uma história de inovação, conhecimento e networking que continua a crescer.
             </p>
           </div>
         </motion.div>
 
-        {/* Cards Section - Ajustado para cards menores */}
-        <div className="space-y-6">
+        {/* Cards Section */}
+        <div className="space-y-8 md:space-y-12">
           {editions.map((edition) => (
-            <motion.div
+            <div
               key={edition.year}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="relative max-w-[900px]"
+              className="relative w-full max-w-[1400px] mx-auto"
             >
-              <motion.div
-                className={`relative overflow-hidden rounded-xl transition-all duration-500 ${
-                  expandedYear === edition.year ? 'aspect-video' : 'aspect-[2/1]'
+              <div
+                className={`relative overflow-hidden rounded-lg md:rounded-xl transition-all duration-500 ${
+                  expandedYear === edition.year ? 'aspect-[4/3] md:aspect-video' : 'aspect-[3/2] md:aspect-[21/9]'
                 }`}
-                onMouseEnter={() => setHoveredCard(edition.year)}
-                onMouseLeave={() => setHoveredCard(null)}
                 onClick={() => !edition.comingSoon && setExpandedYear(expandedYear === edition.year ? null : edition.year)}
-                layoutId={`card-${edition.year}`}
               >
                 {/* Background Image with Gradient Overlay */}
                 <div className="absolute inset-0">
-                  <motion.img
+                  <img
                     src={edition.coverImage}
                     alt={edition.title}
-                    className="w-full h-full object-cover"
-                    initial={false}
-                    animate={{
-                      scale: hoveredCard === edition.year ? 1.05 : 1
-                    }}
-                    transition={{ duration: 0.4 }}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
-                  <div className={`absolute inset-0 ${
-                    edition.comingSoon 
-                      ? 'bg-gradient-to-r from-black via-black/70 to-transparent'
-                      : 'bg-gradient-to-r from-black via-black/70 to-transparent'
-                  }`} />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
                 </div>
 
-                {/* Content - Ajustado para melhor legibilidade */}
-                <div className="relative h-full flex flex-col justify-center p-8">
-                  <motion.div className="flex items-center gap-4 mb-2">
-                    <span className="text-customPink text-xl font-bold">
+                {/* Content */}
+                <div className="relative h-full flex flex-col justify-center p-6 md:p-10">
+                  <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-3">
+                    <span className="text-customPink text-xl md:text-2xl font-bold">
                       {edition.year}
                     </span>
                     <div className="flex items-center gap-2 text-white/80">
-                      <Calendar className="w-4 h-4" />
-                      <span className="text-sm">{edition.dates}</span>
+                      <Calendar className="w-4 md:w-5 h-4 md:h-5" />
+                      <span className="text-sm md:text-base">{edition.dates}</span>
                     </div>
-                  </motion.div>
+                  </div>
 
-                  <motion.h2 className="text-2xl md:text-3xl font-bold text-white mb-4 max-w-lg">
-                    {edition.title}
-                  </motion.h2>
+                  <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-6 max-w-2xl">
+                    {edition.title.replace('UP SUMMIT', 'UpSummit')}
+                  </h2>
 
                   {edition.comingSoon ? (
-                    <motion.div 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="flex items-center gap-4"
-                    >
-                      <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                        <Clock className="w-4 h-4 text-customPink animate-pulse" />
-                        <span className="text-white font-medium">Em breve</span>
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 md:px-4 py-2 rounded-lg">
+                        <Clock className="w-4 h-4 text-customPink" />
+                        <span className="text-white font-medium text-sm md:text-base">Em breve</span>
                       </div>
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        animate={{ width: '30%' }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="h-1 bg-gradient-to-r from-customPink to-transparent rounded-full"
-                      />
-                    </motion.div>
+                    </div>
                   ) : (
-                    <motion.div className="flex items-center gap-4">
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg text-white hover:bg-white/20 transition"
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(edition.videoUrl, '_blank');
+                        }} 
+                        className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 md:px-4 py-2 rounded-lg text-white hover:bg-white/20 transition"
                       >
                         <Play className="w-4 h-4" />
-                        <span>Trailer</span>
-                      </motion.button>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        <span className="text-sm md:text-base">Trailer</span>
+                      </button>
+                      <button
                         onClick={(e) => {
                           e.stopPropagation();
                           setExpandedYear(expandedYear === edition.year ? null : edition.year);
                         }}
-                        className="flex items-center gap-2 bg-customPink px-4 py-2 rounded-lg text-white hover:bg-customPink2 transition"
+                        className="flex items-center gap-2 bg-customPink px-3 md:px-4 py-2 rounded-lg text-white hover:bg-customPink2 transition"
                       >
                         {expandedYear === edition.year ? (
                           <ChevronUp className="w-4 h-4" />
                         ) : (
                           <ChevronDown className="w-4 h-4" />
                         )}
-                        <span>Detalhes</span>
-                      </motion.button>
-                    </motion.div>
+                        <span className="text-sm md:text-base">Detalhes</span>
+                      </button>
+                    </div>
                   )}
                 </div>
-              </motion.div>
+              </div>
 
               {/* Expanded Content */}
-              <AnimatePresence>
-                {expandedYear === edition.year && !edition.comingSoon && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="bg-[#1F1F1F] rounded-b-xl overflow-hidden"
-                  >
-                    <div className="p-8">
-                      <div className="grid md:grid-cols-2 gap-8">
-                        <div>
-                          <h3 className="text-xl font-semibold text-white mb-4">Sobre a Edição</h3>
-                          <p className="text-white/80 mb-6">{edition.description}</p>
-                        </div>
-
-                        {edition.highlights && (
-                          <div>
-                            <h3 className="text-xl font-semibold text-white mb-4">Destaques</h3>
-                            <div className="grid grid-cols-3 gap-4">
-                              {edition.highlights.map((highlight, index) => (
-                                <motion.div
-                                  key={index}
-                                  initial={{ opacity: 0, y: 20 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: index * 0.1 }}
-                                  className="group relative"
-                                >
-                                  <div className="aspect-square rounded-lg overflow-hidden mb-2">
-                                    <img
-                                      src={highlight.image}
-                                      alt={highlight.title}
-                                      className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
-                                    />
-                                  </div>
-                                  <h4 className="text-white font-medium">{highlight.title}</h4>
-                                  {highlight.role && (
-                                    <p className="text-sm text-white/60">{highlight.role}</p>
-                                  )}
-                                </motion.div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+              {expandedYear === edition.year && !edition.comingSoon && (
+                <div className="bg-[#1F1F1F] rounded-b-xl overflow-hidden w-full">
+                  <div className="p-6 md:p-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                      <div>
+                        <h3 className="text-lg md:text-xl font-semibold text-white mb-4">Sobre a Edição</h3>
+                        <p className="text-white/80 text-sm md:text-base mb-6">{edition.description}</p>
                       </div>
+
+                      {edition.highlights && (
+                        <div>
+                          <h3 className="text-lg md:text-xl font-semibold text-white mb-4">Destaques</h3>
+                          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+                            {edition.highlights.map((highlight, index) => (
+                              <div
+                                key={index}
+                                className="group relative"
+                              >
+                                <div className="aspect-square rounded-lg overflow-hidden mb-2">
+                                  <img
+                                    src={highlight.image}
+                                    alt={highlight.title}
+                                    className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                                  />
+                                </div>
+                                <h4 className="text-white font-medium text-sm md:text-base">{highlight.title}</h4>
+                                {highlight.role && (
+                                  <p className="text-xs md:text-sm text-white/60">{highlight.role}</p>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>
