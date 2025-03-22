@@ -1,10 +1,23 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Historia = () => {
     return (
-        <section className="bg-[#11111A] py-20 text-white">
+        <section className="bg-[#11111A] py-20 text-white relative">
+            {/* Decorative Lines */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <motion.div 
+                    initial={{ opacity: 0, width: 0 }}
+                    whileInView={{ opacity: 1, width: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, delay: 0.5 }}
+                    className="absolute bottom-0 left-0 h-[4px] bg-gradient-to-r from-customPink
+                    via-purple-800 to-purple-800"
+                ></motion.div>
+            </div>
+
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
@@ -32,10 +45,10 @@ const Historia = () => {
                             </p>
                         </div>
                         <Link 
-                            to="/"
+                            to="/sobre"
                             className="inline-flex items-center gap-2 text-customPink font-semibold mt-8 hover:text-white transition-colors"
                         >
-                            Conheça nossa história
+                            Saiba mais sobre nós
                             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>

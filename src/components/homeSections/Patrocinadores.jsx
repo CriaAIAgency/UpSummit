@@ -109,9 +109,9 @@ const Patrocinadores = () => {
 
                     <Link 
                         to="/motivos"
-                        className="group flex h-14 items-center justify-center px-6 font-semibold text-purple-800 border-2 border-purple-800 bg-transparent rounded-full transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-950 hover:text-white"
+                        className="group flex h-14 items-center justify-center px-6 text-purple-800 border-2 border-purple-800 bg-transparent rounded-full transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-950 hover:text-white"
                     >
-                        <span className="text-base">Descobrir Benefícios</span>
+                        <span className="text-lg">Descobrir Benefícios</span>
                     </Link>
                 </div>
             </div>

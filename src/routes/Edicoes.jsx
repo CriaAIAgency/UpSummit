@@ -84,8 +84,20 @@ const Edicoes = () => {
 
   return (
     <section className="relative bg-[#11111A] py-24 md:py-32">
+      {/* Decorative Lines */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div 
+          initial={{ opacity: 0, width: 0 }}
+          whileInView={{ opacity: 1, width: "100%" }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, delay: 0.5 }}
+          className="absolute top-0 left-0 h-[4px] bg-gradient-to-r from-purple-800
+          via-purple-800 to-purple-950"
+        ></motion.div>
+      </div>
+
       <div className="max-w-[1400px] mx-auto px-4 md:px-6">
-        {/* Header Section */}
+        {/* Header Section - Updated to purple */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,7 +111,7 @@ const Edicoes = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4"
+            className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4"
           >
             Nossa História
           </motion.span>
@@ -111,7 +123,7 @@ const Edicoes = () => {
               className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-white"
             >
               Edições do{' '}
-              <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-800 to-purple-950 bg-clip-text text-transparent">
                 UpSummit
               </span>
             </motion.h2>
@@ -127,7 +139,7 @@ const Edicoes = () => {
           </div>
         </motion.div>
 
-        {/* Cards Section */}
+        {/* Cards Section - Updated buttons to purple */}
         <div className="space-y-8 md:space-y-12">
           {editions.map((edition, index) => (
             <motion.div
@@ -160,7 +172,7 @@ const Edicoes = () => {
                 {/* Content */}
                 <div className="relative h-full flex flex-col justify-center p-6 md:p-10">
                   <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-3">
-                    <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent text-xl md:text-2xl font-bold">
+                    <span className="bg-gradient-to-r from-purple-800 to-purple-950 bg-clip-text text-transparent text-xl md:text-2xl font-bold">
                       {edition.year}
                     </span>
                     <div className="flex items-center gap-2 text-white/80">
@@ -176,11 +188,11 @@ const Edicoes = () => {
                   {edition.comingSoon ? (
                     <div className="flex items-center gap-4">
                       <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 md:px-4 py-2 rounded-lg">
-                        <Clock className="w-4 h-4 text-customPink" />
+                        <Clock className="w-4 h-4 text-purple-800" />
                         <span className="text-white font-medium text-sm md:text-base">Em breve</span>
                       </div>
                       <Link to="/ingressos">
-                        <button className="group relative flex items-center gap-2 bg-gradient-to-r from-customPink to-customPink2 px-3 md:px-4 py-2 rounded-lg text-white overflow-hidden transition-all duration-300">
+                        <button className="group relative flex items-center gap-2 bg-gradient-to-r from-purple-800 to-purple-950 px-3 md:px-4 py-2 rounded-lg text-white overflow-hidden transition-all duration-300">
                           <span className="relative z-10 text-sm md:text-base">Garantir Ingresso</span>
                           <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
                             <FiArrowRight className="w-4 h-4" />
@@ -206,7 +218,7 @@ const Edicoes = () => {
                           e.stopPropagation();
                           setExpandedYear(expandedYear === edition.year ? null : edition.year);
                         }}
-                        className="flex items-center gap-2 bg-gradient-to-r from-customPink to-customPink2 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition"
+                        className="flex items-center gap-2 bg-gradient-to-r from-purple-800 to-purple-950 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition"
                       >
                         {expandedYear === edition.year ? (
                           <ChevronUp className="w-4 h-4" />

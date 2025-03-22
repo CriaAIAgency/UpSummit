@@ -7,8 +7,27 @@ import Frases from '../components/homeSections/Frases';
 import Historia from '../components/homeSections/Historia';
 import Features from '../components/homeSections/Features';
 import Patrocinadores from '../components/homeSections/Patrocinadores';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+    const navigate = useNavigate();
+
+    const scrollToFAQ = () => {
+        navigate('/sobre');
+        setTimeout(() => {
+            const faqSection = document.getElementById('faq');
+            if (faqSection) {
+                const offset = 100;
+                const elementPosition = faqSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100);
+    };
 
     return (
         <>
@@ -64,7 +83,7 @@ const Home = () => {
                 <div className="relative h-full">
                     {/* Conteúdo Principal - Ajustado para ficar entre as linhas */}
                     <div className="absolute inset-0 flex items-center" style={{ top: '25%', bottom: '25%' }}>
-                        <div className="max-w-7xl mx-auto px-12 w-full text-white">
+                        <div className="max-w-7xl mx-auto px-6 sm:px-12 w-full text-white">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -78,15 +97,15 @@ const Home = () => {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: 0.3 }}
-                                    className="text-4xl md:text-5xl 2xl:text-6xl font-semibold mb-4"
+                                    className="text-[2.5rem] sm:text-5xl md:text-6xl 2xl:text-7xl font-bold mb-4 sm:mb-8 tracking-tight"
                                 >
-                                    UP SUMMIT 2025
+                                    <span className="text-white">UpSummit 2025</span>
                                     <br />
-                                    SUA ESCALADA
+                                    <span className="text-white">Sua escalada</span>
                                     <br />
-                                    PARA O{' '}
-                                    <span className="bg-gradient-to-r from-customPink via-customPink to-customPink2 bg-clip-text text-transparent">
-                                        SUCESSO
+                                    <span className="text-white">para o </span>
+                                    <span className="bg-gradient-to-r from-customPink via-customPink2 to-customPink2 bg-clip-text text-transparent">
+                                        sucesso
                                     </span>
                                 </motion.h1>
                                 
@@ -94,13 +113,13 @@ const Home = () => {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: 0.4 }}
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="group flex items-center gap-2 bg-gradient-to-r from-customPink to-customPink2 text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold mt-6 md:mt-8 relative overflow-hidden hover:shadow-[0_0_20px_rgba(229,0,93,0.4)] transition-all duration-200"
+                                    className="group relative flex items-center gap-3 bg-gradient-to-r from-customPink to-customPink2 px-6 sm:px-8 py-3.5 rounded-full text-white overflow-hidden transition-all duration-300 text-base sm:text-lg font-medium"
                                 >
-                                    <span className="relative z-10">GARANTA SEU INGRESSO</span>
-                                    <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1 relative z-10" />
-                                    <div className="absolute inset-0 bg-gradient-to-r from-customPink2 to-customPink opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                                    <span className="relative z-10">Garanta seu ingresso</span>
+                                    <span className="relative z-10 rounded-full bg-white/20 p-1.5 transition-transform duration-300 group-hover:translate-x-1 flex items-center">
+                                        <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                                    </span>
+                                    <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
                                 </motion.button>
                             </motion.div>
 
@@ -137,10 +156,10 @@ const Home = () => {
                         </div>
                     </div>
 
-                    {/* Social Links and Event Info Container - Mantido na parte inferior */}
-                    <div className="absolute bottom-10 md:bottom-20 left-0 right-0">
-                        <div className="max-w-7xl mx-auto px-12">
-                            <div className="flex flex-col md:flex-row justify-between items-center md:items-end space-y-6 md:space-y-0">
+                    {/* Social Links and Event Info Container */}
+                    <div className="absolute bottom-6 sm:bottom-10 md:bottom-20 left-0 right-0">
+                        <div className="max-w-7xl mx-auto px-6 sm:px-12">
+                            <div className="flex flex-col items-center space-y-6 md:flex-row md:justify-between md:items-end md:space-y-0">
                                 {/* Social Links */}
                                 <motion.div 
                                     initial={{ opacity: 0, y: 20 }}
@@ -150,16 +169,16 @@ const Home = () => {
                                         delay: 0.5,
                                         ease: "easeOut"
                                     }}
-                                    className="flex space-x-6"
+                                    className="flex space-x-8 sm:space-x-6"
                                 >
                                     <a href="#" className="text-white hover:text-customPink transition">
-                                    <SocialIcons.Facebook />
+                                        <SocialIcons.Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
                                     </a>
                                     <a href="#" className="text-white hover:text-customPink transition">
-                                    <SocialIcons.Twitter />
+                                        <SocialIcons.Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
                                     </a>
                                     <a href="#" className="text-white hover:text-customPink transition">
-                                    <SocialIcons.Instagram />
+                                        <SocialIcons.Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
                                     </a>
                                 </motion.div>
 
@@ -172,15 +191,15 @@ const Home = () => {
                                         delay: 0.6,
                                         ease: "easeOut"
                                     }}
-                                    className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6"
+                                    className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6"
                                 >
                                     <div className="flex items-center space-x-2">
-                                    <Calendar className="w-5 h-5 text-white" />
-                                    <span className="text-base md:text-lg text-white">4, 5 e 6 de Abril</span>
+                                        <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                                        <span className="text-sm sm:text-base md:text-lg text-white">4, 5 e 6 de Abril</span>
                                     </div>
                                     <div className="flex items-center space-x-2">
-                                    <MapPin className="w-5 h-5 text-white" />
-                                    <span className="text-base md:text-lg text-white">Goiânia - GO</span>
+                                        <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                                        <span className="text-sm sm:text-base md:text-lg text-white">Goiânia - GO</span>
                                     </div>
                                 </motion.div>
                             </div>
@@ -193,6 +212,41 @@ const Home = () => {
             <Frases />
             <Historia />
             <Features />
+
+            {/* Nova seção de Dúvidas */}
+            <section className="bg-[#11111A] py-20">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center max-w-3xl mx-auto">
+                        <span className="text-purple-800 text-sm font-semibold uppercase tracking-wider">
+                            Dúvidas Frequentes
+                        </span>
+                        
+                        <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white">
+                            Tire todas as suas{' '}
+                            <span className="bg-gradient-to-r from-purple-800 to-purple-950 bg-clip-text text-transparent">
+                                dúvidas
+                            </span>
+                        </h2>
+
+                        <p className="text-gray-300 mb-8">
+                            Encontre respostas para as principais perguntas sobre o UP Summit, 
+                            desde informações sobre ingressos até detalhes sobre a programação e local do evento.
+                        </p>
+
+                        <button 
+                            onClick={scrollToFAQ}
+                            className="group relative flex items-center gap-2 bg-gradient-to-r from-purple-800 to-purple-950 px-6 py-3 rounded-full text-white overflow-hidden transition-all duration-300 mx-auto"
+                        >
+                            <span className="relative z-10">Ver perguntas frequentes</span>
+                            <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
+                                <ArrowRight className="w-5 h-5" />
+                            </span>
+                            <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+                        </button>
+                    </div>
+                </div>
+            </section>
+
             <section id="patrocinadores">
                 <Patrocinadores />
             </section>
