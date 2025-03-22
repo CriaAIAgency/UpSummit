@@ -3,7 +3,7 @@ import { animate, useInView } from "framer-motion";
 
 export const CountUpStats = () => {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-20 md:py-24">
+    <div className="mx-auto max-w-3xl px-4 py-20 md:py-24 relative">
       <div className="flex flex-col items-center justify-center sm:flex-row">
         <Stat
           prefix="R$"
@@ -23,6 +23,14 @@ export const CountUpStats = () => {
           suffix="+"
           subheading="Empresas conectadas à experiência"
         />
+      </div>
+      
+      <div className="relative pt-24">
+        <div className="flex items-center justify-center gap-4">
+          <div className="h-px w-full max-w-[120px] bg-gradient-to-r from-transparent via-customPink/40 to-transparent" />
+          <div className="w-2 h-2 bg-customPink/40 rotate-45 transform" />
+          <div className="h-px w-full max-w-[120px] bg-gradient-to-r from-transparent via-customPink/40 to-transparent" />
+        </div>
       </div>
     </div>
   );

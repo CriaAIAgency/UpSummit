@@ -26,7 +26,7 @@ import { FiArrowRight } from 'react-icons/fi';
 
 const Patrocinadores = () => {
     const sponsors = {
-        diamond: [Logo18, Logo1, Logo2], // Santri e outros
+        diamond: [Logo18, Logo1, Logo2],
         gold: [Logo3, Logo4, Logo5, Logo6, Logo7, Logo8],
         silver: [Logo9, Logo10, Logo11, Logo12, Logo13, Logo14, Logo15, Logo16, Logo17, Logo19, Logo20, Logo21]
     };
@@ -34,12 +34,7 @@ const Patrocinadores = () => {
     const LogoItem = ({ src }) => {
         const isSantri = src === Logo18;
         return (
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="w-[150px] h-[150px] flex justify-center items-center bg-white rounded-xl hover:bg-slate-50 transition-colors p-6"
-            >
+            <div className="w-[150px] h-[150px] flex justify-center items-center bg-white rounded-xl hover:bg-slate-50 transition-colors p-6">
                 <img 
                     src={src}
                     alt="Logo"
@@ -48,7 +43,7 @@ const Patrocinadores = () => {
                         isSantri ? "brightness-50 contrast-200 saturate-200" : ""
                     }`}
                 />
-            </motion.div>
+            </div>
         );
     };
 
@@ -67,29 +62,28 @@ const Patrocinadores = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-20 text-center"
-                >
+                <div className="mb-20 text-center">
                     <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
-                        Nossos parceiros
+                        Patrocinadores
                     </span>
                     
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-8">
+                        Parcerias de{' '}
                         <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
-                            Patrocinadores
+                            sucesso
                         </span>
                     </h2>
-                    
-                    <div className="w-24 h-1 bg-gradient-to-r from-purple-800 to-purple-950 mx-auto rounded-full mb-8"></div>
+
+                    <div className="flex items-center justify-center gap-3 mb-8">
+                        <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-purple-800/30" />
+                        <div className="w-2 h-2 rounded-full bg-purple-800" />
+                        <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-purple-800/30" />
+                    </div>
                     
                     <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-                        Com uma feira de negócios que já impulsionou milhões em transações para patrocinadores e retornos sobre os investimentos que ultrapassam os 14000% de ROI, no UpSummit você terá acesso a inúmeras oportunidades de conexão, aprendizado e crescimento.
+                        Uma feira de negócios que já impulsionou <span className="text-purple-800 font-semibold">milhões em transações</span> para patrocinadores com retornos sobre os investimentos que ultrapassam os <span className="text-purple-800 font-semibold">14000% de ROI</span>. O UpSummit oferece inúmeras oportunidades de conexão, aprendizado e crescimento.
                     </p>
-                </motion.div>
+                </div>
 
                 {/* Diamond Sponsors */}
                 <div className="mb-16">

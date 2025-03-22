@@ -426,8 +426,11 @@ const Motivos = () => {
         <div className="py-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.6,
+              ease: "easeOut"
+            }}
             className="text-center mb-16"
           >
             <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
@@ -447,21 +450,24 @@ const Motivos = () => {
           {/* Benefits Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mb-16">
             {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`w-full max-w-md ${
-                  index >= benefits.length - 2 ? 'lg:col-span-1.5 lg:mx-auto' : ''
-                }`}
-              >
-                <BenefitCard 
-                  {...benefit} 
-                  onClick={benefit.isUpBlack ? () => setUpBlackModalOpen(true) : undefined}
-                />
-              </motion.div>
+                <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                        duration: 0.6,
+                        delay: 0.2 + (index * 0.1),
+                        ease: "easeOut"
+                    }}
+                    className={`w-full max-w-md ${
+                        index >= benefits.length - 2 ? 'lg:col-span-1.5 lg:mx-auto' : ''
+                    }`}
+                >
+                    <BenefitCard 
+                        {...benefit} 
+                        onClick={benefit.isUpBlack ? () => setUpBlackModalOpen(true) : undefined}
+                    />
+                </motion.div>
             ))}
           </div>
 
@@ -496,8 +502,11 @@ const Motivos = () => {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.6,
+              ease: "easeOut"
+            }}
             className="text-center mb-16 relative"
           >
             <div className="mb-6">
@@ -519,12 +528,8 @@ const Motivos = () => {
           <div className="relative overflow-hidden bg-neutral-50 p-8 rounded-3xl">
             <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-8 sm:flex-row">
               {sponsorshipTiers.map((tier, index) => (
-                <motion.div
+                <div
                   key={tier.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
                   className="w-full sm:w-1/3"
                 >
                   <Card
@@ -532,7 +537,7 @@ const Motivos = () => {
                     bgUrl={tier.bgUrl}
                     onClick={() => setSelectedTier(index)}
                   />
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -542,8 +547,11 @@ const Motivos = () => {
         <div className="py-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.6,
+              ease: "easeOut"
+            }}
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 mb-4">
@@ -566,12 +574,8 @@ const Motivos = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
-              <motion.div
+              <div
                 key={testimonial.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
                 className="relative group cursor-pointer"
               >
                 {/* Thumbnail */}
@@ -598,7 +602,7 @@ const Motivos = () => {
                     {testimonial.company}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -619,8 +623,11 @@ const Motivos = () => {
         <div className="py-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.6,
+              ease: "easeOut"
+            }}
             className="text-center mb-16"
           >
             <span className="text-sm tracking-[0.3em] text-purple-800 uppercase mb-4 block">
