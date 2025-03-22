@@ -22,6 +22,7 @@ const Nav = () => {
 
 const FlyoutNav = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -43,20 +44,20 @@ const FlyoutNav = () => {
           <img src={Logo} className="w-40" />
         </Link>
         <div className="hidden gap-6 lg:flex">
-          <Links />
+          <Links setMenuOpen={setMenuOpen} />
           <CTAs />
         </div>
-        <MobileMenu />
+        <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       </div>
     </nav>
   );
 };
 
-const Links = () => {
+const Links = ({ setMenuOpen }) => {
   return (
     <div className="flex items-center gap-6">
       {LINKS.map((l) => (
-        <NavLink key={l.text} href={l.href} FlyoutContent={l.component}>
+        <NavLink key={l.text} href={l.href} FlyoutContent={l.component} setMenuOpen={setMenuOpen}>
           {l.text}
         </NavLink>
       ))}
@@ -64,7 +65,7 @@ const Links = () => {
   );
 };
 
-const NavLink = ({ children, href, FlyoutContent }) => {
+const NavLink = ({ children, href, FlyoutContent, setMenuOpen }) => {
   const [open, setOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -103,7 +104,7 @@ const NavLink = ({ children, href, FlyoutContent }) => {
           >
             <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent" />
             <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white" />
-            <FlyoutContent />
+            <FlyoutContent setMenuOpen={setMenuOpen} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -128,7 +129,38 @@ const CTAs = () => {
   );
 };
 
-const AboutUsContent = () => {
+const AboutUsContent = ({ setMenuOpen }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    
+    const handleScroll = () => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    };
+
+    if (location.pathname !== '/sobre') {
+      navigate('/sobre');
+      setTimeout(handleScroll, 100);
+    } else {
+      handleScroll();
+    }
+    
+    // Fecha o menu mobile
+    setMenuOpen(false);
+  };
+
   return (
     <div className="grid h-fit w-full grid-cols-12 shadow-xl lg:h-72 lg:w-[600px] lg:shadow-none xl:w-[750px]">
       <div className="col-span-12 flex flex-col justify-between bg-gradient-to-br from-customPink via-customPink2 to-customPink2 p-6 lg:col-span-4">
@@ -139,7 +171,7 @@ const AboutUsContent = () => {
           </p>
         </div>
         <a
-          href="/Sobre"
+          href="/sobre"
           className="flex items-center gap-1 text-sm text-white hover:underline"
         >
           Saiba Mais <FiArrowRight />
@@ -148,6 +180,7 @@ const AboutUsContent = () => {
       <div className="col-span-12 grid grid-cols-2 grid-rows-2 gap-3 bg-white p-6 lg:col-span-8">
         <a
           href="/palestrantes"
+          onClick={() => setMenuOpen(false)}
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Palestrantes</h3>
@@ -156,7 +189,8 @@ const AboutUsContent = () => {
           </p>
         </a>
         <a
-          href="/Sobre"
+          href="/sobre#depoimentos"
+          onClick={(e) => scrollToSection(e, 'depoimentos')}
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Depoimentos</h3>
@@ -166,6 +200,7 @@ const AboutUsContent = () => {
         </a>
         <a
           href="/edicoes"
+          onClick={() => setMenuOpen(false)}
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Edições</h3>
@@ -174,7 +209,8 @@ const AboutUsContent = () => {
           </p>
         </a>
         <a
-          href="/Sobre"
+          href="/sobre#faq"
+          onClick={(e) => scrollToSection(e, 'faq')}
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Dúvidas</h3>
@@ -187,7 +223,7 @@ const AboutUsContent = () => {
   );
 };
 
-const Parceria = () => {
+const Parceria = ({ setMenuOpen }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -205,14 +241,14 @@ const Parceria = () => {
     };
 
     if (location.pathname !== '/') {
-      // Se não estiver na home, primeiro navega para home e depois rola
       navigate('/');
-      // Aguarda a navegação completar antes de rolar
       setTimeout(handleScroll, 100);
     } else {
-      // Se já estiver na home, apenas rola suavemente
       handleScroll();
     }
+
+    // Fecha o menu mobile
+    setMenuOpen(false);
   };
 
   return (
@@ -220,10 +256,18 @@ const Parceria = () => {
       <div className="grid grid-cols-2 lg:grid-cols-1">
         <div className="mb-3 space-y-3">
           <h3 className="font-semibold">Patrocinadores</h3>
-          <a href="/patrocinar" className="block text-sm hover:underline">
+          <a 
+            href="/patrocinar" 
+            onClick={() => setMenuOpen(false)}
+            className="block text-sm hover:underline"
+          >
             Quero ser um patrocinador
           </a>
-          <a href="/motivos" className="block text-sm hover:underline">
+          <a 
+            href="/motivos" 
+            onClick={() => setMenuOpen(false)}
+            className="block text-sm hover:underline"
+          >
             Por que patrocinar
           </a>
           <a 
@@ -236,12 +280,19 @@ const Parceria = () => {
         </div>
         <div className="mb-6 space-y-3">
           <h3 className="font-semibold">Imprensa / Mídia</h3>
-          <a href="#" className="block text-sm hover:underline">
+          <a 
+            href="#" 
+            onClick={() => setMenuOpen(false)}
+            className="block text-sm hover:underline"
+          >
             Quero ser parceiro de mídia
           </a>
         </div>
       </div>
-      <button className="w-full rounded-lg border-2 border-customPink text-customPink px-4 py-2 font-semibold transition-colors hover:bg-customPink hover:text-white">
+      <button 
+        onClick={() => setMenuOpen(false)}
+        className="w-full rounded-lg border-2 border-customPink text-customPink px-4 py-2 font-semibold transition-colors hover:bg-customPink hover:text-white"
+      >
         Contato
       </button>
     </div>
@@ -284,7 +335,7 @@ const MobileMenuLink = ({ children, href, FoldContent, setMenuOpen }) => {
             e.stopPropagation();
             setMenuOpen(false);
           }}
-          href="#"
+          href={href}
           className="flex w-full cursor-pointer items-center justify-between border-b border-neutral-300 py-6 text-start text-2xl font-semibold"
         >
           <span>{children}</span>
@@ -302,7 +353,7 @@ const MobileMenuLink = ({ children, href, FoldContent, setMenuOpen }) => {
           className="overflow-hidden"
         >
           <div ref={ref}>
-            <FoldContent />
+            <FoldContent setMenuOpen={setMenuOpen} />
           </div>
         </motion.div>
       )}
@@ -310,15 +361,14 @@ const MobileMenuLink = ({ children, href, FoldContent, setMenuOpen }) => {
   );
 };
 
-const MobileMenu = () => {
-  const [open, setOpen] = useState(false);
+const MobileMenu = ({ menuOpen, setMenuOpen }) => {
   return (
     <div className="block lg:hidden">
-      <button onClick={() => setOpen(true)} className="block text-3xl">
+      <button onClick={() => setMenuOpen(true)} className="block text-3xl">
         <FiMenu />
       </button>
       <AnimatePresence>
-        {open && (
+        {menuOpen && (
           <motion.nav
             initial={{ x: "100vw" }}
             animate={{ x: 0 }}
@@ -328,7 +378,7 @@ const MobileMenu = () => {
           >
             <div className="flex items-center justify-between p-6">
               <img src={Logo} className="w-40" />
-              <button onClick={() => setOpen(false)}>
+              <button onClick={() => setMenuOpen(false)}>
                 <FiX className="text-3xl text-neutral-950" />
               </button>
             </div>
@@ -338,7 +388,7 @@ const MobileMenu = () => {
                   key={l.text}
                   href={l.href}
                   FoldContent={l.component}
-                  setMenuOpen={setOpen}
+                  setMenuOpen={setMenuOpen}
                 >
                   {l.text}
                 </MobileMenuLink>
