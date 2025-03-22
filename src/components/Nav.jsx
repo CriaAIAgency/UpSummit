@@ -135,7 +135,7 @@ const AboutUsContent = () => {
         <div>
           <h2 className="mb-2 text-xl font-semibold text-white">Sobre Nós</h2>
           <p className="mb-6 max-w-xs text-sm text-neutral-200">
-          Aprenda, conecte-se e inspire-se no maior evento empresarial do Centro-Oeste!
+            Aprenda, conecte-se e inspire-se no maior evento empresarial do Centro-Oeste!
           </p>
         </div>
         <a
@@ -147,12 +147,12 @@ const AboutUsContent = () => {
       </div>
       <div className="col-span-12 grid grid-cols-2 grid-rows-2 gap-3 bg-white p-6 lg:col-span-8">
         <a
-          href="/Sobre"
+          href="/palestrantes"
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Palestrantes</h3>
           <p className="text-sm">
-          Conheça os líderes e especialistas que serão seus mentores.
+            Conheça os líderes e especialistas que serão seus mentores.
           </p>
         </a>
         <a
@@ -161,7 +161,7 @@ const AboutUsContent = () => {
         >
           <h3 className="mb-1 font-semibold">Depoimentos</h3>
           <p className="text-sm">
-          O impacto real: histórias de quem viveu a experiência.
+            O impacto real: histórias de quem viveu a experiência.
           </p>
         </a>
         <a
@@ -170,7 +170,7 @@ const AboutUsContent = () => {
         >
           <h3 className="mb-1 font-semibold">Edições</h3>
           <p className="text-sm">
-          Reviva os melhores momentos das edições anteriores.
+            Reviva os melhores momentos das edições anteriores.
           </p>
         </a>
         <a
@@ -179,7 +179,7 @@ const AboutUsContent = () => {
         >
           <h3 className="mb-1 font-semibold">Dúvidas</h3>
           <p className="text-sm">
-          Tudo o que você precisa saber antes de participar.
+            Tudo o que você precisa saber antes de participar.
           </p>
         </a>
       </div>

@@ -10,6 +10,7 @@ import Error from './routes/Error'
 import Motivos from './routes/Motivos'
 import Midia from './routes/Midia'
 import Edicoes from './routes/Edicoes'
+import Palestrantes from './routes/Palestrantes'
 
 const router = createBrowserRouter ([
   {
@@ -22,7 +23,8 @@ const router = createBrowserRouter ([
       { path: '/sobre', element: <Sobre /> },
       { path: '/motivos', element: <Motivos /> },
       { path: '/midia', element: <Midia />},
-      { path: '/edicoes', element: <Edicoes /> }
+      { path: '/edicoes', element: <Edicoes /> },
+      { path: '/palestrantes', element: <Palestrantes /> }
     ]
   }
 ])

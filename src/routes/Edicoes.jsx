@@ -87,30 +87,56 @@ const Edicoes = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.6,
+            ease: "easeOut"
+          }}
           className="mb-12 md:mb-16 pt-8 md:pt-0"
         >
-          <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4"
+          >
             Nossa História
-          </span>
+          </motion.span>
           <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-white">
+            <motion.h2 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-white"
+            >
               Edições do{' '}
               <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
                 UpSummit
               </span>
-            </h2>
-            <p className="text-gray-400 text-base md:text-lg">
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="text-gray-400 text-base md:text-lg"
+            >
               Reviva os momentos mais marcantes de cada edição e acompanhe nossa evolução ao longo dos anos. 
               Uma história de inovação, conhecimento e networking que continua a crescer.
-            </p>
+            </motion.p>
           </div>
         </motion.div>
 
         {/* Cards Section */}
         <div className="space-y-8 md:space-y-12">
-          {editions.map((edition) => (
-            <div
+          {editions.map((edition, index) => (
+            <motion.div
               key={edition.year}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.6,
+                delay: 0.2 + (index * 0.1),
+                ease: "easeOut"
+              }}
               className="relative w-full max-w-[1400px] mx-auto"
             >
               <div
@@ -222,7 +248,7 @@ const Edicoes = () => {
                   </div>
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
