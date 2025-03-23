@@ -16,7 +16,7 @@ import janaineImage from '../assets/palestrantes/janaine.jpg';
 import joaokeplerImage from '../assets/palestrantes/joaokepler.jpg';
 import samuelImage from '../assets/palestrantes/samuel.jpg';
 import michelleImage from '../assets/palestrantes/michelle.jpeg';
-import wasleyImage from '../assets/palestrantes/wasley.png';
+import wasleyImage from '../assets/palestrantes/wasley.jpg';
 import fabioImage from '../assets/palestrantes/fabio.jpg';
 import brunoImage from '../assets/palestrantes/bruno.jpg';
 

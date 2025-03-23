@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Instagram } from 'lucide-react';
 import SpeakerModal from '../SpeakerModal';
+import { Link } from 'react-router-dom';
 // Importar as imagens
 import pvImage from '../../assets/palestrantes/pv.jpg';
 import crisImage from '../../assets/palestrantes/cris.jpeg';
@@ -158,10 +159,12 @@ const Frases = () => {
                     }}
                     className="flex justify-center"
                 >
-                    <button className="group flex items-center gap-2 bg-gradient-to-r from-customPink to-customPink2 px-8 py-4 rounded-full text-white hover:shadow-[0_0_20px_rgba(229,0,93,0.3)] transition-shadow duration-300">
-                        <span>Confira a lista completa de palestrantes</span>
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    <Link to="/palestrantes">
+                        <button className="group flex items-center gap-2 bg-gradient-to-r from-customPink to-customPink2 px-8 py-4 rounded-full text-white hover:shadow-[0_0_20px_rgba(229,0,93,0.3)] transition-shadow duration-300">
+                            <span>Confira a lista completa de palestrantes</span>
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    </Link>
                 </motion.div>
             </div>
 

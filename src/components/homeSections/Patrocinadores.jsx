@@ -21,10 +21,15 @@ import Logo18 from '../../assets/patrocinadores/santri.png';
 import Logo19 from '../../assets/patrocinadores/sqz.png';
 import Logo20 from '../../assets/patrocinadores/support.png';
 import Logo21 from '../../assets/patrocinadores/vsl.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 
 const Patrocinadores = () => {
+    const location = useLocation();
+    const isPurplePage = location.pathname === '/motivos' || 
+                        location.pathname === '/edicoes' || 
+                        location.pathname.includes('/sobre');
+
     const sponsors = {
         diamond: [Logo18, Logo1, Logo2],
         gold: [Logo3, Logo4, Logo5, Logo6, Logo7, Logo8],
@@ -87,10 +92,10 @@ const Patrocinadores = () => {
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-16">
                     <Link 
                         to="/patrocinar"
-                        className="group flex h-14 items-center gap-2 rounded-full text-white bg-gradient-to-r from-purple-800 to-purple-950 pl-6 pr-8 transition-all duration-300 ease-in-out hover:from-customPink hover:to-customPink2 hover:pl-5 hover:text-white active:bg-customPink"
+                        className="group flex h-14 items-center gap-2 rounded-full text-white bg-gradient-to-r from-purple-800 to-purple-950 pl-6 pr-8 transition-all duration-300 ease-in-out hover:pl-5 hover:text-white"
                     >
                         <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
-                            <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPink group-active:-rotate-45" />
+                            <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-purple-800 group-active:-rotate-45" />
                         </span>
                         <span className="text-lg">Quero Patrocinar</span>
                     </Link>

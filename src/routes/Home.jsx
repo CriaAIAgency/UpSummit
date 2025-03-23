@@ -38,7 +38,7 @@ const Home = () => {
                     <img
                         src={capa2}
                         alt="Background"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-[38%] sm:object-center"
                     />
                 </div>
 
@@ -50,28 +50,28 @@ const Home = () => {
                     
                     {/* Gradient Lines */}
                     <motion.div 
-                    initial={{ opacity: 0, width: 0 }}
-                    animate={{ opacity: 1, width: "100%" }}
-                    transition={{ duration: 1.5, delay: 0.5 }}
-                    className="absolute top-1/4 left-0 h-px bg-gradient-to-r from-transparent to-transparent"
+                        initial={{ opacity: 0, width: 0 }}
+                        animate={{ opacity: 1, width: "100%" }}
+                        transition={{ duration: 1.5, delay: 0.5 }}
+                        className="absolute top-1/4 left-0 h-px bg-gradient-to-r from-transparent to-transparent"
                     ></motion.div>
                     <motion.div 
-                    initial={{ opacity: 0, width: 0 }}
-                    animate={{ opacity: 1, width: "10%" }}
-                    transition={{ duration: 1.5, delay: 0.5 }}
-                    className="absolute top-1/4 right-64 h-px bg-gradient-to-r from-customPink to-customPurple"
+                        initial={{ opacity: 0, width: 0 }}
+                        animate={{ opacity: 1, width: "20%" }}
+                        transition={{ duration: 1.5, delay: 0.5 }}
+                        className="absolute top-1/4 right-8 sm:right-24 md:right-64 h-px bg-gradient-to-r from-customPink to-customPurple"
                     ></motion.div>
                     <motion.div 
-                    initial={{ opacity: 0, width: 0 }}
-                    animate={{ opacity: 1, width: "100%" }}
-                    transition={{ duration: 1.5, delay: 0.8 }}
-                    className="absolute bottom-1/4 right-0 h-px bg-gradient-to-l from-transparent to-transparent"
+                        initial={{ opacity: 0, width: 0 }}
+                        animate={{ opacity: 1, width: "100%" }}
+                        transition={{ duration: 1.5, delay: 0.8 }}
+                        className="absolute bottom-1/4 right-0 h-px bg-gradient-to-l from-transparent to-transparent"
                     ></motion.div>
                     <motion.div 
-                    initial={{ opacity: 0, width: 0 }}
-                    animate={{ opacity: 1, width: "10%" }}
-                    transition={{ duration: 1.5, delay: 0.8 }}
-                    className="absolute bottom-1/4 right-96 h-px bg-gradient-to-l from-customPurple to-customPink"
+                        initial={{ opacity: 0, width: 0 }}
+                        animate={{ opacity: 1, width: "20%" }}
+                        transition={{ duration: 1.5, delay: 0.8 }}
+                        className="absolute bottom-1/4 right-64 sm:right-48 md:right-[28rem] h-px bg-gradient-to-l from-customPurple to-customPink"
                     ></motion.div>
                 </div>
 
@@ -156,8 +156,8 @@ const Home = () => {
                     {/* Social Links and Event Info Container */}
                     <div className="absolute bottom-6 sm:bottom-10 md:bottom-20 left-0 right-0">
                         <div className="max-w-7xl mx-auto px-6 sm:px-12">
-                            <div className="flex flex-col items-center space-y-6 md:flex-row md:justify-between md:items-end md:space-y-0">
-                                {/* Social Links */}
+                            <div className="flex flex-col items-center space-y-8 md:flex-row md:justify-between md:items-end md:space-y-0">
+                                {/* Social Links - Aumentado tamanho no mobile */}
                                 <motion.div 
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -166,20 +166,35 @@ const Home = () => {
                                         delay: 0.5,
                                         ease: "easeOut"
                                     }}
-                                    className="flex space-x-8 sm:space-x-6"
+                                    className="flex space-x-10 sm:space-x-6"
                                 >
-                                    <a href="#" className="text-white hover:text-customPink transition">
-                                        <SocialIcons.Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
+                                    <a 
+                                        href="https://www.facebook.com/upsummiteventos" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="text-white hover:text-customPink transition"
+                                    >
+                                        <SocialIcons.Facebook className="w-7 h-7 sm:w-6 sm:h-6" />
                                     </a>
-                                    <a href="#" className="text-white hover:text-customPink transition">
-                                        <SocialIcons.Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
+                                    <a 
+                                        href="https://www.instagram.com/upsummitoficial/" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="text-white hover:text-customPink transition"
+                                    >
+                                        <SocialIcons.Instagram className="w-7 h-7 sm:w-6 sm:h-6" />
                                     </a>
-                                    <a href="#" className="text-white hover:text-customPink transition">
-                                        <SocialIcons.Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
+                                    <a 
+                                        href="https://www.youtube.com/@upsummit" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="text-white hover:text-customPink transition"
+                                    >
+                                        <SocialIcons.Youtube className="w-7 h-7 sm:w-6 sm:h-6" />
                                     </a>
                                 </motion.div>
 
-                                {/* Event Info */}
+                                {/* Event Info - Aumentado tamanho no mobile */}
                                 <motion.div 
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -188,15 +203,15 @@ const Home = () => {
                                         delay: 0.6,
                                         ease: "easeOut"
                                     }}
-                                    className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6"
+                                    className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6"
                                 >
                                     <div className="flex items-center space-x-2">
-                                        <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                                        <span className="text-sm sm:text-base md:text-lg text-white">4, 5 e 6 de Abril</span>
+                                        <Calendar className="w-6 h-6 sm:w-5 sm:h-5 text-white" />
+                                        <span className="text-base sm:text-base md:text-lg text-white">4, 5 e 6 de Abril</span>
                                     </div>
                                     <div className="flex items-center space-x-2">
-                                        <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                                        <span className="text-sm sm:text-base md:text-lg text-white">Goiânia - GO</span>
+                                        <MapPin className="w-6 h-6 sm:w-5 sm:h-5 text-white" />
+                                        <span className="text-base sm:text-base md:text-lg text-white">Goiânia - GO</span>
                                     </div>
                                 </motion.div>
                             </div>
@@ -210,9 +225,9 @@ const Home = () => {
             <Historia />
 
             {/* Nova seção de Dúvidas - Movida para antes de Features */}
-            <section className="bg-[#11111A] py-20 relative">
+            <section id="duvidas" className="bg-[#11111A] py-20 relative">
                 {/* Decorative Lines */}
-                <div className="absolute top-0 left-0 right-0 h-[4px] overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-[8px] overflow-hidden">
                     <motion.div 
                         initial={{ opacity: 0, width: 0 }}
                         whileInView={{ opacity: 1, width: "100%" }}

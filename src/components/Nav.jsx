@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiMenu, FiArrowRight, FiX, FiChevronDown } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
 import {
@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import useMeasure from "react-use-measure";
 import Logo from '../assets/logopreta.png'
+import LogoRoxa from '../assets/logoroxa.png'
 import { User, Cast } from 'lucide-react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -22,8 +23,43 @@ const Nav = () => {
 
 const FlyoutNav = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isPurpleSection, setIsPurpleSection] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const location = useLocation();
+  
+  const isPurplePage = location.pathname === '/motivos' || 
+                      location.pathname === '/edicoes' ||
+                      (location.pathname === '/' && isPurpleSection) ||
+                      (location.pathname === '/sobre' && isPurpleSection);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (location.pathname === '/') {
+        const duvidasSection = document.getElementById('duvidas');
+        if (duvidasSection) {
+          const rect = duvidasSection.getBoundingClientRect();
+          const isPastDuvidas = rect.top <= 100;
+          setIsPurpleSection(isPastDuvidas);
+        }
+      } else if (location.pathname === '/sobre') {
+        const faqSection = document.getElementById('faq');
+        if (faqSection) {
+          const rect = faqSection.getBoundingClientRect();
+          const isPastFaq = rect.top <= 100;
+          setIsPurpleSection(isPastFaq);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
+
+  // Reset isPurpleSection quando mudar de página
+  useEffect(() => {
+    setIsPurpleSection(false);
+  }, [location.pathname]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 250 ? true : false);
@@ -41,23 +77,31 @@ const FlyoutNav = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <Link to='/' className="hover:opacity-80 duration-100">
-          <img src={Logo} className="w-40" />
+          <img src={isPurplePage ? LogoRoxa : Logo} className="w-40" />
         </Link>
         <div className="hidden gap-6 lg:flex">
-          <Links setMenuOpen={setMenuOpen} />
-          <CTAs />
+          <Links setMenuOpen={setMenuOpen} isPurpleSection={isPurpleSection} />
+          <CTAs isPurplePage={isPurplePage} />
         </div>
-        <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} isPurplePage={isPurplePage} />
       </div>
     </nav>
   );
 };
 
-const Links = ({ setMenuOpen }) => {
+const Links = ({ setMenuOpen, isPurpleSection }) => {
   return (
     <div className="flex items-center gap-6">
       {LINKS.map((l) => (
-        <NavLink key={l.text} href={l.href} FlyoutContent={l.component} setMenuOpen={setMenuOpen}>
+        <NavLink 
+          key={l.text} 
+          href={l.href} 
+          FlyoutContent={l.component ? (props) => (
+            <l.component {...props} isPurpleSection={isPurpleSection} />
+          ) : null}
+          setMenuOpen={setMenuOpen}
+          isPurpleSection={isPurpleSection}
+        >
           {l.text}
         </NavLink>
       ))}
@@ -65,9 +109,14 @@ const Links = ({ setMenuOpen }) => {
   );
 };
 
-const NavLink = ({ children, href, FlyoutContent, setMenuOpen }) => {
+const NavLink = ({ children, href, FlyoutContent, setMenuOpen, isPurpleSection }) => {
   const [open, setOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const location = useLocation();
+  const isPurplePage = location.pathname === '/motivos' || 
+                      location.pathname === '/edicoes' ||
+                      (location.pathname === '/' && isPurpleSection) ||
+                      (location.pathname === '/sobre' && isPurpleSection);
 
   const showFlyout = FlyoutContent && open;
 
@@ -89,7 +138,9 @@ const NavLink = ({ children, href, FlyoutContent, setMenuOpen }) => {
           style={{
             transform: isHovered ? "scaleX(1)" : "scaleX(0)",
           }}
-          className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left scale-x-0 rounded-full bg-[#E5005D] transition-transform duration-300 ease-out"
+          className={`absolute -bottom-2 -left-2 -right-2 h-1 origin-left scale-x-0 rounded-full transition-transform duration-300 ease-out ${
+            isPurplePage ? "bg-purple-800" : "bg-[#E5005D]"
+          }`}
         />
       </a>
       <AnimatePresence>
@@ -112,16 +163,20 @@ const NavLink = ({ children, href, FlyoutContent, setMenuOpen }) => {
   );
 };
 
-const CTAs = () => {
+const CTAs = ({ isPurplePage }) => {
   return (
     <div className="flex items-center gap-3">
-      {/* <button className="flex items-center gap-2 rounded-md px-5 py-3 font-semibold bg-customPink text-white transition-colors hover:bg-[#E5005D] hover:text-white group">
-        <Cast className="w-5 text-white group-hover:text-customPink" />
-        <span>Área de Membros</span>
-      </button> */}
-      <button className="group flex h-10 items-center gap-2 rounded-full text-white bg-gradient-to-r from-customPink to-customPink2 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-purple-800 hover:to-purple-950 hover:pl-2 hover:text-white active:bg-customPurple">
+      <button className={`group flex h-10 items-center gap-2 rounded-full text-white ${
+        isPurplePage 
+          ? "bg-gradient-to-r from-purple-800 to-purple-950" 
+          : "bg-gradient-to-r from-customPink to-customPink2"
+      } pl-3 pr-4 transition-all duration-300 ease-in-out hover:pl-2 hover:text-white`}>
         <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
-          <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPurple group-active:-rotate-45" />
+          <FiArrowRight className={`-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg ${
+            isPurplePage 
+              ? "group-hover:text-purple-800" 
+              : "group-hover:text-customPink"
+          } group-active:-rotate-45`} />
         </span>
         <span>Área de Membros</span>
       </button>
@@ -129,9 +184,13 @@ const CTAs = () => {
   );
 };
 
-const AboutUsContent = ({ setMenuOpen }) => {
+const AboutUsContent = ({ setMenuOpen, isPurpleSection }) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const isPurplePage = location.pathname === '/motivos' || 
+                      location.pathname === '/edicoes' ||
+                      (location.pathname === '/' && isPurpleSection) ||
+                      (location.pathname === '/sobre' && isPurpleSection);
 
   const scrollToSection = (e, sectionId) => {
     e.preventDefault();
@@ -163,7 +222,11 @@ const AboutUsContent = ({ setMenuOpen }) => {
 
   return (
     <div className="grid h-fit w-full grid-cols-12 shadow-xl lg:h-72 lg:w-[600px] lg:shadow-none xl:w-[750px]">
-      <div className="col-span-12 flex flex-col justify-between bg-gradient-to-br from-customPink via-customPink2 to-customPink2 p-6 lg:col-span-4">
+      <div className={`col-span-12 flex flex-col justify-between p-6 lg:col-span-4 ${
+        isPurplePage 
+          ? "bg-gradient-to-br from-purple-800 via-purple-900 to-purple-950"
+          : "bg-gradient-to-br from-customPink via-customPink2 to-customPink2"
+      }`}>
         <div>
           <h2 className="mb-2 text-xl font-semibold text-white">Sobre Nós</h2>
           <p className="mb-6 max-w-xs text-sm text-neutral-200">
@@ -223,9 +286,13 @@ const AboutUsContent = ({ setMenuOpen }) => {
   );
 };
 
-const Parceria = ({ setMenuOpen }) => {
+const Parceria = ({ setMenuOpen, isPurpleSection }) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const isPurplePage = location.pathname === '/motivos' || 
+                      location.pathname === '/edicoes' ||
+                      (location.pathname === '/' && isPurpleSection) ||
+                      (location.pathname === '/sobre' && isPurpleSection);
 
   const scrollToPatrocinadores = (e) => {
     e.preventDefault();
@@ -291,7 +358,11 @@ const Parceria = ({ setMenuOpen }) => {
       </div>
       <button 
         onClick={() => setMenuOpen(false)}
-        className="w-full rounded-lg border-2 border-customPink text-customPink px-4 py-2 font-semibold transition-colors hover:bg-customPink hover:text-white"
+        className={`w-full rounded-lg border-2 px-4 py-2 font-semibold transition-colors ${
+          isPurplePage 
+            ? "border-purple-800 text-purple-800 hover:bg-purple-800"
+            : "border-customPink text-customPink hover:bg-customPink"
+        } hover:text-white`}
       >
         Contato
       </button>
@@ -302,6 +373,11 @@ const Parceria = ({ setMenuOpen }) => {
 const MobileMenuLink = ({ children, href, FoldContent, setMenuOpen }) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const isPurplePage = location.pathname === '/motivos' || 
+                      location.pathname === '/edicoes' ||
+                      (location.pathname === '/' && isPurpleSection) ||
+                      (location.pathname === '/sobre' && isPurpleSection);
 
   return (
     <div className="relative text-neutral-950">
@@ -361,7 +437,9 @@ const MobileMenuLink = ({ children, href, FoldContent, setMenuOpen }) => {
   );
 };
 
-const MobileMenu = ({ menuOpen, setMenuOpen }) => {
+const MobileMenu = ({ menuOpen, setMenuOpen, isPurplePage }) => {
+  const location = useLocation();
+
   return (
     <div className="block lg:hidden">
       <button onClick={() => setMenuOpen(true)} className="block text-3xl">
@@ -377,7 +455,7 @@ const MobileMenu = ({ menuOpen, setMenuOpen }) => {
             className="fixed left-0 top-0 flex h-screen w-full flex-col bg-white"
           >
             <div className="flex items-center justify-between p-6">
-              <img src={Logo} className="w-40" />
+              <img src={isPurplePage ? LogoRoxa : Logo} className="w-40" />
               <button onClick={() => setMenuOpen(false)}>
                 <FiX className="text-3xl text-neutral-950" />
               </button>
@@ -395,7 +473,7 @@ const MobileMenu = ({ menuOpen, setMenuOpen }) => {
               ))}
             </div>
             <div className="flex justify-end bg-neutral-950 p-6">
-              <CTAs />
+              <CTAs isPurplePage={isPurplePage} />
             </div>
           </motion.nav>
         )}

@@ -200,16 +200,17 @@ const Edicoes = () => {
                         <Clock className="w-4 h-4 text-purple-800" />
                         <span className="text-white font-medium text-sm md:text-base">Em breve</span>
                       </div>
-                      <button 
-                        onClick={() => window.open('https://upsummit.com.br/', '_blank')}
-                        className="group relative flex items-center gap-2 bg-gradient-to-r from-purple-800 to-purple-950 px-3 md:px-4 py-2 rounded-lg text-white overflow-hidden transition-all duration-300"
-                      >
-                        <span className="relative z-10 text-sm md:text-base">Garantir Ingresso</span>
-                        <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
-                          <FiArrowRight className="w-4 h-4" />
-                        </span>
-                        <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
-                      </button>
+                      <Link to="/palestrantes">
+                        <button 
+                          className="group relative flex items-center gap-2 bg-gradient-to-r from-purple-800 to-purple-950 px-3 md:px-4 py-2 rounded-lg text-white overflow-hidden transition-all duration-300"
+                        >
+                          <span className="relative z-10 text-sm md:text-base">Ver Palestrantes</span>
+                          <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
+                            <FiArrowRight className="w-4 h-4" />
+                          </span>
+                          <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+                        </button>
+                      </Link>
                     </div>
                   ) : (
                     <div className="flex items-center gap-3 md:gap-4">

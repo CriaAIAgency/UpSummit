@@ -11,7 +11,7 @@ const stats = [
         icon: Users
     },
     {
-        number: '60+',
+        number: '50+',
         label: 'Palestrantes renomados',
         icon: Target
     },
@@ -163,13 +163,20 @@ const Sobre = () => {
                         <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                             Nossa História
                         </span>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-8">
-                            Transformando o{' '}
-                            <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
-                                futuro
+                        <motion.h1 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8"
+                        >
+                            <span className="text-neutral-900">O maior evento</span>
+                            <br />
+                            <span className="text-transparent italic [-webkit-text-stroke:2.5px_#E5005D] font-bold">
+                                EMPRESARIAL
                             </span>
-                            {' '}do marketing
-                        </h1>
+                            <br />
+                            <span className="text-neutral-900">do Centro-Oeste</span>
+                        </motion.h1>
                         <div className="flex items-center justify-center gap-3 mb-8">
                             <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-customPink/30" />
                             <div className="w-2 h-2 rounded-full bg-customPink" />
@@ -300,20 +307,21 @@ const Sobre = () => {
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section className="w-full bg-[#11111A]">
-                {/* Decorative Lines */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Linha animada antes do FAQ */}
+            <div className="w-full bg-[#11111A]">
+                <div className="relative">
                     <motion.div 
                         initial={{ opacity: 0, width: 0 }}
                         whileInView={{ opacity: 1, width: "100%" }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.5, delay: 0.5 }}
-                        className="absolute top-0 left-0 h-[4px] bg-gradient-to-r from-customPink
-                        via-purple-800 to-purple-800"
+                        className="absolute top-0 left-0 w-full h-[8px] bg-gradient-to-r from-customPink via-purple-800 to-purple-800"
                     ></motion.div>
                 </div>
+            </div>
 
+            {/* FAQ Section */}
+            <section className="w-full bg-[#11111A]">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

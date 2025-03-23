@@ -112,8 +112,11 @@ const Patrocinar = () => {
                         <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-customPink/30" />
                     </div>
                     <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                        Conecte sua marca com mais de <span className="text-customPink font-semibold">10.000 participantes</span>, 
-                        amplie sua visibilidade e acelere o crescimento do seu negócio através do <span className="text-customPink font-semibold">UP Summit</span>.
+                        Nossos patrocinadores alcançaram um{' '}
+                        <span className="text-customPink font-semibold">ROI superior a 14.000%</span>{' '}
+                        em suas campanhas. Conecte sua marca com um público altamente qualificado e 
+                        acelere o crescimento do seu negócio através do{' '}
+                        <span className="text-customPink font-semibold">UP Summit</span>.
                     </p>
                 </motion.div>
 
@@ -353,21 +356,21 @@ const Patrocinar = () => {
                     }}
                     className="text-center"
                 >
-                    <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
+                    <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                         Dúvidas sobre patrocínio?
                     </span>
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">
                         Por que{' '}
-                        <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
                             patrocinar
                         </span>
                         {' '}o UP Summit
                     </h2>
                     <p className="text-gray-600 text-lg mb-8">
-                        Descubra os benefícios exclusivos e o retorno que sua marca pode ter ao patrocinar o maior evento de marketing do Brasil.
+                        Descubra os benefícios exclusivos e o retorno que sua marca pode ter ao patrocinar o maior evento empresarial do Brasil.
                     </p>
                     <Link to="/motivos" className="inline-flex justify-center">
-                        <button className="group flex h-12 items-center gap-2 rounded-full text-white bg-gradient-to-r from-purple-800 to-purple-950 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-purple-900 hover:to-purple-950 hover:pl-2 hover:text-white active:bg-purple-950">
+                        <button className="group flex h-12 items-center gap-2 rounded-full text-white bg-gradient-to-r from-customPink to-customPink2 pl-3 pr-4 transition-all duration-300 ease-in-out hover:from-purple-800 hover:to-purple-950 hover:pl-2 hover:text-white active:bg-purple-950">
                             <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
                                 <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-purple-800 group-active:-rotate-45" />
                             </span>

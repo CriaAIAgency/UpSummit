@@ -1,12 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import imagem12 from '../../assets/imagem12.png';
 import imagem10 from '../../assets/imagem10.png';
 import imagem15 from '../../assets/imagem15.png';
 
 const Features = () => {
+    const location = useLocation();
+    const isPurplePage = location.pathname === '/motivos' || 
+                        location.pathname === '/edicoes' || 
+                        location.pathname.includes('/sobre');
+
     const features = [
         {
             tag: 'Acesso a mentores de elite',
@@ -31,8 +36,8 @@ const Features = () => {
             opacity: 1,
             y: 0,
             transition: {
-            duration: 0.8,
-            ease: "easeOut"
+                duration: 0.8,
+                ease: "easeOut"
             }
         }
     };
