@@ -8,17 +8,17 @@ import rayImage from '../assets/palestrantes/ray.png';
 import pabloImage from '../assets/palestrantes/pablo.jpg';
 import alexImage from '../assets/palestrantes/alex.jpeg';
 import barbaraImage from '../assets/palestrantes/barbara.jpg';
-import bernardoImage from '../assets/palestrantes/bernardo.jpg';
 import carolImage from '../assets/palestrantes/carol.jpg';
 import conradoImage from '../assets/palestrantes/conrado.png';
 import crisImage from '../assets/palestrantes/cris.jpeg';
 import edsonImage from '../assets/palestrantes/edson.jpg';
 import janaineImage from '../assets/palestrantes/janaine.jpg';
 import joaokeplerImage from '../assets/palestrantes/joaokepler.jpg';
-import matheusImage from '../assets/palestrantes/matheus.jpg';
+import samuelImage from '../assets/palestrantes/samuel.jpg';
 import michelleImage from '../assets/palestrantes/michelle.jpeg';
 import wasleyImage from '../assets/palestrantes/wasley.png';
 import fabioImage from '../assets/palestrantes/fabio.jpg';
+import brunoImage from '../assets/palestrantes/bruno.jpg';
 
 const Palestrantes = () => {
     const [selectedSpeaker, setSelectedSpeaker] = useState(null);
@@ -127,10 +127,19 @@ const Palestrantes = () => {
             name: 'BRUNO AVELAR',
             role: 'Chief Visionary Officer',
             description: 'Empresário, coach, palestrante, escritor, mestre em networking, mentor e CVO (Chief Visionary Officer) de centenas de empresas.',
-            image: rayImage, // Using ray's image as placeholder
+            image: brunoImage,
             linkedin: '#',
             instagram: '#',
             topic: 'Networking'
+        },
+        {
+            name: 'RAY GONÇALVES',
+            role: 'Especialista em Marketing Digital',
+            description: 'Ray Gonçalves é uma especialista em marketing e vendas que auxilia empresários a aumentarem suas vendas utilizando estratégias digitais. Com mais de 900 empresas atendidas, Ray se destaca por colocar seus clientes à frente no mercado, oferecendo diagnósticos personalizados para identificar oportunidades de crescimento.',
+            image: rayImage,
+            linkedin: '#',
+            instagram: '#',
+            topic: 'Marketing Digital'
         },
         {
             name: 'CAROL IASMIN',
@@ -145,7 +154,7 @@ const Palestrantes = () => {
             name: 'SAMUEL PEREIRA',
             role: 'Fundador da SDA Holding',
             description: 'Empresário, investidor, fundador da SDA Holding e criador do Segredos da Audiência Ao Vivo, o maior Espetáculo de Tráfego e Audiência do Brasil. Com mais de 14 anos de experiência no digital, ele tem mais de 16 milhões de visitas em um de seus sites.',
-            image: matheusImage, // Using matheus's image as placeholder
+            image: samuelImage,
             linkedin: '#',
             instagram: '#',
             topic: 'Tráfego Digital'

@@ -1,52 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Instagram } from 'lucide-react';
+import SpeakerModal from '../SpeakerModal';
+// Importar as imagens
+import pvImage from '../../assets/palestrantes/pv.jpg';
+import crisImage from '../../assets/palestrantes/cris.jpeg';
+import joaokeplerImage from '../../assets/palestrantes/joaokepler.jpg';
+import pabloImage from '../../assets/palestrantes/pablo.jpg';
 
 const Frases = () => {
+    const [selectedSpeaker, setSelectedSpeaker] = useState(null);
+
     const speakers = [
         {
             name: 'PAULO VIEIRA',
-            role: 'Breve descrição contendo até 3',
-            description: 'Maior especialista em Alta Performance do Brasil, autor best-seller e criador do Método CIS.',
-            image: 'src/assets/palestrantes/pv.jpg',
+            role: 'CEO da Febracis',
+            description: 'O coach e fundador da Febracis Escola de Negócios já transformou mais de 1,5 milhão de vidas por meio do famoso Método CIS. Especialista em mudança de mentalidade e desenvolvimento pessoal.',
+            image: pvImage,
             linkedin: '#',
             instagram: '#',
-            topic: 'Liderança e Alta Performance'
+            topic: 'Desenvolvimento Pessoal'
         },
         {
-            name: 'RAY GONÇALVES',
-            role: 'Breve descrição contendo até 3',
-            image: 'src/assets/palestrantes/ray.png',
+            name: 'CRIS ARCANGELI',
+            role: 'Empreendedora Serial',
+            description: 'Uma das maiores referências em inovação e construção de marcas no Brasil, Cris Arcangeli é uma empreendedora serial que transforma mercados. Criadora da categoria ALIMÉTICOS e do primeiro BEAUTYDRINK, ela também idealizou o Comunidades A1000, o primeiro reality show de impacto positivo do mundo.',
+            image: crisImage,
             linkedin: '#',
-            instagram: '#'
+            instagram: '#',
+            topic: 'Inovação e Empreendedorismo'
+        },
+        {
+            name: 'JOÃO KEPLER',
+            role: 'Empresário e Investidor-Anjo',
+            description: 'Empresário, anjo-investidor e um dos maiores nomes do ecossistema de inovação e tecnologia do Brasil, Kepler é máxima referência no que diz respeito a construir uma empresa sólida e com capacidade de crescimento e expansão.',
+            image: joaokeplerImage,
+            linkedin: '#',
+            instagram: '#',
+            topic: 'Inovação e Investimentos'
         },
         {
             name: 'PABLO MARÇAL',
-            role: 'Médico, fisiculturista e influenciador',
-            image: 'src/assets/palestrantes/pablo.jpg',
+            role: 'Empresário e Mentor',
+            description: 'O empresário, coach, escritor e mentor de negócios e alta performance. De Goiânia para a liderança nacional. Esposo da Carol e pai de quatro filhos. Pablo Marçal é empresário visionário, fundador de múltiplos negócios, mentor de milhões de pessoas impactadas por seus ensinamentos.',
+            image: pabloImage,
             linkedin: '#',
-            instagram: '#'
-        },
-        {
-            name: 'THIAGO CONCER',
-            role: 'Breve descrição contendo até 3',
-            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80',
-            linkedin: '#',
-            instagram: '#'
-        },
-        {
-            name: 'KENIA GAMA',
-            role: 'Breve descrição contendo até 3',
-            image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80',
-            linkedin: '#',
-            instagram: '#'
-        },
-        {
-            name: 'MARCOS FREITAS',
-            role: 'Breve descrição contendo até 3',
-            image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&q=80',
-            linkedin: '#',
-            instagram: '#'
+            instagram: '#',
+            topic: 'Alta Performance'
         }
     ];
 
@@ -85,7 +85,7 @@ const Frases = () => {
                 </motion.div>
 
                 {/* Speakers Grid */}
-                <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     {speakers.map((speaker, index) => (
                         <motion.div
                             key={speaker.name}
@@ -96,7 +96,8 @@ const Frases = () => {
                                 delay: 0.2 + (index * 0.1),
                                 ease: "easeOut"
                             }}
-                            className="bg-[#1F1F1F] rounded-2xl p-4 group flex flex-col"
+                            className="bg-[#1F1F1F] rounded-2xl p-4 group flex flex-col cursor-pointer"
+                            onClick={() => setSelectedSpeaker(speaker)}
                         >
                             <div className="flex-1 flex flex-col">
                                 <div className="aspect-square mb-4 overflow-hidden rounded-xl relative">
@@ -115,18 +116,10 @@ const Frases = () => {
                                 </div>
                                 <h4 className="text-lg font-semibold text-white mb-1">{speaker.name}</h4>
                                 <p className="text-customPink text-sm mb-2">{speaker.role}</p>
-                                {speaker.description && (
-                                    <p className="text-white/80 text-sm mb-4 line-clamp-3">
-                                        {speaker.description}
-                                    </p>
-                                )}
-                                {speaker.topic && (
-                                    <div className="flex-1">
-                                        <span className="inline-block bg-customPink/10 text-customPink px-3 py-1 rounded-full text-xs">
-                                            {speaker.topic}
-                                        </span>
-                                    </div>
-                                )}
+                                <p className="text-white/80 text-sm mb-4 line-clamp-2">{speaker.description}</p>
+                                <span className="inline-block bg-customPink/10 text-customPink px-3 py-1 rounded-full text-xs mb-4">
+                                    {speaker.topic}
+                                </span>
                             </div>
                             <div className="flex gap-3 mt-auto pt-4">
                                 <a
@@ -135,9 +128,7 @@ const Frases = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                    </svg>
+                                    <Instagram className="w-4 h-4" />
                                 </a>
                                 <a
                                     href={speaker.linkedin}
@@ -163,7 +154,7 @@ const Frases = () => {
                         delay: 0.8,
                         ease: "easeOut"
                     }}
-                    className="flex justify-center mb-12"
+                    className="flex justify-center"
                 >
                     <button className="group flex items-center gap-2 bg-gradient-to-r from-customPink to-customPink2 px-8 py-4 rounded-full text-white hover:shadow-[0_0_20px_rgba(229,0,93,0.3)] transition-shadow duration-300">
                         <span>Confira a lista completa de palestrantes</span>
@@ -171,8 +162,15 @@ const Frases = () => {
                     </button>
                 </motion.div>
             </div>
-        </section>
-    )
-}
 
-export default Frases
+            {/* Modal */}
+            <SpeakerModal
+                isOpen={!!selectedSpeaker}
+                onClose={() => setSelectedSpeaker(null)}
+                speaker={selectedSpeaker}
+            />
+        </section>
+    );
+};
+
+export default Frases;
