@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Users, Target, Award, TrendingUp, ChevronDown, Star, Quote, Lightbulb, Trophy, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import img1 from '../assets/capa2.png';
 
 const stats = [
     {
-        number: '10k+',
-        label: 'Participantes por edição',
+        number: '5k+',
+        label: 'Histórias impulsionadas',
         icon: Users
     },
     {
@@ -213,7 +214,7 @@ const Sobre = () => {
                         >
                             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                                 <img 
-                                    src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80" 
+                                    src={img1} 
                                     alt="UP Summit Event"
                                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                                 />
@@ -256,73 +257,6 @@ const Sobre = () => {
                         </div>
                     </motion.div>
 
-                    {/* Values Section - Updated */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
-                        className="text-center mb-20"
-                    >
-                        {/* Divisória decorativa antes da seção */}
-                        <div className="w-full max-w-2xl mx-auto mb-20 flex items-center gap-4">
-                            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-gray-200" />
-                            <div className="w-2 h-2 rounded-full bg-customPink" />
-                            <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-gray-200" />
-                        </div>
-
-                        <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
-                            Nossos Valores
-                        </span>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-12">
-                            Princípios que nos{' '}
-                            <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
-                                guiam
-                            </span>
-                        </h2>
-                        <div className="grid md:grid-cols-3 gap-8">
-                            {[
-                                {
-                                    title: "Inovação",
-                                    description: "Buscamos constantemente novas formas de entregar valor e experiências transformadoras para nossos participantes.",
-                                    icon: Lightbulb
-                                },
-                                {
-                                    title: "Excelência",
-                                    description: "Comprometimento com a qualidade em cada detalhe, desde o conteúdo até a experiência do evento.",
-                                    icon: Trophy
-                                },
-                                {
-                                    title: "Impacto",
-                                    description: "Focamos em gerar resultados reais e mensuráveis para todos os envolvidos no evento.",
-                                    icon: Zap
-                                }
-                            ].map((value, index) => (
-                                <motion.div
-                                    key={index}
-                                    className="p-8 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group"
-                                    whileHover={{ y: -5 }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-customPink to-customPink2 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-customPink/10 mb-6">
-                                        <value.icon className="w-8 h-8 text-customPink" />
-                                    </div>
-                                    <h3 className="text-xl font-semibold text-gray-900 mb-4">{value.title}</h3>
-                                    <p className="text-gray-600">
-                                        {value.description}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
-
-                    {/* Divisória antes dos Depoimentos */}
-                    <div className="w-full max-w-2xl mx-auto mb-20 flex items-center gap-4">
-                        <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-gray-200" />
-                        <div className="w-2 h-2 rounded-full bg-customPink" />
-                        <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-gray-200" />
-                    </div>
-
                     {/* Testimonials Section */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -363,12 +297,6 @@ const Sobre = () => {
                         </div>
                     </motion.div>
 
-                    {/* Divisória antes do FAQ */}
-                    <div className="w-full max-w-2xl mx-auto mb-20 flex items-center gap-4">
-                        <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-gray-200" />
-                        <div className="w-2 h-2 rounded-full bg-customPink" />
-                        <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-gray-200" />
-                    </div>
                 </div>
             </section>
 

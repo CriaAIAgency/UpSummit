@@ -98,7 +98,7 @@ const Patrocinar = () => {
                     className="text-center mb-16"
                 >
                     <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
-                        Seja parte do maior evento de marketing do Brasil
+                        Seja parte do maior evento empresarial do Centro-Oeste
                     </span>
                     <h2 className="text-4xl md:text-5xl font-bold mb-8">
                         Potencialize seu{' '}

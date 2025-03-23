@@ -9,13 +9,16 @@ import paulomuzyImage from '../assets/paulomuzy.jpg';
 import apolinarioImage from '../assets/apolinario.jpeg';
 import felipetitoImage from '../assets/felipetito.jpg';
 import crisImage from '../assets/palestrantes/cris.jpeg';
+import palcoImage from '../assets/palco.jpg';
+import up2024Image from '../assets/up2024.jpg';
+import up2023Image from '../assets/imagem16.png';
 
 const editions = [
   {
     year: 2025,
-    title: "UP Summit 2025: A Revolução do Marketing",
-    description: "Prepare-se para a maior edição já realizada do UP Summit. Uma experiência imersiva que vai redefinir os padrões do marketing digital e transformar a maneira como pensamos sobre negócios.",
-    coverImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
+    title: "UP Summit 2025: Escalando Negócios",
+    description: "Prepare-se para a maior edição já realizada do UP Summit. Uma experiência imersiva focada em estratégias comprovadas de crescimento, inovação em escala e transformação digital. Descubra como escalar seu negócio de forma sustentável com os maiores especialistas do mercado.",
+    coverImage: palcoImage,
     location: "São Paulo - SP",
     dates: "4, 5 e 6 de Abril",
     comingSoon: true
@@ -29,7 +32,7 @@ const editions = [
       speakers: "60",
       partners: "45"
     },
-    coverImage: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80",
+    coverImage: up2024Image,
     videoUrl: "https://www.youtube.com/watch?v=tnhu3K0OMYU",
     highlights: [
       {
@@ -60,7 +63,7 @@ const editions = [
       speakers: "50",
       partners: "35"
     },
-    coverImage: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80",
+    coverImage: up2023Image,
     videoUrl: "https://www.youtube.com/watch?v=RFR0VdMor0k",
     highlights: [
       {
