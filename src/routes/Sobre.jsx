@@ -60,24 +60,24 @@ const faqs = [
 
 const testimonials = [
     {
-        name: "Bruno Cunha",
-        role: "CEO da Vox 2 You",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80",
-        quote: "O UP Summit superou todas as expectativas. O networking e as conexões que fizemos durante o evento foram fundamentais para o crescimento da nossa empresa.",
+        name: "Joel Jota",
+        role: "Mentor de Alta Performance",
+        image: "/src/assets/joeljota.jpeg",
+        quote: "Onde se reúne educação, estratégia, pessoas juntas em uma causa, coisas incríveis e maravilhosas acontecem!",
         rating: 5
     },
     {
-        name: "Elvira Leones",
-        role: "Diretora de Marketing da Hiper Solar",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80",
-        quote: "Participar do UP Summit foi um divisor de águas para nossa estratégia de marketing. O retorno sobre o investimento foi impressionante.",
+        name: "Rodson Witovicz",
+        role: "Analista Técnico SEBRAE",
+        image: "/src/assets/rodson.png",
+        quote: "O Up Summit já nasceu grande. Rico em programação, trazendo o que há de mais moderno, os melhores palestrantes e as principais temáticas em inovação, empreendedorismo, tendências e oportunidades.",
         rating: 5
     },
     {
-        name: "Waldemar Neto",
-        role: "Fundador da Wale Engenharia",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80",
-        quote: "A qualidade dos palestrantes e o nível das discussões são excepcionais. Cada edição traz insights valiosos que aplicamos diretamente em nosso negócio.",
+        name: "Bruno Cunha", 
+        role: "Sócio Proprietário VOXYOU",
+        image: "/src/assets/brunocunha.png",
+        quote: "Foi sensacional para o crescimento da VOX2YOU. A participação em um evento como esse marca a história da nossa empresa.",
         rating: 5
     }
 ];

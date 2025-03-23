@@ -134,6 +134,7 @@ const Home = () => {
                                 <motion.button 
                                     whileHover={{ scale: 1.1 }}
                                     className="relative flex items-center justify-center w-20 h-20 group"
+                                    onClick={() => window.open('https://www.youtube.com/watch?v=tnhu3K0OMYU', '_blank')}
                                 >
                                     <div className="absolute inset-0 rounded-full border-2 border-white"></div>
                                     <svg 

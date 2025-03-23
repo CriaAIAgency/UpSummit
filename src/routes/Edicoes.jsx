@@ -56,7 +56,7 @@ const editions = [
   },
   {
     year: 2023,
-    title: "UP Summit 2023: Marketing do Futuro",
+    title: "UP Summit 2023: O Futuro Começa Agora",
     description: "Uma edição histórica que marcou a transformação do marketing tradicional para o marketing do futuro. Exploramos as tendências emergentes e as tecnologias que estão moldando o futuro do marketing digital.",
     stats: {
       attendees: "10.000",

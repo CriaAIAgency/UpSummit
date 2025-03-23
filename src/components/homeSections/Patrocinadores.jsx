@@ -92,10 +92,10 @@ const Patrocinadores = () => {
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-16">
                     <Link 
                         to="/patrocinar"
-                        className="group flex h-14 items-center gap-2 rounded-full text-white bg-gradient-to-r from-purple-800 to-purple-950 pl-6 pr-8 transition-all duration-300 ease-in-out hover:pl-5 hover:text-white"
+                        className="group flex h-14 items-center gap-2 rounded-full text-white bg-gradient-to-r from-purple-800 to-purple-950 pl-6 pr-8 transition-all duration-300 ease-in-out hover:pl-5 hover:text-white hover:from-customPink hover:to-customPink2"
                     >
                         <span className="rounded-full bg-white p-1 text-sm transition-colors duration-300 group-hover:bg-white">
-                            <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-purple-800 group-active:-rotate-45" />
+                            <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-customPink group-active:-rotate-45" />
                         </span>
                         <span className="text-lg">Quero Patrocinar</span>
                     </Link>

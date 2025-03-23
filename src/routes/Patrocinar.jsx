@@ -100,7 +100,7 @@ const Patrocinar = () => {
                     <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                         Seja parte do maior evento empresarial do Centro-Oeste
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-8">
+                    <h2 className="text-4xl md:text-6xl font-bold mb-8">
                         Potencialize seu{' '}
                         <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
                             alcance

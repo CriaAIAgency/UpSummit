@@ -276,39 +276,45 @@ const upBlackBenefits = [
   'Kit exclusivo Up Black'
 ];
 
-// Adicione este array de depoimentos antes do componente Motivos
+// Atualize o array de depoimentos com os links dos vídeos
 const testimonials = [
   {
     name: 'Bruno Cunha',
     company: 'Vox 2 you',
-    image: '/path/to/bruno.jpg'
+    videoUrl: 'https://www.youtube.com/watch?v=Qc0V0Ewd0Wo'
   },
   {
     name: 'Elvira Leones',
     company: 'Hiper Estrutura Solar',
-    image: '/path/to/elvira.jpg'
+    videoUrl: 'https://www.youtube.com/watch?v=yLaPHzuH2ow'
   },
   {
     name: 'Waldemar Neto',
     company: 'Wale Engenharia',
-    image: '/path/to/waldemar.jpg'
+    videoUrl: 'https://www.youtube.com/watch?v=5bS1MieE3wY'
   },
   {
     name: 'Márcia Queiroz',
     company: 'Fast Escova',
-    image: '/path/to/marcia.jpg'
+    videoUrl: 'https://www.youtube.com/watch?v=-xSmcf--7UM'
   },
   {
     name: 'Flávio Lima',
     company: 'Primodialle',
-    image: '/path/to/flavio.jpg'
+    videoUrl: 'https://www.youtube.com/watch?v=7bQDOFcOUTA'
   },
   {
     name: 'Rodson Witovicz',
     company: 'SEBRAE',
-    image: '/path/to/rodson.jpg'
+    videoUrl: 'https://www.youtube.com/watch?v=c7dETIZ2Ff8'
   }
 ];
+
+const getYouTubeVideoId = (url) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+};
 
 const UpBlackModal = ({ isOpen, onClose }) => {
   return (
@@ -380,9 +386,54 @@ const UpBlackModal = ({ isOpen, onClose }) => {
   );
 };
 
+// Adicione este componente de Modal de Vídeo
+const VideoModal = ({ isOpen, onClose, videoUrl }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm p-4 md:p-8 z-50 flex items-center justify-center cursor-pointer overflow-hidden"
+        >
+          <div className="relative w-full max-w-[90%] md:max-w-[75%] lg:max-w-[65%] xl:max-w-[60%]">
+            {/* Botão de fechar fora do container do vídeo */}
+            <button
+              onClick={onClose}
+              className="absolute -top-12 right-0 bg-white/10 hover:bg-white/20 rounded-full p-2.5 transition-colors"
+            >
+              <X className="h-6 w-6 text-white" />
+            </button>
+
+            {/* Container do vídeo */}
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full aspect-video relative rounded-xl overflow-hidden"
+            >
+              <iframe
+                src={`https://www.youtube.com/embed/${getYouTubeVideoId(videoUrl)}?autoplay=1`}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </motion.div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
 const Motivos = () => {
     const [selectedTier, setSelectedTier] = useState(null);
     const [upBlackModalOpen, setUpBlackModalOpen] = useState(false);
+    const [selectedVideo, setSelectedVideo] = useState(null);
   
     const handlePrevious = () => {
       setSelectedTier((prev) =>
@@ -422,16 +473,21 @@ const Motivos = () => {
             className="text-center mb-16"
           >
             <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
-              Seja um patrocinador
+              Seja um patrocinador.
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8">
               Por que{' '}
               <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
                 patrocinar
               </span>
             </h2>
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-purple-800/30" />
+              <div className="w-2 h-2 rounded-full bg-purple-800" />
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-purple-800/30" />
+            </div>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Descubra os benefícios exclusivos de fazer parte do UP Summit
+              Descubra os benefícios exclusivos de fazer parte do UP Summit.
             </p>
           </motion.div>
 
@@ -514,7 +570,7 @@ const Motivos = () => {
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto mt-6">
-              Escolha o plano ideal para sua empresa
+              Escolha o plano ideal para sua empresa.
             </p>
           </motion.div>
 
@@ -596,7 +652,7 @@ const Motivos = () => {
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Confira os depoimentos de quem já faz parte desta história
+              Confira os depoimentos de quem já faz parte desta história.
             </p>
           </motion.div>
 
@@ -605,11 +661,12 @@ const Motivos = () => {
               <div
                 key={testimonial.name}
                 className="relative group cursor-pointer"
+                onClick={() => setSelectedVideo(testimonial.videoUrl)}
               >
-                {/* Thumbnail */}
+                {/* Thumbnail do YouTube */}
                 <div className="relative aspect-video overflow-hidden rounded-xl">
                   <img
-                    src={testimonial.image}
+                    src={`https://img.youtube.com/vi/${getYouTubeVideoId(testimonial.videoUrl)}/maxresdefault.jpg`}
                     alt={testimonial.name}
                     className="w-full h-full object-cover"
                   />
@@ -668,7 +725,7 @@ const Motivos = () => {
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Empresas que confiam e investem no UP Summit
+              Empresas que confiam e investem no UP Summit.
             </p>
           </motion.div>
 
@@ -687,6 +744,13 @@ const Motivos = () => {
       <UpBlackModal 
         isOpen={upBlackModalOpen} 
         onClose={() => setUpBlackModalOpen(false)} 
+      />
+
+      {/* Adicione o Modal de Vídeo */}
+      <VideoModal
+        isOpen={!!selectedVideo}
+        onClose={() => setSelectedVideo(null)}
+        videoUrl={selectedVideo || ''}
       />
     </section>
   );

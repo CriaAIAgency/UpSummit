@@ -61,7 +61,7 @@ const Midia = () => {
                     <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                         Seja um parceiro de mídia
                     </span>
-                    <h1 className="text-4xl md:text-5xl font-bold mb-8">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-8">
                         Amplifique o{' '}
                         <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
                             impacto
@@ -96,49 +96,6 @@ const Midia = () => {
                     ))}
                 </div>
 
-                {/* Media Types Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    className="mb-20"
-                >
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold mb-4">
-                            Para quem é{' '}
-                            <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
-                                destinado
-                            </span>
-                        </h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">
-                            Buscamos parcerias com veículos e profissionais de mídia comprometidos 
-                            com conteúdo de qualidade
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {mediaTypes.map((type, index) => (
-                            <motion.div
-                                key={type.title}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ 
-                                    duration: 0.6,
-                                    delay: 0.6 + (index * 0.1),
-                                    ease: "easeOut"
-                                }}
-                                className="bg-[#1F1F1F] p-6 rounded-xl text-white group hover:bg-gradient-to-br from-customPink to-customPink2 transition-all duration-300"
-                            >
-                                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-white/20">
-                                    <type.icon className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-lg font-semibold mb-2">{type.title}</h3>
-                                <p className="text-white/80 text-sm">{type.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-
                 {/* Press Kit Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -155,13 +112,13 @@ const Midia = () => {
                             Acesse nosso material completo para imprensa, incluindo logos, 
                             fotos em alta resolução e release oficial do evento.
                         </p>
-                        <button className="group relative flex items-center gap-2 bg-white mx-auto px-6 py-3 rounded-full text-customPink overflow-hidden transition-all duration-300">
-                            <span className="relative z-10 text-base">Download Press Kit</span>
-                            <span className="relative z-10 rounded-full bg-customPink/10 p-1 transition-transform duration-300 group-hover:translate-x-1">
-                                <Download className="w-5 h-5" />
-                            </span>
-                            <div className="absolute inset-0 bg-customPink/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
-                        </button>
+                        <Link to="/contato">
+                            <button className="group relative flex items-center gap-2 bg-white mx-auto px-6 py-3 rounded-full text-customPink overflow-hidden transition-all duration-300">
+                                <span className="relative z-10 text-base">Download Press Kit</span>
+                                <Download className="relative z-10 w-5 h-5" />
+                                <div className="absolute inset-0 bg-customPink/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+                            </button>
+                        </Link>
                     </div>
                 </motion.div>
 
