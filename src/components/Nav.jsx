@@ -468,7 +468,7 @@ const MobileMenu = ({ menuOpen, setMenuOpen, isPurplePage }) => {
                 </MobileMenuLink>
               ))}
             </div>
-            <div className="flex justify-end bg-neutral-950 p-6 h-[200px]">
+            <div className="flex justify-end bg-neutral-950 p-6 h-[220px]">
               <div className="w-full flex items-start justify-end">
                 <CTAs isPurplePage={isPurplePage} />
               </div>
