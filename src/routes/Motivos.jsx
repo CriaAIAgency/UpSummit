@@ -4,6 +4,10 @@ import { Crown, Star, Diamond, ArrowRight, CheckCircle2, ChevronLeft, ChevronRig
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import LogoHero from '../components/homeSections/LogoHero';
+import upblackImage from '../assets/upblack.jpg';
+import ouroImage from '../assets/ouro.jpg';
+import platinaImage from '../assets/platina.jpg';
+import diamanteImage from '../assets/diamante.jpg';
 
 const benefits = [
   {
@@ -37,23 +41,7 @@ const benefits = [
     title: 'Experiência Premium',
     highlight: 'UP BLACK: acesso exclusivo a todas as áreas VIP e benefícios especiais',
     description: ', incluindo networking com palestrantes.',
-    color: 'from-purple-800',
-    isUpBlack: true,
-    upBlackBenefits: [
-      'Acesso à todas as palestras',
-      'Acesso à feira de negócios',
-      'Acesso à área de networking',
-      'Acesso à praça de alimentação',
-      'Acesso à área VIP relaxation space',
-      'Acesso à área de fotos com palestrantes',
-      'Assento reservado na área black',
-      'Certificado online de participação do evento',
-      'Coffee Break exclusivo',
-      'Estacionamento gratuito',
-      'Credenciamento antecipado e fila preferencial',
-      'Coquetel de networking exclusivo com palestrantes e área premium',
-      'Kit exclusivo Up Black'
-    ]
+    color: 'from-purple-800'
   }
 ];
 
@@ -63,6 +51,7 @@ const sponsorshipTiers = [
     icon: Crown,
     color: 'text-yellow-500',
     bgGradient: 'from-yellow-500/20 to-transparent',
+    bgUrl: ouroImage,
     benefits: [
       'Espaço para estande de 3x3 metros',
       'Exibição de anúncio de 15" segundos nos telões da feira de negócios',
@@ -70,7 +59,7 @@ const sponsorshipTiers = [
       'Logotipo exposto na aba de expositores do site oficial',
       'Liberação de 5 staffs no stand',
       '6 ingressos executives',
-      '2 ingressos black'
+      '2 ingressos UP BLACK - Experiência premium com acesso VIP'
     ]
   },
   {
@@ -78,6 +67,7 @@ const sponsorshipTiers = [
     icon: Star,
     color: 'text-gray-400',
     bgGradient: 'from-gray-400/20 to-transparent',
+    bgUrl: platinaImage,
     benefits: [
       'Espaço para estande de 5x3 metros',
       'Exibição de anúncio de 20" segundos nos telões da feira de negócios',
@@ -89,7 +79,7 @@ const sponsorshipTiers = [
       'Inclusão de brindes no Welcome Kit dos participantes do evento (produção dos brindes por conta do patrocinador)',
       'Liberação de 6 staffs no stand',
       '12 ingressos executivos',
-      '02 ingressos black'
+      '2 ingressos UP BLACK - Experiência premium com acesso VIP'
     ]
   },
   {
@@ -97,6 +87,7 @@ const sponsorshipTiers = [
     icon: Diamond,
     color: 'text-blue-400',
     bgGradient: 'from-blue-400/20 to-transparent',
+    bgUrl: diamanteImage,
     benefits: [
       'Espaço para estande de 10x4 metros',
       'Exibição de anúncio de 60" segundos nos telões da feira de negócios',
@@ -111,7 +102,7 @@ const sponsorshipTiers = [
       'Inclusão de brindes no Welcome Kit dos participantes do evento (produção dos brindes por conta do patrocinador)',
       'Liberação de 8 staffs no stand',
       '30 ingressos executivos',
-      '04 ingressos black'
+      '4 ingressos UP BLACK - Experiência premium com acesso VIP'
     ]
   }
 ];
@@ -169,18 +160,17 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
 
           {/* Modal Content */}
           <motion.div
-            initial={{ scale: 0, rotate: "12.5deg" }}
-            animate={{ scale: 1, rotate: "0deg" }}
-            exit={{ scale: 0, rotate: "0deg" }}
+            initial={{ scale: 0.95 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.95 }}
             onClick={(e) => e.stopPropagation()}
             className="bg-[#11111A] text-white rounded-2xl w-full max-w-2xl shadow-xl cursor-default relative overflow-hidden max-h-[90vh] flex flex-col"
           >
-            {/* Background Icon */}
-            <tier.icon className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
+            {/* Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-transparent pointer-events-none" />
             
-            {/* Header Section - Fixed */}
-            <div className="relative z-10 p-8 pb-4">
-              {/* Close Button */}
+            {/* Header Section */}
+            <div className="relative z-10 p-8 pb-4 border-b border-white/10">
               <button
                 onClick={onClose}
                 className="absolute right-4 top-4 bg-white/10 rounded-full p-2 hover:bg-white/20 transition-colors"
@@ -188,32 +178,31 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
                 <X className="h-4 w-4" />
               </button>
 
-              <div className="w-16 h-16 mb-6 rounded-full text-3xl grid place-items-center mx-auto">
-                <tier.icon className={`w-8 h-8 ${tier.color}`} />
+              <div className="text-center">
+                <span className="text-sm font-medium text-purple-400 uppercase tracking-wider">Cota</span>
+                <h3 className="text-3xl font-bold mt-2 bg-gradient-to-r from-white to-white/90 bg-clip-text">
+                  {tier.name}
+                </h3>
               </div>
-              
-              <h3 className="text-3xl font-bold text-center mb-4">
-                {tier.name}
-              </h3>
             </div>
 
             {/* Scrollable Content */}
-            <div className="flex-1 overflow-y-auto p-8 pt-0 relative z-10 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-              <div className="space-y-4 mb-8">
+            <div className="flex-1 overflow-y-auto p-8 pt-6 relative z-10 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+              <div className="space-y-4">
                 {tier.benefits.map((benefit, index) => (
                   <div 
                     key={index} 
                     className="flex items-start gap-3 bg-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-white flex-shrink-0 mt-1" />
+                    <CheckCircle2 className="w-5 h-5 text-purple-400 flex-shrink-0 mt-1" />
                     <span className="text-white/90">{benefit}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Footer Section - Fixed */}
-            <div className="relative z-10 p-8 pt-4 border-t border-white/10">
+            {/* Footer Section */}
+            <div className="relative z-10 p-8 pt-4 border-t border-white/10 bg-black/20">
               <div className="flex gap-3">
                 <button
                   onClick={onClose}
@@ -227,7 +216,7 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
                 >
                   <button
                     onClick={onClose}
-                    className="group relative w-full bg-gradient-to-r from-purple-800 to-purple-950 hover:from-customPink hover:to-customPink2 text-white font-semibold py-4 rounded-xl overflow-hidden transition-all duration-300 flex items-center justify-center gap-2"
+                    className="group relative w-full bg-gradient-to-r from-purple-800 to-purple-950 text-white font-semibold py-4 rounded-xl overflow-hidden transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     <span className="relative z-10 text-lg">Adquirir agora</span>
                     <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
@@ -245,48 +234,24 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
   );
 }
 
-const BenefitCard = ({ title, highlight, description, isUpBlack, onClick }) => {
+const BenefitCard = ({ title, highlight, description }) => {
   return (
-    <div 
-      className={`group relative h-[200px] ${isUpBlack ? 'cursor-pointer' : ''}`}
-      onClick={isUpBlack ? onClick : undefined}
-    >
-      <div className={`absolute inset-0 bg-gradient-to-r ${
-        isUpBlack 
-          ? 'from-purple-800 to-purple-950 group-hover:from-[#11111A] group-hover:to-[#11111A]' 
-          : 'from-purple-800 to-purple-950'
-      } rounded-2xl transform transition-all duration-300 group-hover:scale-[1.02]`} />
+    <div className="group relative h-[200px]">
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-800 to-purple-950 rounded-2xl transform transition-all duration-300 group-hover:scale-[1.02]" />
       
-      <div className={`relative bg-white m-[2px] p-6 rounded-2xl h-full transition-all duration-300 ${
-        isUpBlack ? 'group-hover:bg-[#11111A]' : ''
-      }`}>
+      <div className="relative bg-white m-[2px] p-6 rounded-2xl h-full">
         <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-500/5 to-purple-900/5 rounded-full blur-xl transform translate-x-1/2 -translate-y-1/2" />
         
         <div className="flex items-start gap-4 h-full">
-          <CheckCircle2 className={`w-6 h-6 text-purple-800 transition-colors duration-300 ${
-            isUpBlack ? 'group-hover:text-purple-500' : ''
-          } flex-shrink-0 mt-1`} />
+          <CheckCircle2 className="w-6 h-6 text-purple-800 flex-shrink-0 mt-1" />
           <div className="flex flex-col justify-between h-full">
-            <p className={`text-gray-900 transition-colors duration-300 ${
-              isUpBlack ? 'group-hover:text-white' : ''
-            }`}>
+            <p className="text-gray-900">
               <span className="font-medium">{title} </span>
-              <span className={`text-purple-800 font-semibold transition-colors duration-300 ${
-                isUpBlack ? 'group-hover:text-purple-400' : ''
-              }`}>{highlight}</span>
+              <span className="text-purple-800 font-semibold">{highlight}</span>
               {description && (
-                <span className={`text-gray-900 transition-colors duration-300 ${
-                  isUpBlack ? 'group-hover:text-white/80' : ''
-                }`}>{description}</span>
+                <span className="text-gray-900">{description}</span>
               )}
             </p>
-            
-            {isUpBlack && (
-              <div className="flex items-center gap-2 text-sm text-purple-800 mt-4 transition-colors duration-300 group-hover:text-purple-400">
-                <span>Ver detalhes</span>
-                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -294,69 +259,22 @@ const BenefitCard = ({ title, highlight, description, isUpBlack, onClick }) => {
   );
 };
 
-const UpBlackModal = ({ isOpen, onClose }) => {
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="fixed inset-0 bg-slate-900/20 backdrop-blur p-4 md:p-8 z-50 flex items-center justify-center cursor-pointer overflow-hidden"
-        >
-          <motion.div
-            initial={{ scale: 0, rotate: "12.5deg" }}
-            animate={{ scale: 1, rotate: "0deg" }}
-            exit={{ scale: 0, rotate: "0deg" }}
-            onClick={(e) => e.stopPropagation()}
-            className="bg-[#11111A] text-white rounded-2xl w-full max-w-2xl shadow-xl cursor-default relative overflow-hidden max-h-[90vh] flex flex-col"
-          >
-            {/* Header */}
-            <div className="relative z-10 p-8 pb-4">
-              <button
-                onClick={onClose}
-                className="absolute right-4 top-4 bg-white/10 rounded-full p-2 hover:bg-white/20 transition-colors"
-              >
-                <X className="h-4 w-4" />
-              </button>
-
-              <h3 className="text-3xl font-bold text-center mb-4 bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
-                UP BLACK
-              </h3>
-              <p className="text-center text-white/80">Exclusivo para patrocinadores</p>
-            </div>
-
-            {/* Scrollable Content */}
-            <div className="flex-1 overflow-y-auto p-8 pt-0 relative z-10 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-              <div className="space-y-4 mb-8">
-                {benefits[benefits.length - 1].upBlackBenefits.map((benefit, index) => (
-                  <div 
-                    key={index} 
-                    className="flex items-start gap-3 bg-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors"
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-purple-500 flex-shrink-0 mt-1" />
-                    <span className="text-white/90">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Footer */}
-            <div className="relative z-10 p-8 pt-4 border-t border-white/10">
-              <button
-                onClick={onClose}
-                className="bg-gradient-to-r from-purple-800 to-purple-950 hover:from-purple-700 hover:to-purple-900 transition-all text-white font-semibold w-full py-3 rounded-xl"
-              >
-                Fechar
-              </button>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
+// Adicione esta constante com os benefícios do UP BLACK
+const upBlackBenefits = [
+  'Acesso à todas as palestras',
+  'Acesso à feira de negócios',
+  'Acesso à área de networking',
+  'Acesso à praça de alimentação',
+  'Acesso à área VIP relaxation space',
+  'Acesso à área de fotos com palestrantes',
+  'Assento reservado na área black',
+  'Certificado online de participação do evento',
+  'Coffee Break exclusivo',
+  'Estacionamento gratuito',
+  'Credenciamento antecipado e fila preferencial',
+  'Coquetel de networking exclusivo com palestrantes e área premium',
+  'Kit exclusivo Up Black'
+];
 
 // Adicione este array de depoimentos antes do componente Motivos
 const testimonials = [
@@ -391,6 +309,76 @@ const testimonials = [
     image: '/path/to/rodson.jpg'
   }
 ];
+
+const UpBlackModal = ({ isOpen, onClose }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="fixed inset-0 bg-slate-900/20 backdrop-blur p-4 md:p-8 z-50 flex items-center justify-center cursor-pointer overflow-hidden"
+        >
+          <motion.div
+            initial={{ scale: 0.95 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.95 }}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-[#11111A] text-white rounded-2xl w-full max-w-2xl shadow-xl cursor-default relative overflow-hidden max-h-[90vh] flex flex-col"
+          >
+            {/* Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-transparent pointer-events-none" />
+            
+            {/* Header */}
+            <div className="relative z-10 p-8 pb-4 border-b border-white/10">
+              <button
+                onClick={onClose}
+                className="absolute right-4 top-4 bg-white/10 rounded-full p-2 hover:bg-white/20 transition-colors"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              <div className="text-center">
+                <span className="text-sm font-medium text-purple-400 uppercase tracking-wider">Experiência Premium</span>
+                <h3 className="text-3xl font-bold mt-2 bg-gradient-to-r from-white to-white/90 bg-clip-text">
+                  UP BLACK
+                </h3>
+                <p className="text-white/60 mt-2 text-sm">Benefício exclusivo para patrocinadores</p>
+              </div>
+            </div>
+
+            {/* Scrollable Content */}
+            <div className="flex-1 overflow-y-auto p-8 pt-6 relative z-10 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+              <div className="space-y-4">
+                {upBlackBenefits.map((benefit, index) => (
+                  <div 
+                    key={index} 
+                    className="flex items-start gap-3 bg-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors"
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-purple-400 flex-shrink-0 mt-1" />
+                    <span className="text-white/90">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="relative z-10 p-8 pt-4 border-t border-white/10 bg-black/20">
+              <button
+                onClick={onClose}
+                className="bg-gradient-to-r from-purple-800 to-purple-950 hover:from-purple-700 hover:to-purple-900 transition-all text-white font-semibold w-full py-3 rounded-xl"
+              >
+                Fechar
+              </button>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
 const Motivos = () => {
     const [selectedTier, setSelectedTier] = useState(null);
@@ -450,24 +438,21 @@ const Motivos = () => {
           {/* Benefits Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mb-16">
             {benefits.map((benefit, index) => (
-                <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                        duration: 0.6,
-                        delay: 0.2 + (index * 0.1),
-                        ease: "easeOut"
-                    }}
-                    className={`w-full max-w-md ${
-                        index >= benefits.length - 2 ? 'lg:col-span-1.5 lg:mx-auto' : ''
-                    }`}
-                >
-                    <BenefitCard 
-                        {...benefit} 
-                        onClick={benefit.isUpBlack ? () => setUpBlackModalOpen(true) : undefined}
-                    />
-                </motion.div>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.6,
+                  delay: 0.2 + (index * 0.1),
+                  ease: "easeOut"
+                }}
+                className={`w-full max-w-md ${
+                  index >= benefits.length - 2 ? 'lg:col-span-1.5 lg:mx-auto' : ''
+                }`}
+              >
+                <BenefitCard {...benefit} />
+              </motion.div>
             ))}
           </div>
 
@@ -484,10 +469,18 @@ const Motivos = () => {
           </div>
         </div>
 
-        {/* Separador centralizado */}
-        <div className="relative py-16">
-          <div className="w-full h-[3px] bg-gradient-to-r from-transparent via-purple-300 to-transparent" />
-          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-4 border-purple-200 top-1/2" />
+        {/* Separador com linha animada - mesmo estilo da Home.jsx */}
+        <div className="relative">
+            {/* Decorative Lines */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] overflow-hidden">
+                <motion.div 
+                    initial={{ opacity: 0, width: 0 }}
+                    whileInView={{ opacity: 1, width: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, delay: 0.5 }}
+                    className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-800 via-purple-800 to-purple-950"
+                ></motion.div>
+            </div>
         </div>
 
         {/* Segunda Seção - Cotas */}
@@ -525,12 +518,14 @@ const Motivos = () => {
             </p>
           </motion.div>
 
+          {/* Cards de Cotas + UP BLACK */}
           <div className="relative overflow-hidden bg-neutral-50 p-8 rounded-3xl">
-            <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-8 sm:flex-row">
+            <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-8 sm:flex-row">
+              {/* Cotas normais */}
               {sponsorshipTiers.map((tier, index) => (
                 <div
                   key={tier.name}
-                  className="w-full sm:w-1/3"
+                  className="w-full sm:w-1/4"
                 >
                   <Card
                     title={tier.name}
@@ -539,6 +534,39 @@ const Motivos = () => {
                   />
                 </div>
               ))}
+              
+              {/* Card UP BLACK */}
+              <div className="w-full sm:w-1/4">
+                <button
+                  onClick={() => setUpBlackModalOpen(true)}
+                  className="relative flex aspect-square w-full flex-col justify-end overflow-hidden rounded-lg bg-[#11111A] shadow-xl shadow-neutral-900/30 group"
+                >
+                  {/* Imagem de fundo com overlay gradiente */}
+                  <div 
+                    style={{
+                      backgroundImage: `url(${upblackImage})`,
+                      backgroundPosition: "center",
+                      backgroundSize: "cover"
+                    }}
+                    className="absolute inset-0 transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" />
+                  
+                  {/* Badge "Benefício" */}
+                  <div className="absolute top-4 right-4 px-3 py-1 bg-purple-800/80 rounded-full backdrop-blur-sm">
+                    <span className="text-xs font-semibold text-white">Incluso em todas as cotas</span>
+                  </div>
+                  
+                  {/* Conteúdo */}
+                  <div className="pointer-events-none relative flex flex-col items-start p-6 pt-8">
+                    <span className="text-purple-400 text-sm font-medium mb-1">Experiência premium</span>
+                    <div className="flex items-center justify-between w-full">
+                      <h3 className="text-xl font-medium text-white">UP BLACK</h3>
+                      <ArrowRight className="text-white" />
+                    </div>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -630,12 +658,12 @@ const Motivos = () => {
             }}
             className="text-center mb-16"
           >
-            <span className="text-sm tracking-[0.3em] text-purple-800 uppercase mb-4 block">
+            <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
               Nossos patrocinadores
             </span>
-            <h2 className="text-4xl md:text-5xl mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Quem já{' '}
-              <span className="font-bold bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
                 faz parte
               </span>
             </h2>

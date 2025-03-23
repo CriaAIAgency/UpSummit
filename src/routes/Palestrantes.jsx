@@ -255,9 +255,11 @@ const Palestrantes = () => {
                                     <h4 className="text-lg font-semibold text-white mb-1">{speaker.name}</h4>
                                     <p className="text-customPink text-sm mb-2">{speaker.role}</p>
                                     <p className="text-white/80 text-sm mb-4 line-clamp-2">{speaker.description}</p>
-                                    <span className="inline-block bg-customPink/10 text-customPink px-3 py-1 rounded-full text-xs mb-4">
-                                        {speaker.topic}
-                                    </span>
+                                    <div className="flex-1">
+                                        <span className="inline bg-customPink/10 text-customPink px-3 py-1 rounded-full text-xs">
+                                            {speaker.topic}
+                                        </span>
+                                    </div>
                                 </div>
                                 <div className="flex gap-3 mt-auto pt-4">
                                     <a
@@ -295,10 +297,13 @@ const Palestrantes = () => {
                     }}
                     className="flex justify-center mt-16"
                 >
-                    <button className="group relative flex items-center gap-2 bg-gradient-to-r from-customPink to-customPink2 px-6 py-3 rounded-full text-white overflow-hidden transition-all duration-300">
-                        <span className="relative z-10 text-base">Garanta sua vaga</span>
-                        <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
-                            <ArrowRight className="w-5 h-5" />
+                    <button 
+                        onClick={() => window.open('https://upsummit.com.br/', '_blank')}
+                        className="group relative flex items-center gap-2 bg-gradient-to-r from-customPink to-customPink2 px-8 py-4 rounded-full text-white overflow-hidden transition-all duration-300"
+                    >
+                        <span className="relative z-10 text-lg">Garantir meu ingresso</span>
+                        <span className="relative z-10 rounded-full bg-white/20 p-1.5 transition-transform duration-300 group-hover:translate-x-1">
+                            <ArrowRight className="w-6 h-6" />
                         </span>
                         <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
                     </button>

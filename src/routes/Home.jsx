@@ -8,6 +8,7 @@ import Historia from '../components/homeSections/Historia';
 import Features from '../components/homeSections/Features';
 import Patrocinadores from '../components/homeSections/Patrocinadores';
 import { useNavigate } from 'react-router-dom';
+import capa2 from '../assets/capa.png';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -32,18 +33,13 @@ const Home = () => {
     return (
         <>
             <section className="relative h-screen">
-                {/* Background Video */}
+                {/* Background Image */}
                 <div className="absolute inset-0 bg-black/50">
-                    <video
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    poster="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80"
-                    >
-                    <source src="/background-video.mp4" type="video/mp4" />
-                    </video>
+                    <img
+                        src={capa2}
+                        alt="Background"
+                        className="w-full h-full object-cover"
+                    />
                 </div>
 
                 {/* Decorative Lines */}
@@ -114,6 +110,7 @@ const Home = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: 0.4 }}
                                     className="group relative flex items-center gap-3 bg-gradient-to-r from-customPink to-customPink2 px-6 sm:px-8 py-3.5 rounded-full text-white overflow-hidden transition-all duration-300 text-base sm:text-lg font-medium"
+                                    onClick={() => window.open('https://upsummit.com.br/', '_blank')}
                                 >
                                     <span className="relative z-10">Garanta seu ingresso</span>
                                     <span className="relative z-10 rounded-full bg-white/20 p-1.5 transition-transform duration-300 group-hover:translate-x-1 flex items-center">
@@ -213,8 +210,20 @@ const Home = () => {
             <Historia />
             <Features />
 
+
             {/* Nova seção de Dúvidas */}
-            <section className="bg-[#11111A] py-20">
+            <section className="bg-[#11111A] py-20 relative">
+                {/* Decorative Lines - Ajustada a posição */}
+                <div className="absolute top-0 left-0 right-0 h-[4px] overflow-hidden">
+                    <motion.div 
+                        initial={{ opacity: 0, width: 0 }}
+                        whileInView={{ opacity: 1, width: "100%" }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, delay: 0.5 }}
+                        className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-customPink via-purple-800 to-purple-800"
+                    ></motion.div>
+                </div>
+
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center max-w-3xl mx-auto">
                         <span className="text-purple-800 text-sm font-semibold uppercase tracking-wider">

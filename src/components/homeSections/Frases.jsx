@@ -68,7 +68,7 @@ const Frases = () => {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="text-5xl md:text-6xl font-bold mt-4 mb-4 flex flex-col gap-4 me-10"
                     >
-                        <span className="text-customPink">Quem já passou pelo</span>
+                        <span className="text-customPink">No palco do </span>
                         <span className="text-transparent italic [-webkit-text-stroke:2px_#E5005D] font-bold">
                             UP SUMMIT
                         </span>
@@ -79,8 +79,8 @@ const Frases = () => {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="text-gray-600 text-lg max-w-3xl"
                     >
-                        Os maiores nomes do mercado compartilharam segredos de liderança,
-                        desenvolvimento pessoal com muitas histórias reais, lições valiosas e insights.
+                        Reunimos os maiores especialistas do mercado para compartilhar conhecimento,
+                        experiências e insights que irão transformar sua visão sobre marketing e negócios.
                     </motion.p>
                 </motion.div>
 
@@ -117,9 +117,11 @@ const Frases = () => {
                                 <h4 className="text-lg font-semibold text-white mb-1">{speaker.name}</h4>
                                 <p className="text-customPink text-sm mb-2">{speaker.role}</p>
                                 <p className="text-white/80 text-sm mb-4 line-clamp-2">{speaker.description}</p>
-                                <span className="inline-block bg-customPink/10 text-customPink px-3 py-1 rounded-full text-xs mb-4">
-                                    {speaker.topic}
-                                </span>
+                                <div className="flex-1">
+                                    <span className="inline bg-customPink/10 text-customPink px-3 py-1 rounded-full text-xs">
+                                        {speaker.topic}
+                                    </span>
+                                </div>
                             </div>
                             <div className="flex gap-3 mt-auto pt-4">
                                 <a

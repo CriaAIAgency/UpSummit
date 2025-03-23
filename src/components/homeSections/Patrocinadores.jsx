@@ -52,18 +52,6 @@ const Patrocinadores = () => {
 
     return (
         <section className="relative bg-white py-20">
-            {/* Decorative Lines */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div 
-                    initial={{ opacity: 0, width: 0 }}
-                    whileInView={{ opacity: 1, width: "100%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5, delay: 0.5 }}
-                    className="absolute top-0 left-0 h-[4px] bg-gradient-to-r from-customPink
-                    via-purple-800  to-purple-800"
-                ></motion.div>
-            </div>
-
             <div className="max-w-7xl mx-auto px-6">
                 <div className="mb-20 text-center">
                     <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">

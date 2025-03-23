@@ -202,7 +202,7 @@ const Sobre = () => {
                             <p className="text-gray-600 leading-relaxed">
                                 Com um modelo único que combina conteúdo de alta qualidade, networking estratégico 
                                 e experiências imersivas, nos consolidamos como o principal evento de marketing e 
-                                negócios do Brasil.
+                                negócios do Centro-Oeste.
                             </p>
                         </motion.div>
                         <motion.div
@@ -372,8 +372,8 @@ const Sobre = () => {
                 </div>
             </section>
 
-            {/* FAQ Section - Moved outside main section */}
-            <section className="w-full bg-[#11111A] relative">
+            {/* FAQ Section */}
+            <section className="w-full bg-[#11111A]">
                 {/* Decorative Lines */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <motion.div 
@@ -421,42 +421,40 @@ const Sobre = () => {
                 </motion.div>
             </section>
 
-            <section className="relative bg-white py-32">
+            {/* CTA Section */}
+            <div className="bg-[#11111A] pb-32">
                 <div className="max-w-7xl mx-auto px-6">
-                    {/* Divisória antes do CTA */}
-                    <div className="w-full max-w-2xl mx-auto mb-20 flex items-center gap-4">
-                        <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-gray-200" />
-                        <div className="w-2 h-2 rounded-full bg-customPink" />
-                        <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-gray-200" />
-                    </div>
-
-                    {/* CTA Section - Updated */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.6 }}
-                        className="text-center relative overflow-hidden rounded-3xl bg-gradient-to-br from-customPink to-customPink2 p-12"
+                        className="text-center relative overflow-hidden rounded-3xl bg-[#11111A] p-12"
                     >
                         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+                        
                         <h2 className="text-3xl font-bold text-white mb-6 relative">
-                            Faça parte dessa história
+                            Faça parte dessa{' '}
+                            <span className="bg-gradient-to-r from-purple-800 to-purple-950 bg-clip-text text-transparent">
+                                história
+                            </span>
                         </h2>
                         <p className="text-white/90 mb-8 max-w-2xl mx-auto relative">
                             Junte-se a milhares de profissionais e empresas que já transformaram 
                             seus negócios através do UP Summit.
                         </p>
-                        <Link to="/ingressos" className="inline-flex justify-center">
-                            <button className="group relative flex items-center gap-2 bg-white px-6 py-3 rounded-full text-customPink overflow-hidden transition-all duration-300">
-                                <span className="relative z-10 text-base">Garantir meu ingresso</span>
-                                <span className="relative z-10 rounded-full bg-customPink/10 p-1 transition-transform duration-300 group-hover:translate-x-1">
-                                    <ArrowRight className="w-5 h-5" />
-                                </span>
-                                <div className="absolute inset-0 bg-customPink/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
-                            </button>
-                        </Link>
+                        <button 
+                            onClick={() => window.open('https://upsummit.com.br/', '_blank')}
+                            className="group relative flex items-center gap-2 bg-white px-6 py-3 rounded-full text-purple-800 overflow-hidden transition-all duration-300 hover:text-purple-900 mx-auto"
+                        >
+                            <span className="relative z-10 text-base">Garantir meu ingresso</span>
+                            <span className="relative z-10 rounded-full bg-purple-100 p-1 transition-transform duration-300 group-hover:translate-x-1">
+                                <ArrowRight className="w-5 h-5" />
+                            </span>
+                            <div className="absolute inset-0 bg-purple-50 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+                        </button>
                     </motion.div>
-        </div>
-            </section>
+                </div>
+            </div>
         </>
     );
 }
