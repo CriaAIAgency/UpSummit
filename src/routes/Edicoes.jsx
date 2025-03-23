@@ -3,6 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Calendar, MapPin, ChevronDown, ChevronUp, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
+import joeljotaImage from '../assets/joeljota.jpeg';
+import caitoImage from '../assets/caito.jpg';
+import paulomuzyImage from '../assets/paulomuzy.jpg';
+import apolinarioImage from '../assets/apolinario.jpeg';
+import felipetitoImage from '../assets/felipetito.jpg';
+import crisImage from '../assets/palestrantes/cris.jpeg';
 
 const editions = [
   {
@@ -17,7 +23,7 @@ const editions = [
   {
     year: 2024,
     title: "UP Summit 2024: A Era da Inteligência Artificial",
-    description: "Uma jornada transformadora através das últimas inovações em IA e suas aplicações práticas no marketing digital. Reunimos os maiores especialistas para compartilhar insights sobre como a IA está revolucionando a maneira como fazemos marketing.",
+    description: "O Up Summit 2024 foi um divisor de águas para empreendedores que querem escalar seus negócios e dominar o mercado! Tivemos palestrantes de peso compartilhando estratégias valiosas, insights poderosos e experiências transformadoras.",
     stats: {
       attendees: "12.000",
       speakers: "60",
@@ -28,18 +34,18 @@ const editions = [
     highlights: [
       {
         title: "Joel Jota",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80",
-        role: "Keynote Speaker"
+        image: joeljotaImage,
+        role: "Mentor de Alta Performance"
       },
       {
-        title: "Maria Silva",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80",
-        role: "AI Specialist"
+        title: "Caito Maia",
+        image: caitoImage,
+        role: "CEO Chilli Beans"
       },
       {
-        title: "Pedro Santos",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80",
-        role: "Marketing Director"
+        title: "Paulo Muzy",
+        image: paulomuzyImage,
+        role: "Médico e Influencer Fitness"
       }
     ],
     location: "São Paulo - SP",
@@ -58,19 +64,19 @@ const editions = [
     videoUrl: "https://www.youtube.com/watch?v=RFR0VdMor0k",
     highlights: [
       {
-        title: "Ana Costa",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80",
-        role: "Digital Strategist"
+        title: "João Apolinário",
+        image: apolinarioImage,
+        role: "CEO da Polishop"
       },
       {
-        title: "Carlos Mendes",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80",
-        role: "Tech Leader"
+        title: "Cris Arcangeli",
+        image: crisImage,
+        role: "Empreendedora Serial"
       },
       {
-        title: "Julia Alves",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80",
-        role: "Marketing Expert"
+        title: "Felipe Tito",
+        image: felipetitoImage,
+        role: "Ator e empresário"
       }
     ],
     location: "Rio de Janeiro - RJ",
@@ -191,15 +197,16 @@ const Edicoes = () => {
                         <Clock className="w-4 h-4 text-purple-800" />
                         <span className="text-white font-medium text-sm md:text-base">Em breve</span>
                       </div>
-                      <Link to="/ingressos">
-                        <button className="group relative flex items-center gap-2 bg-gradient-to-r from-purple-800 to-purple-950 px-3 md:px-4 py-2 rounded-lg text-white overflow-hidden transition-all duration-300">
-                          <span className="relative z-10 text-sm md:text-base">Garantir Ingresso</span>
-                          <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
-                            <FiArrowRight className="w-4 h-4" />
-                          </span>
-                          <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
-                        </button>
-                      </Link>
+                      <button 
+                        onClick={() => window.open('https://upsummit.com.br/', '_blank')}
+                        className="group relative flex items-center gap-2 bg-gradient-to-r from-purple-800 to-purple-950 px-3 md:px-4 py-2 rounded-lg text-white overflow-hidden transition-all duration-300"
+                      >
+                        <span className="relative z-10 text-sm md:text-base">Garantir Ingresso</span>
+                        <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
+                          <FiArrowRight className="w-4 h-4" />
+                        </span>
+                        <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+                      </button>
                     </div>
                   ) : (
                     <div className="flex items-center gap-3 md:gap-4">

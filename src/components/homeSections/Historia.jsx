@@ -1,85 +1,90 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import imagem8 from '../../assets/imagem8.png';
+import imagem16 from '../../assets/imagem16.png';
+import imagem4 from '../../assets/imagem4.png';
 
 const Historia = () => {
-    return (
-        <section className="bg-[#11111A] py-20 text-white relative">
-            {/* Decorative Lines */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div 
-                    initial={{ opacity: 0, width: 0 }}
-                    whileInView={{ opacity: 1, width: "100%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5, delay: 0.5 }}
-                    className="absolute bottom-0 left-0 h-[4px] bg-gradient-to-r from-customPink
-                    via-purple-800 to-purple-800"
-                ></motion.div>
-            </div>
+    const images = [
+        {
+            src: imagem8,
+            alt: "Evento Up Summit",
+            className: "col-span-2 row-span-1"
+        },
+        {
+            src: imagem16,
+            alt: "Participantes do evento",
+            className: "col-span-1 row-span-1"
+        },
+        {
+            src: imagem4,
+            alt: "Networking no evento",
+            className: "col-span-1 row-span-1"
+        }
+    ];
 
+    return (
+        <section className="relative bg-white py-24">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <span className="text-customPink text-sm font-semibold uppercase tracking-wider">
-                            Sobre o Up Summit
-                        </span>
-                        <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-                            A melhor
-                            <br />
-                            <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
-                                experiência
-                            </span>
-                            <br />
-                            em marketing
-                        </h2>
-                        <div className="space-y-6 text-gray-300">
-                            <p>
-                                Um espaço onde cada conversa pode gerar uma nova oportunidade, cada palestra pode mudar sua perspectiva e cada conexão pode abrir portas para o sucesso.
-                            </p>
-                            <p>
-                                Com o propósito de transformar o cenário empresarial ao conectar líderes, empreendedores e profissionais em torno das mais recentes tendências de marketing, inovação e negócios o UP Summit já impactou milhares de profissionais e empresas, criando histórias de sucesso que inspiram gerações.
-                            </p>
-                            <p>
-                                Idealizado por uma empresa líder no segmento de capacitação, o evento se consolidou como uma plataforma única de aprendizado e networking, destacando-se por seu modelo híbrido, trilhas personalizadas e conteúdos exclusivos para públicos estratégicos.
-                            </p>
-                        </div>
-                        <Link 
-                            to="/sobre"
-                            className="inline-flex items-center gap-2 text-customPink font-semibold mt-8 hover:text-white transition-colors"
+                <div className="grid md:grid-cols-3 gap-8 items-center">
+                    {/* Texto */}
+                    <div className="md:col-span-1">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="space-y-6"
                         >
-                            Saiba mais sobre nós
-                            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                            <span className="text-customPink text-sm font-semibold uppercase tracking-wider">
+                                Nossa História
+                            </span>
+                            <h2 className="text-4xl font-bold text-gray-900">
+                                Transformando o{' '}
+                                <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
+                                    futuro
+                                </span>
+                                {' '}do marketing
+                            </h2>
+                            <p className="text-gray-600">
+                                O UP Summit nasceu com o propósito de transformar o cenário empresarial brasileiro, 
+                                conectando líderes, empreendedores e profissionais em torno das mais recentes 
+                                tendências de marketing, inovação e negócios.
+                            </p>
+                            <p className="text-gray-600">
+                                Com um modelo único que combina conteúdo de alta qualidade, networking estratégico 
+                                e experiências imersivas, nos consolidamos como o principal evento de marketing e 
+                                negócios do Centro-Oeste.
+                            </p>
+                        </motion.div>
                     </div>
 
-                    <div className="relative">
+                    {/* Grid de Imagens */}
+                    <div className="md:col-span-2">
                         <div className="grid grid-cols-2 gap-4">
-                            <div className="space-y-4">
-                                <img
-                                    src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80"
-                                    alt="Event moments"
-                                    className="rounded-lg w-full aspect-square object-cover"
-                                />
-                                <img
-                                    src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80"
-                                    alt="Event moments"
-                                    className="rounded-lg w-full aspect-video object-cover"
-                                />
-                            </div>
-                            <div className="pt-8">
-                                <img
-                                    src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80"
-                                    alt="Event moments"
-                                    className="rounded-lg w-full aspect-[4/5] object-cover"
-                                />
-                            </div>
+                            {images.map((image, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                                    className={`relative rounded-2xl overflow-hidden ${image.className}`}
+                                >
+                                    <img
+                                        src={image.src}
+                                        alt={image.alt}
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                                </motion.div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default Historia
+export default Historia;

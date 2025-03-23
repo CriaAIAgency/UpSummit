@@ -208,12 +208,10 @@ const Home = () => {
             <CountUpStats />
             <Frases />
             <Historia />
-            <Features />
 
-
-            {/* Nova seção de Dúvidas */}
+            {/* Nova seção de Dúvidas - Movida para antes de Features */}
             <section className="bg-[#11111A] py-20 relative">
-                {/* Decorative Lines - Ajustada a posição */}
+                {/* Decorative Lines */}
                 <div className="absolute top-0 left-0 right-0 h-[4px] overflow-hidden">
                     <motion.div 
                         initial={{ opacity: 0, width: 0 }}
@@ -255,6 +253,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            <Features />
 
             <section id="patrocinadores">
                 <Patrocinadores />
