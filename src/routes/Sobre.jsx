@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Users, Target, Award, TrendingUp, ChevronDown, Star, Quote, Lightbulb, Trophy, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import img1 from '../assets/capa2.png';
+import joelJotaImg from '../assets/joeljota.jpeg';
+import rodsonImg from '../assets/rodson.png';
+import brunoCunhaImg from '../assets/brunocunha.png';
 
 const stats = [
     {
@@ -62,21 +65,21 @@ const testimonials = [
     {
         name: "Joel Jota",
         role: "Mentor de Alta Performance",
-        image: "/src/assets/joeljota.jpeg",
+        image: joelJotaImg,
         quote: "Onde se reúne educação, estratégia, pessoas juntas em uma causa, coisas incríveis e maravilhosas acontecem!",
         rating: 5
     },
     {
         name: "Rodson Witovicz",
         role: "Analista Técnico SEBRAE",
-        image: "/src/assets/rodson.png",
+        image: rodsonImg,
         quote: "O Up Summit já nasceu grande. Rico em programação, trazendo o que há de mais moderno, os melhores palestrantes e as principais temáticas em inovação, empreendedorismo, tendências e oportunidades.",
         rating: 5
     },
     {
         name: "Bruno Cunha", 
         role: "Sócio Proprietário VOXYOU",
-        image: "/src/assets/brunocunha.png",
+        image: brunoCunhaImg,
         quote: "Foi sensacional para o crescimento da VOX2YOU. A participação em um evento como esse marca a história da nossa empresa.",
         rating: 5
     }

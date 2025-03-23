@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { SocialIcons } from '../components/SocialIcons';
 import { CountUpStats } from '../components/homeSections/CountUpStats';
@@ -9,9 +9,12 @@ import Features from '../components/homeSections/Features';
 import Patrocinadores from '../components/homeSections/Patrocinadores';
 import { useNavigate } from 'react-router-dom';
 import capa2 from '../assets/capa.png';
+import capaWebp from '../assets/capa.webp';
+import ProgressiveImage from '../components/ProgressiveImage';
 
 const Home = () => {
     const navigate = useNavigate();
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     const scrollToFAQ = () => {
         navigate('/sobre');
@@ -33,12 +36,14 @@ const Home = () => {
     return (
         <>
             <section className="relative h-screen">
-                {/* Background Image */}
+                {/* Background Image Container */}
                 <div className="absolute inset-0 bg-black/50">
-                    <img
+                    <ProgressiveImage
                         src={capa2}
+                        placeholderSrc={capaWebp}
                         alt="Background"
-                        className="w-full h-full object-cover object-[38%] sm:object-center"
+                        className="w-full h-full"
+                        objectPosition="38% center"
                     />
                 </div>
 
