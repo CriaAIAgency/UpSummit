@@ -374,10 +374,6 @@ const MobileMenuLink = ({ children, href, FoldContent, setMenuOpen }) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const isPurplePage = location.pathname === '/motivos' || 
-                      location.pathname === '/edicoes' ||
-                      (location.pathname === '/' && isPurpleSection) ||
-                      (location.pathname === '/sobre' && isPurpleSection);
 
   return (
     <div className="relative text-neutral-950">
