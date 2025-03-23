@@ -456,7 +456,7 @@ const MobileMenu = ({ menuOpen, setMenuOpen, isPurplePage }) => {
                 <FiX className="text-3xl text-neutral-950" />
               </button>
             </div>
-            <div className="h-screen overflow-y-scroll bg-neutral-100 p-6">
+            <div className="h-[calc(100vh-180px)] overflow-y-scroll bg-neutral-100 p-6">
               {LINKS.map((l) => (
                 <MobileMenuLink
                   key={l.text}
@@ -468,8 +468,10 @@ const MobileMenu = ({ menuOpen, setMenuOpen, isPurplePage }) => {
                 </MobileMenuLink>
               ))}
             </div>
-            <div className="flex justify-end bg-neutral-950 p-6">
-              <CTAs isPurplePage={isPurplePage} />
+            <div className="flex justify-end bg-neutral-950 p-6 h-[200px]">
+              <div className="w-full flex items-start justify-end">
+                <CTAs isPurplePage={isPurplePage} />
+              </div>
             </div>
           </motion.nav>
         )}
