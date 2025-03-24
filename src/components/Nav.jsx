@@ -382,15 +382,9 @@ const MobileMenuLink = ({ children, href, FoldContent, setMenuOpen }) => {
           className="flex w-full cursor-pointer items-center justify-between border-b border-neutral-300 py-6 text-start text-2xl font-semibold"
           onClick={() => setOpen((pv) => !pv)}
         >
-          <a
-            onClick={(e) => {
-              e.stopPropagation();
-              setMenuOpen(false);
-            }}
-            href={href}
-          >
+          <span className="cursor-pointer">
             {children}
-          </a>
+          </span>
           <motion.div
             animate={{ rotate: open ? "180deg" : "0deg" }}
             transition={{
@@ -451,7 +445,9 @@ const MobileMenu = ({ menuOpen, setMenuOpen, isPurplePage }) => {
             className="fixed left-0 top-0 flex h-screen w-full flex-col bg-white"
           >
             <div className="flex items-center justify-between p-6">
-              <img src={isPurplePage ? LogoRoxa : Logo} className="w-40" />
+              <Link to="/" onClick={() => setMenuOpen(false)}>
+                <img src={isPurplePage ? LogoRoxa : Logo} className="w-40" />
+              </Link>
               <button onClick={() => setMenuOpen(false)}>
                 <FiX className="text-3xl text-neutral-950" />
               </button>
