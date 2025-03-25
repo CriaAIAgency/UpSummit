@@ -340,7 +340,7 @@ const Sobre = () => {
                             
                             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white">
                                 Tire todas as suas{' '}
-                                <span className="bg-gradient-to-r from-purple-800 to-purple-950 bg-clip-text text-transparent">
+                                <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
                                     dúvidas
                                 </span>
                             </h2>
@@ -373,7 +373,7 @@ const Sobre = () => {
                         
                         <h2 className="text-3xl font-bold text-white mb-6 relative">
                             Faça parte dessa{' '}
-                            <span className="bg-gradient-to-r from-purple-800 to-purple-950 bg-clip-text text-transparent">
+                            <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
                                 história
                             </span>
                         </h2>

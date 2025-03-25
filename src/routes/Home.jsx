@@ -11,10 +11,16 @@ import { useNavigate } from 'react-router-dom';
 import capa2 from '../assets/capa.png';
 import capaWebp from '../assets/capa.webp';
 import ProgressiveImage from '../components/ProgressiveImage';
+import VideoPlayer from '../components/VideoPlayer';
+import VideoModal from '../components/VideoModal';
+import { Link } from 'react-router-dom';
+import up2024Image from '../assets/up2024.jpg';
+import up2023Image from '../assets/imagem16.png';
 
 const Home = () => {
     const navigate = useNavigate();
-    const [imageLoaded, setImageLoaded] = useState(false);
+    const [showVideoModal, setShowVideoModal] = useState(false);
+    const videoId = 'tnhu3K0OMYU';
 
     const scrollToFAQ = () => {
         navigate('/sobre');
@@ -33,10 +39,14 @@ const Home = () => {
         }, 100);
     };
 
+    const handlePlayClick = () => {
+        setShowVideoModal(true);
+    };
+
     return (
         <>
             <section className="relative h-screen">
-                {/* Background Image Container */}
+                {/* Background Container - Agora sempre mostra a imagem */}
                 <div className="absolute inset-0 bg-black/50">
                     <ProgressiveImage
                         src={capa2}
@@ -125,7 +135,7 @@ const Home = () => {
                                 </motion.button>
                             </motion.div>
 
-                            {/* Play Button */}
+                            {/* Play Button - Apenas desktop */}
                             <motion.div 
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
@@ -134,12 +144,12 @@ const Home = () => {
                                     delay: 0.7,
                                     ease: "easeOut"
                                 }}
-                                className="absolute right-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2 hidden md:block"
+                                className="absolute right-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2 z-10 hidden md:block"
                             >
                                 <motion.button 
                                     whileHover={{ scale: 1.1 }}
                                     className="relative flex items-center justify-center w-20 h-20 group"
-                                    onClick={() => window.open('https://www.youtube.com/watch?v=tnhu3K0OMYU', '_blank')}
+                                    onClick={handlePlayClick}
                                 >
                                     <div className="absolute inset-0 rounded-full border-2 border-white"></div>
                                     <svg 
@@ -251,7 +261,7 @@ const Home = () => {
                         
                         <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white">
                             Tire todas as suas{' '}
-                            <span className="bg-gradient-to-r from-purple-800 to-purple-950 bg-clip-text text-transparent">
+                            <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
                                 dúvidas
                             </span>
                         </h2>
@@ -280,6 +290,132 @@ const Home = () => {
             <section id="patrocinadores">
                 <Patrocinadores />
             </section>
+
+            {/* Seção de Edições */}
+            <section className="bg-[#11111A] py-20 relative">
+                {/* Decorative Lines */}
+                <div className="absolute top-0 left-0 right-0 h-[8px] overflow-hidden">
+                    <motion.div 
+                        initial={{ opacity: 0, width: 0 }}
+                        whileInView={{ opacity: 1, width: "100%" }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, delay: 0.5 }}
+                        className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-800 via-purple-800 to-purple-950"
+                    ></motion.div>
+                </div>
+
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center max-w-3xl mx-auto">
+                        <motion.span 
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4 }}
+                            className="text-purple-800 text-sm font-semibold uppercase tracking-wider"
+                        >
+                            Nossa História
+                        </motion.span>
+                        
+                        <motion.h2 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white"
+                        >
+                            Conheça nossas{' '}
+                            <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
+                                edições
+                            </span>
+                        </motion.h2>
+
+                        <motion.p 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            className="text-gray-300 mb-8"
+                        >
+                            Explore a evolução do UpSummit através dos anos. Cada edição traz uma experiência única 
+                            com palestrantes renomados, networking de alto nível e conteúdo transformador.
+                        </motion.p>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                        >
+                            <Link 
+                                to="/edicoes"
+                                className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-purple-800 to-purple-950 px-6 py-3 rounded-full text-white overflow-hidden transition-all duration-300"
+                            >
+                                <span className="relative z-10">Ver todas as edições</span>
+                                <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
+                                    <ArrowRight className="w-5 h-5" />
+                                </span>
+                                <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+                            </Link>
+                        </motion.div>
+                    </div>
+
+                    {/* Preview das últimas edições */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                        className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6"
+                    >
+                        <Link 
+                            to="/edicoes" 
+                            className="relative overflow-hidden rounded-xl aspect-video group cursor-pointer"
+                        >
+                            <img 
+                                src={up2024Image} 
+                                alt="UpSummit 2024" 
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                                <div className="absolute bottom-0 left-0 right-0 p-6">
+                                    <span className="text-purple-800 font-semibold">2024</span>
+                                    <h3 className="text-2xl font-bold text-white mt-2">A Era da Inteligência Artificial</h3>
+                                    <p className="text-white/80 mt-2 line-clamp-2">
+                                        Um divisor de águas para empreendedores que querem escalar seus negócios e dominar o mercado.
+                                    </p>
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link 
+                            to="/edicoes" 
+                            className="relative overflow-hidden rounded-xl aspect-video group cursor-pointer"
+                        >
+                            <img 
+                                src={up2023Image} 
+                                alt="UpSummit 2023" 
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                                <div className="absolute bottom-0 left-0 right-0 p-6">
+                                    <span className="text-purple-800 font-semibold">2023</span>
+                                    <h3 className="text-2xl font-bold text-white mt-2">O Futuro Começa Agora</h3>
+                                    <p className="text-white/80 mt-2 line-clamp-2">
+                                        Uma edição histórica que marcou a transformação do marketing tradicional para o marketing do futuro.
+                                    </p>
+                                </div>
+                            </div>
+                        </Link>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Video Modal para todos os dispositivos */}
+            <VideoModal 
+                isOpen={showVideoModal}
+                onClose={() => setShowVideoModal(false)}
+                videoId={videoId}
+            />
         </>
     )
 }

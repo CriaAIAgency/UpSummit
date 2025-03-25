@@ -12,6 +12,7 @@ import crisImage from '../assets/palestrantes/cris.jpeg';
 import palcoImage from '../assets/palco.jpg';
 import up2024Image from '../assets/up2024.jpg';
 import up2023Image from '../assets/imagem16.png';
+import VideoModal from '../components/VideoModal';
 
 const editions = [
   {
@@ -90,6 +91,22 @@ const editions = [
 const Edicoes = () => {
   const [expandedYear, setExpandedYear] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [showVideoModal, setShowVideoModal] = useState(false);
+  const [currentVideoId, setCurrentVideoId] = useState('');
+
+  const getYoutubeId = (url) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
+  const handlePlayClick = (videoUrl) => {
+    const videoId = getYoutubeId(videoUrl);
+    if (videoId) {
+      setCurrentVideoId(videoId);
+      setShowVideoModal(true);
+    }
+  };
 
   return (
     <section className="relative bg-[#11111A] py-24 md:py-32">
@@ -126,13 +143,14 @@ const Edicoes = () => {
           </motion.span>
           <div className="max-w-3xl">
             <motion.h2 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-white"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white"
             >
               Edições do{' '}
-              <span className="bg-gradient-to-r from-purple-800 to-purple-950 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
                 UpSummit
               </span>
             </motion.h2>
@@ -180,10 +198,12 @@ const Edicoes = () => {
 
                 {/* Content */}
                 <div className="relative h-full flex flex-col justify-center p-6 md:p-10">
-                  <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-3">
-                    <span className="bg-gradient-to-r from-purple-800 to-purple-950 bg-clip-text text-transparent text-xl md:text-2xl font-bold">
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent font-semibold">
                       {edition.year}
                     </span>
+                  </div>
+                  <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-3">
                     <div className="flex items-center gap-2 text-white/80">
                       <Calendar className="w-4 md:w-5 h-4 md:h-5" />
                       <span className="text-sm md:text-base">{edition.dates}</span>
@@ -217,7 +237,7 @@ const Edicoes = () => {
                       <button 
                         onClick={(e) => {
                           e.stopPropagation();
-                          window.open(edition.videoUrl, '_blank');
+                          handlePlayClick(edition.videoUrl);
                         }} 
                         className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 md:px-4 py-2 rounded-lg text-white hover:bg-white/20 transition"
                       >
@@ -286,6 +306,12 @@ const Edicoes = () => {
           ))}
         </div>
       </div>
+
+      <VideoModal 
+        isOpen={showVideoModal}
+        onClose={() => setShowVideoModal(false)}
+        videoId={currentVideoId}
+      />
     </section>
   );
 };
