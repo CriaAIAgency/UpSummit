@@ -66,7 +66,7 @@ const testimonials = [
         name: "Joel Jota",
         role: "Mentor de Alta Performance",
         image: joelJotaImg,
-        quote: "Onde se reúne educação, estratégia, pessoas juntas em uma causa, coisas incríveis e maravilhosas acontecem!",
+        quote: "Onde se reúne educação, estratégia e pessoas unidas por uma causa, coisas incríveis acontecem!",
         rating: 5
     },
     {

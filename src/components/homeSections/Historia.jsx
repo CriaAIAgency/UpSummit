@@ -44,7 +44,7 @@ const Historia = () => {
                                 <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
                                     futuro
                                 </span>
-                                {' '}do marketing
+                                {' '}dos negócios
                             </h2>
                             <p className="text-gray-600">
                                 O UP Summit nasceu com o propósito de transformar o cenário empresarial brasileiro, 
