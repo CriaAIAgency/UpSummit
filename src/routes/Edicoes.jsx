@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Calendar, MapPin, ChevronDown, ChevronUp, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -13,13 +13,17 @@ import palcoImage from '../assets/palco.jpg';
 import up2024Image from '../assets/up2024.jpg';
 import up2023Image from '../assets/2023apolinario.jpg';
 import VideoModal from '../components/VideoModal';
+import imagem4Image from '../assets/imagem4.png';
+import imagem5Image from '../assets/imagem5.png';
+import imagem13Image from '../assets/imagem13.png';
+import cris2025Image from '../assets/cris2025.jpg';
 
 const editions = [
   {
     year: 2025,
     title: "UP Summit 2025: Escalando Negócios",
     description: "Prepare-se para a maior edição já realizada do UP Summit. Uma experiência imersiva focada em estratégias comprovadas de crescimento, inovação em escala e transformação digital. Descubra como escalar seu negócio de forma sustentável com os maiores especialistas do mercado.",
-    coverImage: palcoImage,
+    images: [up2024Image, imagem4Image, palcoImage],
     location: "São Paulo - SP",
     dates: "4, 5 e 6 de Abril",
     comingSoon: true
@@ -28,12 +32,12 @@ const editions = [
     year: 2024,
     title: "UP Summit 2024: A Era da Inteligência Artificial",
     description: "O Up Summit 2024 foi um divisor de águas para empreendedores que querem escalar seus negócios e dominar o mercado! Tivemos palestrantes de peso compartilhando estratégias valiosas, insights poderosos e experiências transformadoras.",
+    images: [imagem5Image, imagem13Image],
     stats: {
       attendees: "12.000",
       speakers: "60",
       partners: "45"
     },
-    coverImage: up2024Image,
     videoUrl: "https://www.youtube.com/watch?v=tnhu3K0OMYU",
     highlights: [
       {
@@ -59,12 +63,12 @@ const editions = [
     year: 2023,
     title: "UP Summit 2023: O Futuro Começa Agora",
     description: "Uma edição histórica que marcou a transformação do marketing tradicional para o marketing do futuro. Exploramos as tendências emergentes e as tecnologias que estão moldando o futuro do marketing digital.",
+    images: [up2023Image, cris2025Image],
     stats: {
       attendees: "10.000",
       speakers: "50",
       partners: "35"
     },
-    coverImage: up2023Image,
     videoUrl: "https://www.youtube.com/watch?v=RFR0VdMor0k",
     highlights: [
       {
@@ -93,6 +97,29 @@ const Edicoes = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [currentVideoId, setCurrentVideoId] = useState('');
+  const [currentImageIndexes, setCurrentImageIndexes] = useState({});
+
+  useEffect(() => {
+    const initialIndexes = editions.reduce((acc, edition) => {
+      acc[edition.year] = 0;
+      return acc;
+    }, {});
+    setCurrentImageIndexes(initialIndexes);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndexes(prevIndexes => {
+        const newIndexes = { ...prevIndexes };
+        editions.forEach(edition => {
+          newIndexes[edition.year] = (prevIndexes[edition.year] + 1) % edition.images.length;
+        });
+        return newIndexes;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const getYoutubeId = (url) => {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -188,11 +215,18 @@ const Edicoes = () => {
               >
                 {/* Background Image with Gradient Overlay */}
                 <div className="absolute inset-0">
-                  <img
-                    src={edition.coverImage}
-                    alt={edition.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  />
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={currentImageIndexes[edition.year]}
+                      src={edition.images[currentImageIndexes[edition.year]]}
+                      alt={edition.title}
+                      className="w-full h-full object-cover"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  </AnimatePresence>
                   <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
                 </div>
 

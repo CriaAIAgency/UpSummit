@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Instagram } from 'lucide-react';
 import SpeakerModal from '../components/SpeakerModal';
+import { Link } from 'react-router-dom';
+import { FiArrowRight } from 'react-icons/fi';
 // Importar as imagens
 import pvImage from '../assets/palestrantes/pv.jpg';
 import rayImage from '../assets/palestrantes/ray.png';
@@ -286,7 +288,7 @@ const Palestrantes = () => {
                     </div>
                 </div>
 
-                {/* CTA Section */}
+                {/* CTA Section - Ingressos */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -295,7 +297,7 @@ const Palestrantes = () => {
                         delay: 0.8,
                         ease: "easeOut"
                     }}
-                    className="flex justify-center mt-16"
+                    className="flex justify-center mt-16 mb-32"
                 >
                     <button 
                         onClick={() => window.open('https://upsummit.com.br/', '_blank')}
@@ -316,6 +318,41 @@ const Palestrantes = () => {
                 onClose={() => setSelectedSpeaker(null)}
                 speaker={selectedSpeaker}
             />
+
+            {/* Nova seção CTA para Edições */}
+            <section className="relative bg-white pt-0 pb-20">
+                <div className="max-w-7xl mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center relative overflow-hidden rounded-3xl bg-[#1F1F1F] p-12"
+                    >
+                        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+                        
+                        <h2 className="text-3xl font-bold text-white mb-6 relative">
+                            Conheça as outras edições do{' '}
+                            <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
+                                UP Summit
+                            </span>
+                        </h2>
+                        <p className="text-white/80 mb-8 max-w-2xl mx-auto relative">
+                            Explore a história do UP Summit e descubra como cada edição tem transformado 
+                            o cenário empresarial brasileiro.
+                        </p>
+                        <Link 
+                            to="/edicoes"
+                            className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-customPink to-customPink2 px-6 py-3 rounded-full text-white overflow-hidden transition-all duration-300"
+                        >
+                            <span className="relative z-10 text-base">Ver todas as edições</span>
+                            <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
+                                <FiArrowRight className="w-5 h-5" />
+                            </span>
+                            <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+                        </Link>
+                    </motion.div>
+                </div>
+            </section>
         </section>
     );
 };

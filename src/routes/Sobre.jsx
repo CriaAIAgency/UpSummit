@@ -78,7 +78,7 @@ const testimonials = [
     },
     {
         name: "Bruno Cunha", 
-        role: "Sócio Proprietário VOXYOU",
+        role: "Sócio Proprietário VOX2YOU",
         image: brunoCunhaImg,
         quote: "Foi sensacional para o crescimento da VOX2YOU. A participação em um evento como esse marca a história da nossa empresa.",
         rating: 5
@@ -289,15 +289,7 @@ const Sobre = () => {
                                 Histórias reais de quem já viveu a experiência transformadora do maior evento de marketing do Brasil
                             </p>
                         </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
-                            {/* Decorative Elements */}
-                            <div className="absolute inset-0 grid grid-cols-2 lg:grid-cols-3 gap-8 -m-4">
-                                {[...Array(3)].map((_, i) => (
-                                    <div key={i} className="bg-gradient-to-r from-customPink/5 to-transparent rounded-2xl" />
-                                ))}
-                            </div>
-                            
-                            {/* Testimonial Cards */}
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {testimonials.map((testimonial, index) => (
                                 <TestimonialCard 
                                     key={index} 

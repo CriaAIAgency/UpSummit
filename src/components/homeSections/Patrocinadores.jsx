@@ -23,6 +23,15 @@ import Logo20 from '../../assets/patrocinadores/support.png';
 import Logo21 from '../../assets/patrocinadores/vsl.png';
 import Logo22 from '../../assets/patrocinadores/sebrae.png';
 import Logo23 from '../../assets/patrocinadores/guide.png';
+import LogoVox from '../../assets/patrocinadores/vox2you.png';
+import LogoAudicred from '../../assets/patrocinadores/audicred.png';
+import LogoBox from '../../assets/patrocinadores/box.jpeg';
+import LogoEfreela from '../../assets/patrocinadores/efreela.png';
+import LogoHiper from '../../assets/patrocinadores/hiperestrutura.png';
+import LogoReserva from '../../assets/patrocinadores/reserva35.jpeg';
+import LogoSicoob from '../../assets/patrocinadores/sicoob.jpg';
+import LogoSpa from '../../assets/patrocinadores/spamandarim.png';
+import LogoTollit from '../../assets/patrocinadores/tollit.png';
 import { Link, useLocation } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -34,9 +43,34 @@ const Patrocinadores = () => {
 
     const sponsors = {
         apoio: [Logo22], // Apenas Sebrae
-        patrocinadores: [Logo18, Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7], // Principais patrocinadores
-        ativacoes: [Logo9, Logo10, Logo11, Logo12, Logo13, Logo14, Logo15, Logo16, Logo19, Logo20, Logo21], // Ativações de marca
-        parcerias: [Logo8, Logo17, Logo23] // Comfort, Quality Hotel e Guide
+        patrocinadores: [
+            Logo2,  // acai
+            LogoVox, // vox2you
+            Logo19, // sqz
+            Logo21, // karla (vsl)
+            Logo16, // maissaude
+            Logo14, // linq
+            Logo11, // empresa
+            Logo13, // kami
+            Logo15, // lus
+            Logo12, // epoca
+            Logo9,  // conectada
+            Logo7,  // bp
+            Logo5,  // atitude
+            Logo3,  // ademicon
+            Logo1,  // 7pay
+            Logo10, // cravo
+            LogoAudicred, // audicred
+            LogoBox, // box
+            LogoEfreela, // efreela
+            LogoHiper, // hiperestrutura
+            LogoReserva, // reserva35
+            LogoSicoob, // sicoob
+            LogoSpa, // spamandarim
+            LogoTollit, // tollit
+        ],
+        ativacoes: [Logo20, Logo21, Logo18], // Support, VSL e Santri
+        parcerias: [Logo8, Logo17, Logo23, Logo6, Logo4] // Comfort, Quality Hotel, Guide, Bally e Alphapark
     };
 
     // Combinar todos os logos em um único array
@@ -56,7 +90,7 @@ const Patrocinadores = () => {
                     alt="Logo"
                     loading="lazy"
                     className={`max-w-full max-h-full object-contain ${
-                        isSantri ? "brightness-50 contrast-200 saturate-200" : ""
+                        isSantri ? "brightness-0" : ""
                     }`}
                 />
             </div>
