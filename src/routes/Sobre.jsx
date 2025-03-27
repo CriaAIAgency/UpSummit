@@ -6,6 +6,7 @@ import img1 from '../assets/capa2.png';
 import joelJotaImg from '../assets/joeljota.jpeg';
 import rodsonImg from '../assets/rodson.png';
 import brunoCunhaImg from '../assets/brunocunha.png';
+import WasleySection from '../components/WasleySection';
 
 const stats = [
     {
@@ -301,6 +302,9 @@ const Sobre = () => {
 
                 </div>
             </section>
+
+            {/* Add the WasleySection before the FAQ section */}
+            <WasleySection />
 
             {/* Linha animada antes do FAQ */}
             <div className="w-full bg-[#11111A]">

@@ -93,7 +93,7 @@ const editions = [
 ];
 
 const Edicoes = () => {
-  const [expandedYear, setExpandedYear] = useState(null);
+  const [expandedYears, setExpandedYears] = useState([]);
   const [hoveredCard, setHoveredCard] = useState(null);
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [currentVideoId, setCurrentVideoId] = useState('');
@@ -132,6 +132,14 @@ const Edicoes = () => {
     if (videoId) {
       setCurrentVideoId(videoId);
       setShowVideoModal(true);
+    }
+  };
+
+  const toggleYear = (year) => {
+    if (expandedYears.includes(year)) {
+      setExpandedYears(expandedYears.filter(y => y !== year));
+    } else {
+      setExpandedYears([...expandedYears, year]);
     }
   };
 
@@ -209,9 +217,9 @@ const Edicoes = () => {
             >
               <div
                 className={`relative overflow-hidden rounded-lg md:rounded-xl transition-all duration-500 ${
-                  expandedYear === edition.year ? 'aspect-[4/3] md:aspect-video' : 'aspect-[3/2] md:aspect-[21/9]'
+                  expandedYears.includes(edition.year) ? 'aspect-[4/3] md:aspect-video' : 'aspect-[3/2] md:aspect-[21/9]'
                 }`}
-                onClick={() => !edition.comingSoon && setExpandedYear(expandedYear === edition.year ? null : edition.year)}
+                onClick={() => !edition.comingSoon && toggleYear(edition.year)}
               >
                 {/* Background Image with Gradient Overlay */}
                 <div className="absolute inset-0">
@@ -281,11 +289,11 @@ const Edicoes = () => {
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          setExpandedYear(expandedYear === edition.year ? null : edition.year);
+                          toggleYear(edition.year);
                         }}
                         className="flex items-center gap-2 bg-gradient-to-r from-purple-800 to-purple-950 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition"
                       >
-                        {expandedYear === edition.year ? (
+                        {expandedYears.includes(edition.year) ? (
                           <ChevronUp className="w-4 h-4" />
                         ) : (
                           <ChevronDown className="w-4 h-4" />
@@ -298,7 +306,7 @@ const Edicoes = () => {
               </div>
 
               {/* Expanded Content */}
-              {expandedYear === edition.year && !edition.comingSoon && (
+              {expandedYears.includes(edition.year) && !edition.comingSoon && (
                 <div className="bg-[#1F1F1F] rounded-b-xl overflow-hidden w-full">
                   <div className="p-6 md:p-12">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
