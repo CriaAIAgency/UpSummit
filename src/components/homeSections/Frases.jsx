@@ -8,6 +8,10 @@ import pvImage from '../../assets/palestrantes/pv.jpg';
 import crisImage from '../../assets/palestrantes/cris.jpeg';
 import joaokeplerImage from '../../assets/palestrantes/joaokepler.jpg';
 import pabloImage from '../../assets/palestrantes/pablo.jpg';
+import wasleyImage from '../../assets/palestrantes/wasley.jpg';
+import barbaraImage from '../../assets/palestrantes/barbara.jpg';
+import fabioImage from '../../assets/palestrantes/fabio.jpg';
+import janaineImage from '../../assets/palestrantes/janaine.jpg';
 
 const Frases = () => {
     const [selectedSpeaker, setSelectedSpeaker] = useState(null);
@@ -21,6 +25,15 @@ const Frases = () => {
             linkedin: '#',
             instagram: '#',
             topic: 'Desenvolvimento Pessoal'
+        },
+        {
+            name: 'WASLEY COSTA',
+            role: 'CEO do Up Summit',
+            description: 'Empresário, construtor, mentor de negócios e CEO do Up Summit.',
+            image: wasleyImage,
+            linkedin: '#',
+            instagram: '#',
+            topic: 'Empreendedorismo'
         },
         {
             name: 'CRIS ARCANGELI',
@@ -48,6 +61,33 @@ const Frases = () => {
             linkedin: '#',
             instagram: '#',
             topic: 'Alta Performance'
+        },
+        {
+            name: 'BÁRBARA PORTO',
+            role: 'CEO da Bárbara Porto',
+            description: 'CEO e Diretora Criativa da Bárbara Porto, uma grande marca do universo de semijoias. Bárbara é referência em elegância, autenticidade e empoderamento feminino, esbanjando paixão pela moda e a arte de criar.',
+            image: barbaraImage,
+            linkedin: '#',
+            instagram: '#',
+            topic: 'Empreendedorismo Feminino'
+        },
+        {
+            name: 'FÁBIO OLIVEIRA',
+            role: 'CEO do Sales Clube',
+            description: 'Idealizador do método Vendedorismo e referência em operações comerciais no Brasil, Fábio tem uma trajetória que fala por si: empresário, fundador da MasterDoc, CEO e Co-Fundador do Sales Clube, a maior comunidade de vendas do país. Com mais de 25 anos de experiência, ele já transformou milhares de empresários e equipes de vendas por todo o Brasil.',
+            image: fabioImage,
+            linkedin: '#',
+            instagram: '#',
+            topic: 'Vendas'
+        },
+        {
+            name: 'JANAINE VALÉRIA',
+            role: 'Advogada Empresarial',
+            description: 'Advogada Empresarial e especialista em Assessoria Jurídica para empresas, Janaine atua no âmbito Societário, Contratual e Gestão de Riscos.',
+            image: janaineImage,
+            linkedin: '#',
+            instagram: '#',
+            topic: 'Direito Empresarial'
         }
     ];
 

@@ -15,7 +15,7 @@ import VideoPlayer from '../components/VideoPlayer';
 import VideoModal from '../components/VideoModal';
 import { Link } from 'react-router-dom';
 import up2024Image from '../assets/up2024.jpg';
-import up2023Image from '../assets/imagem16.png';
+import up2023Image from '../assets/2023apolinario.jpg';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -401,7 +401,7 @@ const Home = () => {
                                     <span className="text-purple-800 font-semibold">2023</span>
                                     <h3 className="text-2xl font-bold text-white mt-2">O Futuro Começa Agora</h3>
                                     <p className="text-white/80 mt-2 line-clamp-2">
-                                        Uma edição histórica que marcou a transformação do marketing tradicional para o marketing do futuro.
+                                        A edição que deu origem ao maior evento de negócios do Centro-Oeste, reunindo mais de 2 mil empreendedores.
                                     </p>
                                 </div>
                             </div>

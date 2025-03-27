@@ -21,6 +21,8 @@ import Logo18 from '../../assets/patrocinadores/santri.png';
 import Logo19 from '../../assets/patrocinadores/sqz.png';
 import Logo20 from '../../assets/patrocinadores/support.png';
 import Logo21 from '../../assets/patrocinadores/vsl.png';
+import Logo22 from '../../assets/patrocinadores/sebrae.png';
+import Logo23 from '../../assets/patrocinadores/guide.png';
 import { Link, useLocation } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -31,13 +33,19 @@ const Patrocinadores = () => {
                         location.pathname.includes('/sobre');
 
     const sponsors = {
-        diamond: [Logo18, Logo1, Logo2],
-        gold: [Logo3, Logo4, Logo5, Logo6, Logo7, Logo8],
-        silver: [Logo9, Logo10, Logo11, Logo12, Logo13, Logo14, Logo15, Logo16, Logo17, Logo19, Logo20, Logo21]
+        apoio: [Logo22], // Apenas Sebrae
+        patrocinadores: [Logo18, Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7], // Principais patrocinadores
+        ativacoes: [Logo9, Logo10, Logo11, Logo12, Logo13, Logo14, Logo15, Logo16, Logo19, Logo20, Logo21], // Ativações de marca
+        parcerias: [Logo8, Logo17, Logo23] // Comfort, Quality Hotel e Guide
     };
 
     // Combinar todos os logos em um único array
-    const allSponsors = [...sponsors.diamond, ...sponsors.gold, ...sponsors.silver];
+    const allSponsors = [
+        ...sponsors.patrocinadores, 
+        ...sponsors.apoio, 
+        ...sponsors.ativacoes, 
+        ...sponsors.parcerias
+    ];
 
     const LogoItem = ({ src }) => {
         const isSantri = src === Logo18;
@@ -81,11 +89,44 @@ const Patrocinadores = () => {
                     </p>
                 </div>
 
-                {/* Grid de logos unificado */}
-                <div className="flex flex-wrap justify-center gap-8">
-                    {allSponsors.map((logo, index) => (
-                        <LogoItem key={index} src={logo} />
-                    ))}
+                {/* Seção de Apoio - Agora em primeiro lugar */}
+                <div className="mb-16">
+                    <h3 className="text-2xl font-bold text-center mb-8 text-purple-800">Apoio</h3>
+                    <div className="flex flex-wrap justify-center gap-8">
+                        {sponsors.apoio.map((logo, index) => (
+                            <LogoItem key={`apoio-${index}`} src={logo} />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Seção de Patrocinadores */}
+                <div className="mb-16">
+                    <h3 className="text-2xl font-bold text-center mb-8 text-purple-800">Patrocinadores</h3>
+                    <div className="flex flex-wrap justify-center gap-8">
+                        {sponsors.patrocinadores.map((logo, index) => (
+                            <LogoItem key={`patrocinador-${index}`} src={logo} />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Seção de Ativações de Marca */}
+                <div className="mb-16">
+                    <h3 className="text-2xl font-bold text-center mb-8 text-purple-800">Ativação</h3>
+                    <div className="flex flex-wrap justify-center gap-8">
+                        {sponsors.ativacoes.map((logo, index) => (
+                            <LogoItem key={`ativacao-${index}`} src={logo} />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Seção de Parcerias */}
+                <div className="mb-16">
+                    <h3 className="text-2xl font-bold text-center mb-8 text-purple-800">Parcerias</h3>
+                    <div className="flex flex-wrap justify-center gap-8">
+                        {sponsors.parcerias.map((logo, index) => (
+                            <LogoItem key={`parceria-${index}`} src={logo} />
+                        ))}
+                    </div>
                 </div>
 
                 {/* CTA Buttons Section */}

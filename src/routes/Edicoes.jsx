@@ -11,7 +11,7 @@ import felipetitoImage from '../assets/felipetito.jpg';
 import crisImage from '../assets/palestrantes/cris.jpeg';
 import palcoImage from '../assets/palco.jpg';
 import up2024Image from '../assets/up2024.jpg';
-import up2023Image from '../assets/imagem16.png';
+import up2023Image from '../assets/2023apolinario.jpg';
 import VideoModal from '../components/VideoModal';
 
 const editions = [
@@ -271,6 +271,16 @@ const Edicoes = () => {
                       <div>
                         <h3 className="text-lg md:text-xl font-semibold text-white mb-4">Sobre a Edição</h3>
                         <p className="text-white/80 text-sm md:text-base mb-6">{edition.description}</p>
+                        
+                        <Link to="/palestrantes">
+                          <button className="group relative flex items-center gap-2 bg-gradient-to-r from-purple-800 to-purple-950 px-4 py-2 rounded-lg text-white overflow-hidden transition-all duration-300">
+                            <span className="relative z-10 text-sm md:text-base">Ver Todos os Palestrantes</span>
+                            <span className="relative z-10 rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:translate-x-1">
+                              <FiArrowRight className="w-4 h-4" />
+                            </span>
+                            <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+                          </button>
+                        </Link>
                       </div>
 
                       {edition.highlights && (

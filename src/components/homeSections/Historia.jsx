@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import imagem8 from '../../assets/imagem8.png';
-import imagem16 from '../../assets/imagem16.png';
+import imagem14 from '../../assets/imagem14.png';
 import imagem4 from '../../assets/imagem4.png';
 
 const Historia = () => {
@@ -12,12 +12,12 @@ const Historia = () => {
             className: "col-span-2 row-span-1"
         },
         {
-            src: imagem16,
+            src: imagem4,
             alt: "Participantes do evento",
             className: "col-span-1 row-span-1"
         },
         {
-            src: imagem4,
+            src: imagem14,
             alt: "Networking no evento",
             className: "col-span-1 row-span-1"
         }
@@ -61,7 +61,7 @@ const Historia = () => {
 
                     {/* Grid de Imagens */}
                     <div className="md:col-span-2">
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {images.map((image, index) => (
                                 <motion.div
                                     key={index}
@@ -69,12 +69,16 @@ const Historia = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.6, delay: index * 0.2 }}
-                                    className={`relative rounded-2xl overflow-hidden ${image.className}`}
+                                    className={`relative rounded-2xl overflow-hidden ${
+                                        index === 0 
+                                            ? "col-span-1 sm:col-span-2" 
+                                            : "col-span-1"
+                                    }`}
                                 >
                                     <img
                                         src={image.src}
                                         alt={image.alt}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover aspect-video"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                                 </motion.div>
