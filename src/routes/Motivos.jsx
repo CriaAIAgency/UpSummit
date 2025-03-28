@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Crown, Star, Diamond, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, X, Play } from 'lucide-react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import LogoHero from '../components/homeSections/LogoHero';
 import upblackImage from '../assets/upblack.jpg';
 import ouroImage from '../assets/ouro.jpg';
 import platinaImage from '../assets/platina.jpg';
 import diamanteImage from '../assets/diamante.jpg';
+import Patrocinadores from '../components/homeSections/Patrocinadores';
 
 const benefits = [
   {
@@ -703,35 +703,10 @@ const Motivos = () => {
                 </button>
             </Link>
         </div>
-
-        {/* Quarta Seção - Patrocinadores */}
-        <div className="py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.6,
-              ease: "easeOut"
-            }}
-            className="text-center mb-16"
-          >
-            <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
-              Nossos patrocinadores
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Quem já{' '}
-              <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
-                faz parte
-              </span>
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Empresas que confiam e investem no UP Summit.
-            </p>
-          </motion.div>
-
-          <LogoHero />
-        </div>
       </div>
+
+      {/* Manter apenas o componente Patrocinadores */}
+      <Patrocinadores />
 
       {/* Modais */}
       <SponsorshipModal
@@ -746,7 +721,7 @@ const Motivos = () => {
         onClose={() => setUpBlackModalOpen(false)} 
       />
 
-      {/* Adicione o Modal de Vídeo */}
+      {/* Modal de Vídeo */}
       <VideoModal
         isOpen={!!selectedVideo}
         onClose={() => setSelectedVideo(null)}

@@ -36,6 +36,15 @@ const Palestrantes = () => {
             topic: 'Desenvolvimento Pessoal'
         },
         {
+            name: 'WASLEY COSTA',
+            role: 'CEO do Up Summit',
+            description: 'Empresário, construtor, mentor de negócios e CEO do Up Summit.',
+            image: wasleyImage,
+            linkedin: '#',
+            instagram: '#',
+            topic: 'Empreendedorismo'
+        },
+        {
             name: 'CRIS ARCANGELI',
             role: 'Empreendedora Serial',
             description: 'Uma das maiores referências em inovação e construção de marcas no Brasil, Cris Arcangeli é uma empreendedora serial que transforma mercados. Criadora da categoria ALIMÉTICOS e do primeiro BEAUTYDRINK, ela também idealizou o Comunidades A1000, o primeiro reality show de impacto positivo do mundo.',
@@ -61,15 +70,6 @@ const Palestrantes = () => {
             linkedin: '#',
             instagram: '#',
             topic: 'Alta Performance'
-        },
-        {
-            name: 'WASLEY COSTA',
-            role: 'CEO do Up Summit',
-            description: 'Empresário, construtor, mentor de negócios e CEO do Up Summit.',
-            image: wasleyImage,
-            linkedin: '#',
-            instagram: '#',
-            topic: 'Empreendedorismo'
         },
         {
             name: 'BÁRBARA PORTO',

@@ -20,10 +20,23 @@ import Logo18 from '../../assets/patrocinadores/santri.png';
 import Logo19 from '../../assets/patrocinadores/sqz.png';
 import Logo20 from '../../assets/patrocinadores/support.png';
 import Logo21 from '../../assets/patrocinadores/vsl.png';
+import Logo22 from '../../assets/patrocinadores/sebrae.png';
+import Logo23 from '../../assets/patrocinadores/guide.png';
+import LogoVox from '../../assets/patrocinadores/vox2you.png';
+import LogoAudicred from '../../assets/patrocinadores/audicred.png';
+import LogoBox from '../../assets/patrocinadores/box.jpeg';
+import LogoEfreela from '../../assets/patrocinadores/efreela.png';
+import LogoHiper from '../../assets/patrocinadores/hiperestrutura.png';
+import LogoReserva from '../../assets/patrocinadores/reserva35.jpeg';
+import LogoSicoob from '../../assets/patrocinadores/sicoob.jpg';
+import LogoSpa from '../../assets/patrocinadores/spamandarim.png';
+import LogoTollit from '../../assets/patrocinadores/tollit.png';
 
 const logos = [
   Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7, Logo8, Logo9, Logo10,
-  Logo11, Logo12, Logo13, Logo14, Logo15, Logo16, Logo17, Logo18, Logo19, Logo20, Logo21
+  Logo11, Logo12, Logo13, Logo14, Logo15, Logo16, Logo17, Logo18, Logo19, Logo20,
+  Logo21, Logo22, Logo23, LogoVox, LogoAudicred, LogoBox, LogoEfreela, LogoHiper,
+  LogoReserva, LogoSicoob, LogoSpa, LogoTollit
 ];
 
 const LogoHero = () => {
@@ -56,27 +69,33 @@ const TranslateWrapper = ({ children, reverse = false }) => (
 const LogoItem = ({ src }) => {
   const isSantri = src === Logo18;
   return (
-    <a
-      href="/"
-      rel="nofollow"
-      target="_blank"
-      className="w-16 md:w-24 h-16 md:h-24 flex justify-center items-center hover:bg-slate-200 transition-colors"
+    <div
+      className="w-16 md:w-24 h-16 md:h-24 flex justify-center items-center hover:bg-slate-50 transition-colors rounded-lg"
     >
       <img 
         src={src}
         alt="Logo"
-        loading="lazy" // Aqui é onde adicionamos o lazy loading
-        className={`max-w-full max-h-full object-contain ${
+        loading="lazy"
+        className={`max-w-full max-h-full object-contain p-2 ${
           isSantri ? "brightness-50 contrast-200 saturate-200" : ""
         }`}
       />
-    </a>
+    </div>
   );
 };
 
 const LogoItems = ({ isBottom }) => {
-  const startIndex = isBottom ? 11 : 0;
-  return <>{logos.slice(startIndex, startIndex + 10).map((logo, index) => <LogoItem key={index} src={logo} />)}</>;
+  const halfLength = Math.ceil(logos.length / 2);
+  const startIndex = isBottom ? halfLength : 0;
+  const endIndex = isBottom ? logos.length : halfLength;
+  
+  return (
+    <>
+      {logos.slice(startIndex, endIndex).map((logo, index) => (
+        <LogoItem key={index} src={logo} />
+      ))}
+    </>
+  );
 };
 
 export default LogoHero;

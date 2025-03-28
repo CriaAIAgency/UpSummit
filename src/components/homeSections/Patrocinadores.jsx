@@ -40,6 +40,14 @@ const Patrocinadores = () => {
     const isPurplePage = location.pathname === '/motivos' || 
                         location.pathname === '/edicoes' || 
                         location.pathname.includes('/sobre');
+    const isMotivosPage = location.pathname === '/motivos';
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 
     const sponsors = {
         apoio: [Logo22], // Apenas Sebrae
@@ -175,12 +183,21 @@ const Patrocinadores = () => {
                         <span className="text-lg">Quero Patrocinar</span>
                     </Link>
 
-                    <Link 
-                        to="/motivos"
-                        className="group flex h-14 items-center justify-center px-6 text-purple-800 border-2 border-purple-800 bg-transparent rounded-full transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-950 hover:text-white"
-                    >
-                        <span className="text-lg">Descobrir Benefícios</span>
-                    </Link>
+                    {isMotivosPage ? (
+                        <button 
+                            onClick={scrollToTop}
+                            className="group flex h-14 items-center justify-center px-6 text-purple-800 border-2 border-purple-800 bg-transparent rounded-full transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-950 hover:text-white"
+                        >
+                            <span className="text-lg">Descobrir Benefícios</span>
+                        </button>
+                    ) : (
+                        <Link 
+                            to="/motivos"
+                            className="group flex h-14 items-center justify-center px-6 text-purple-800 border-2 border-purple-800 bg-transparent rounded-full transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-950 hover:text-white"
+                        >
+                            <span className="text-lg">Descobrir Benefícios</span>
+                        </Link>
+                    )}
                 </div>
             </div>
         </section>

@@ -16,6 +16,7 @@ import VideoModal from '../components/VideoModal';
 import { Link } from 'react-router-dom';
 import up2024Image from '../assets/up2024.jpg';
 import up2023Image from '../assets/2023apolinario.jpg';
+import SocialProof from '../components/homeSections/SocialProof';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -239,6 +240,7 @@ const Home = () => {
             <CountUpStats />
             <Frases />
             <Historia />
+            <SocialProof />
 
             {/* Nova seção de Dúvidas - Movida para antes de Features */}
             <section id="duvidas" className="bg-[#11111A] py-20 relative">
