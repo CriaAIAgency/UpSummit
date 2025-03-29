@@ -8,8 +8,8 @@ import Historia from '../components/homeSections/Historia';
 import Features from '../components/homeSections/Features';
 import Patrocinadores from '../components/homeSections/Patrocinadores';
 import { useNavigate } from 'react-router-dom';
-import capa from '../assets/wasley/wasleypalco.jpeg';
-import capaWebp from '../assets/wasley/wasleypalco.webp';
+import capa from '../assets/bg.jpg';
+import capaWebp from '../assets/bg.webp';
 import ProgressiveImage from '../components/ProgressiveImage';
 import VideoPlayer from '../components/VideoPlayer';
 import VideoModal from '../components/VideoModal';
@@ -55,7 +55,7 @@ const Home = () => {
                         placeholderSrc={capaWebp}
                         alt="Background"
                         className="w-full h-full"
-                        objectPosition="54% center"
+                        objectPosition="46% center"
                     />
                 </div>
 
@@ -117,7 +117,7 @@ const Home = () => {
                                     <span className="text-white">Sua escalada</span>
                                     <br />
                                     <span className="text-white">para o </span>
-                                    <span className="bg-gradient-to-r from-customPink via-customPink2 to-customPink2 bg-clip-text text-transparent">
+                                    <span className="bg-gradient-to-r from-customPink via-customPink to-customPink2 bg-clip-text text-transparent">
                                         sucesso
                                     </span>
                                 </motion.h1>
