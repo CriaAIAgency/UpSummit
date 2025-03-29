@@ -8,8 +8,8 @@ import Historia from '../components/homeSections/Historia';
 import Features from '../components/homeSections/Features';
 import Patrocinadores from '../components/homeSections/Patrocinadores';
 import { useNavigate } from 'react-router-dom';
-import capa2 from '../assets/capa.png';
-import capaWebp from '../assets/capa.webp';
+import capa from '../assets/wasley/wasleypalco.jpeg';
+import capaWebp from '../assets/wasley/wasleypalco.webp';
 import ProgressiveImage from '../components/ProgressiveImage';
 import VideoPlayer from '../components/VideoPlayer';
 import VideoModal from '../components/VideoModal';
@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 import up2024Image from '../assets/up2024.jpg';
 import up2023Image from '../assets/2023apolinario.jpg';
 import SocialProof from '../components/homeSections/SocialProof';
+import imagem5 from '../assets/imagem5.png';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -50,11 +51,11 @@ const Home = () => {
                 {/* Background Container - Agora sempre mostra a imagem */}
                 <div className="absolute inset-0 bg-black/50">
                     <ProgressiveImage
-                        src={capa2}
+                        src={capa}
                         placeholderSrc={capaWebp}
                         alt="Background"
                         className="w-full h-full"
-                        objectPosition="38% center"
+                        objectPosition="54% center"
                     />
                 </div>
 
@@ -374,7 +375,7 @@ const Home = () => {
                             className="relative overflow-hidden rounded-xl aspect-video group cursor-pointer"
                         >
                             <img 
-                                src={up2024Image} 
+                                src={imagem5}
                                 alt="UpSummit 2024" 
                                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                             />

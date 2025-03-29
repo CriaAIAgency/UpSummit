@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Users, Target, Award, TrendingUp, ChevronDown, Star, Quote, Lightbulb, Trophy, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import img1 from '../assets/capa2.png';
+import img1 from '../assets/wasley/wasleyjantar.jpeg';
 import joelJotaImg from '../assets/joeljota.jpeg';
 import rodsonImg from '../assets/rodson.png';
 import brunoCunhaImg from '../assets/brunocunha.png';
@@ -213,8 +213,7 @@ const Sobre = () => {
                             </p>
                             <p className="text-gray-600 leading-relaxed">
                                 Com um modelo único que combina conteúdo de alta qualidade, networking estratégico 
-                                e experiências imersivas, nos consolidamos como o principal evento de marketing e 
-                                negócios do Centro-Oeste.
+                                e experiências imersivas, nos consolidamos como o principal evento empresarial do Centro-Oeste.
                             </p>
                         </motion.div>
                         <motion.div

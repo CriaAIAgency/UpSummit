@@ -2,17 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import imagem8 from '../../assets/imagem8.png';
 import imagem14 from '../../assets/imagem14.png';
-import imagem4 from '../../assets/imagem4.png';
+import wasley from '../../assets/wasley/wasley6.jpeg';
 
 const Historia = () => {
     const images = [
         {
-            src: imagem8,
+            src: wasley,
             alt: "Evento Up Summit",
             className: "col-span-2 row-span-1"
         },
         {
-            src: imagem4,
+            src: imagem8,
             alt: "Participantes do evento",
             className: "col-span-1 row-span-1"
         },
