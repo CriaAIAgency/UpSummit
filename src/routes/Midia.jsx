@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight, Newspaper, Radio, Camera, Share2, Download, Users, Globe, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -49,15 +48,7 @@ const Midia = () => {
         <section className="relative bg-white py-24 md:py-32">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                        duration: 0.6,
-                        ease: "easeOut"
-                    }}
-                    className="text-center mb-20"
-                >
+                <div className="text-center mb-20">
                     <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                         Seja um parceiro de mídia
                     </span>
@@ -71,38 +62,26 @@ const Midia = () => {
                         Junte-se ao maior evento de marketing do Brasil como parceiro de mídia 
                         e faça parte de uma história de transformação e sucesso.
                     </p>
-                </motion.div>
+                </div>
 
                 {/* Benefits Section */}
                 <div className="grid md:grid-cols-3 gap-8 mb-20">
-                    {benefits.map((benefit, index) => (
-                        <motion.div
+                    {benefits.map((benefit) => (
+                        <div
                             key={benefit.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ 
-                                duration: 0.6,
-                                delay: 0.2 + (index * 0.1),
-                                ease: "easeOut"
-                            }}
-                            className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+                            className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
                         >
                             <div className="w-12 h-12 bg-customPink/10 rounded-lg flex items-center justify-center mb-4">
                                 <benefit.icon className="w-6 h-6 text-customPink" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
                             <p className="text-gray-600">{benefit.description}</p>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
                 {/* Press Kit Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                    className="bg-gradient-to-br from-customPink to-customPink2 rounded-3xl p-12 text-center relative overflow-hidden"
-                >
+                <div className="bg-gradient-to-br from-customPink to-customPink2 rounded-3xl p-12 text-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
                     <div className="relative">
                         <h2 className="text-3xl font-bold text-white mb-4">
@@ -120,15 +99,10 @@ const Midia = () => {
                             </button>
                         </Link>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Contact CTA */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                    className="text-center mt-20"
-                >
+                <div className="text-center mt-20">
                     <h2 className="text-3xl font-bold mb-6">
                         Vamos{' '}
                         <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
@@ -148,7 +122,7 @@ const Midia = () => {
                             <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
                         </button>
                     </Link>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

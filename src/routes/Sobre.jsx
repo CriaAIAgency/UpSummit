@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Users, Target, Award, TrendingUp, ChevronDown, Star, Quote, Lightbulb, Trophy, Zap } from 'lucide-react';
+import { ChevronDown, Star, Quote, Users, Target, Award, TrendingUp, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import img1 from '../assets/wasley/wasleyjantar.jpeg';
 import joelJotaImg from '../assets/joeljota.jpeg';
@@ -102,28 +101,21 @@ const FAQItem = ({ question, answer }) => {
                     }`}
                 />
             </button>
-            <motion.div
-                initial={false}
-                animate={{ height: isOpen ? 'auto' : 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden"
+            <div
+                className={`overflow-hidden transition-all duration-300 ${
+                    isOpen ? 'max-h-96' : 'max-h-0'
+                }`}
             >
                 <p className="pb-6 text-gray-400">
                     {answer}
                 </p>
-            </motion.div>
+            </div>
         </div>
     );
 };
 
 const TestimonialCard = ({ name, role, image, quote, rating }) => (
-    <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="bg-white rounded-2xl p-6 shadow-lg relative"
-    >
+    <div className="bg-white rounded-2xl p-6 shadow-lg relative hover:shadow-xl transition-shadow duration-300">
         <div className="absolute top-6 right-6">
             <Quote className="w-8 h-8 text-customPink/10" />
         </div>
@@ -146,7 +138,7 @@ const TestimonialCard = ({ name, role, image, quote, rating }) => (
             </div>
         </div>
         <p className="text-gray-600 italic">"{quote}"</p>
-    </motion.div>
+    </div>
 );
 
 const Sobre = () => {
@@ -154,25 +146,12 @@ const Sobre = () => {
         <>
             <section className="relative bg-white py-32">
                 <div className="max-w-7xl mx-auto px-6">
-                    {/* Header Section - Updated */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ 
-                            duration: 0.6,
-                            ease: "easeOut"
-                        }}
-                        className="text-center mb-20"
-                    >
+                    {/* Header Section */}
+                    <div className="text-center mb-20">
                         <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                             Nossa História
                         </span>
-                        <motion.h1 
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8"
-                        >
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8">
                             <span className="text-neutral-900">O maior evento</span>
                             <br />
                             <span className="text-transparent italic [-webkit-text-stroke:2.5px_#E5005D] font-bold">
@@ -180,22 +159,17 @@ const Sobre = () => {
                             </span>
                             <br />
                             <span className="text-neutral-900">do Centro-Oeste</span>
-                        </motion.h1>
+                        </h1>
                         <div className="flex items-center justify-center gap-3 mb-8">
                             <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-customPink/30" />
                             <div className="w-2 h-2 rounded-full bg-customPink" />
                             <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-customPink/30" />
                         </div>
-                    </motion.div>
+                    </div>
 
-                    {/* Main Content - Balanced */}
+                    {/* Main Content */}
                     <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="space-y-6"
-                        >
+                        <div className="space-y-6">
                             <div className="inline-flex items-center gap-2 mb-4">
                                 <div className="h-[1px] w-12 bg-customPink" />
                                 <span className="text-customPink font-semibold">Nossa Missão</span>
@@ -215,13 +189,8 @@ const Sobre = () => {
                                 Com um modelo único que combina conteúdo de alta qualidade, networking estratégico 
                                 e experiências imersivas, nos consolidamos como o principal evento empresarial do Centro-Oeste.
                             </p>
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            className="relative"
-                        >
+                        </div>
+                        <div className="relative">
                             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                                 <img 
                                     src={img1} 
@@ -229,28 +198,19 @@ const Sobre = () => {
                                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                                 />
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
 
-                    {/* Stats Section - Balanced */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="mb-20"
-                    >
+                    {/* Stats Section */}
+                    <div className="mb-20">
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                             {stats.map((stat, index) => (
-                                <motion.div 
+                                <div 
                                     key={index} 
-                                    className="relative bg-white rounded-xl p-6 group hover:shadow-lg transition-shadow duration-300"
-                                    whileHover={{ y: -5 }}
-                                    transition={{ duration: 0.2 }}
+                                    className="relative bg-white rounded-xl p-6 group hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                                 >
-                                    {/* Gradiente sutil no fundo */}
                                     <div className="absolute inset-0 bg-gradient-to-br from-customPink/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     
-                                    {/* Conteúdo */}
                                     <div className="relative">
                                         <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-customPink/10 mb-4">
                                             <stat.icon className="w-6 h-6 text-customPink" />
@@ -262,19 +222,13 @@ const Sobre = () => {
                                             {stat.label}
                                         </p>
                                     </div>
-                                </motion.div>
+                                </div>
                             ))}
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Testimonials Section */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
-                        className="mb-20"
-                        id="depoimentos"
-                    >
+                    <div className="mb-20" id="depoimentos">
                         <div className="text-center mb-12">
                             <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                                 Depoimentos
@@ -297,36 +251,15 @@ const Sobre = () => {
                                 />
                             ))}
                         </div>
-                    </motion.div>
-
+                    </div>
                 </div>
             </section>
 
-            {/* Add the WasleySection before the FAQ section */}
             <WasleySection />
-
-            {/* Linha animada antes do FAQ */}
-            <div className="w-full bg-[#11111A]">
-                <div className="relative">
-                    <motion.div 
-                        initial={{ opacity: 0, width: 0 }}
-                        whileInView={{ opacity: 1, width: "100%" }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.5, delay: 0.5 }}
-                        className="absolute top-0 left-0 w-full h-[8px] bg-gradient-to-r from-customPink via-purple-800 to-purple-800"
-                    ></motion.div>
-                </div>
-            </div>
 
             {/* FAQ Section */}
             <section className="w-full bg-[#11111A]">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    className="py-20"
-                    id="faq"
-                >
+                <div className="py-20" id="faq">
                     <div className="max-w-7xl mx-auto px-6">
                         <div className="text-center max-w-3xl mx-auto mb-12">
                             <span className="text-purple-800 text-sm font-semibold uppercase tracking-wider">
@@ -352,18 +285,13 @@ const Sobre = () => {
                             ))}
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </section>
 
             {/* CTA Section */}
             <div className="bg-[#11111A] pb-32">
                 <div className="max-w-7xl mx-auto px-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
-                        className="text-center relative overflow-hidden rounded-3xl bg-[#11111A] p-12"
-                    >
+                    <div className="text-center relative overflow-hidden rounded-3xl bg-[#11111A] p-12">
                         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
                         
                         <h2 className="text-3xl font-bold text-white mb-6 relative">
@@ -386,7 +314,7 @@ const Sobre = () => {
                             </span>
                             <div className="absolute inset-0 bg-purple-50 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
                         </button>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </>

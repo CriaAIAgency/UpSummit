@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { Crown, Star, Diamond, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, X, Play } from 'lucide-react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
@@ -131,11 +131,7 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
+        <div
           className="fixed inset-0 bg-slate-900/20 backdrop-blur p-4 md:p-8 z-50 flex items-center justify-center cursor-pointer overflow-hidden"
         >
           {/* Navigation Arrows */}
@@ -159,10 +155,7 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
           </button>
 
           {/* Modal Content */}
-          <motion.div
-            initial={{ scale: 0.95 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.95 }}
+          <div
             onClick={(e) => e.stopPropagation()}
             className="bg-[#11111A] text-white rounded-2xl w-full max-w-2xl shadow-xl cursor-default relative overflow-hidden max-h-[90vh] flex flex-col"
           >
@@ -227,8 +220,8 @@ function SponsorshipModal({ isOpen, onClose, selectedTier, onPrevious, onNext })
                 </Link>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
     </AnimatePresence>
   );
@@ -320,17 +313,10 @@ const UpBlackModal = ({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
+        <div
           className="fixed inset-0 bg-slate-900/20 backdrop-blur p-4 md:p-8 z-50 flex items-center justify-center cursor-pointer overflow-hidden"
         >
-          <motion.div
-            initial={{ scale: 0.95 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.95 }}
+          <div
             onClick={(e) => e.stopPropagation()}
             className="bg-[#11111A] text-white rounded-2xl w-full max-w-2xl shadow-xl cursor-default relative overflow-hidden max-h-[90vh] flex flex-col"
           >
@@ -379,8 +365,8 @@ const UpBlackModal = ({ isOpen, onClose }) => {
                 Fechar
               </button>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
     </AnimatePresence>
   );
@@ -391,11 +377,7 @@ const VideoModal = ({ isOpen, onClose, videoUrl }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
+        <div
           className="fixed inset-0 bg-black/80 backdrop-blur-sm p-4 md:p-8 z-50 flex items-center justify-center cursor-pointer overflow-hidden"
         >
           <div className="relative w-full max-w-[90%] md:max-w-[75%] lg:max-w-[65%] xl:max-w-[60%]">
@@ -408,10 +390,7 @@ const VideoModal = ({ isOpen, onClose, videoUrl }) => {
             </button>
 
             {/* Container do vídeo */}
-            <motion.div
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.95 }}
+            <div
               onClick={(e) => e.stopPropagation()}
               className="w-full aspect-video relative rounded-xl overflow-hidden"
             >
@@ -422,9 +401,9 @@ const VideoModal = ({ isOpen, onClose, videoUrl }) => {
                 allowFullScreen
                 className="w-full h-full"
               />
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );
@@ -463,15 +442,7 @@ const Motivos = () => {
       <div className="max-w-7xl mx-auto px-6 relative">
         {/* Primeira Seção - Por que Patrocinar */}
         <div className="py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.6,
-              ease: "easeOut"
-            }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
               Seja um patrocinador.
             </span>
@@ -489,26 +460,19 @@ const Motivos = () => {
             <p className="text-gray-600 max-w-2xl mx-auto">
               Descubra os benefícios exclusivos de fazer parte do UP Summit.
             </p>
-          </motion.div>
+          </div>
 
           {/* Benefits Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mb-16">
             {benefits.map((benefit, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.6,
-                  delay: 0.2 + (index * 0.1),
-                  ease: "easeOut"
-                }}
                 className={`w-full max-w-md ${
                   index >= benefits.length - 2 ? 'lg:col-span-1.5 lg:mx-auto' : ''
                 }`}
               >
                 <BenefitCard {...benefit} />
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -527,16 +491,9 @@ const Motivos = () => {
 
         {/* Separador com linha animada - mesmo estilo da Home.jsx */}
         <div className="relative">
-            {/* Decorative Lines */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] overflow-hidden">
-                <motion.div 
-                    initial={{ opacity: 0, width: 0 }}
-                    whileInView={{ opacity: 1, width: "100%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5, delay: 0.5 }}
-                    className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-800 via-purple-800 to-purple-950"
-                ></motion.div>
-            </div>
+          <div className="absolute top-0 left-0 right-0 h-[2px] overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-800 via-purple-800 to-purple-950"></div>
+          </div>
         </div>
 
         {/* Segunda Seção - Cotas */}
@@ -549,15 +506,7 @@ const Motivos = () => {
             }} />
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.6,
-              ease: "easeOut"
-            }}
-            className="text-center mb-16 relative"
-          >
+          <div className="text-center mb-16 relative">
             <div className="mb-6">
               <span className="inline-block px-6 py-2 bg-purple-100 rounded-full text-purple-800 text-sm font-semibold">
                 Planos disponíveis
@@ -572,7 +521,7 @@ const Motivos = () => {
             <p className="text-gray-600 max-w-2xl mx-auto mt-6">
               Escolha o plano ideal para sua empresa.
             </p>
-          </motion.div>
+          </div>
 
           {/* Cards de Cotas + UP BLACK */}
           <div className="relative overflow-hidden bg-neutral-50 p-8 rounded-3xl">
@@ -629,15 +578,7 @@ const Motivos = () => {
 
         {/* Terceira Seção - Depoimentos */}
         <div className="py-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.6,
-              ease: "easeOut"
-            }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="h-[1px] w-12 bg-purple-400" />
               <span className="text-purple-800 font-semibold text-sm uppercase tracking-wider">
@@ -654,7 +595,7 @@ const Motivos = () => {
             <p className="text-gray-600 max-w-2xl mx-auto">
               Confira os depoimentos de quem já faz parte desta história.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (

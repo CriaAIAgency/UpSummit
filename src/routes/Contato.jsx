@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, ArrowRight } from 'lucide-react';
 
 const Contato = () => {
@@ -28,12 +27,7 @@ const Contato = () => {
             <section className="relative bg-white py-32">
                 <div className="max-w-7xl mx-auto px-6">
                     {/* Header Section */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-20"
-                    >
+                    <div className="text-center mb-20">
                         <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                             Entre em Contato
                         </span>
@@ -49,17 +43,12 @@ const Contato = () => {
                             <div className="w-2 h-2 rounded-full bg-customPink" />
                             <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-customPink/30" />
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Contact Grid */}
                     <div className="grid md:grid-cols-2 gap-12">
                         {/* Contact Info */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="space-y-8"
-                        >
+                        <div className="space-y-8">
                             <div>
                                 <h2 className="text-2xl font-bold mb-6">Informações de Contato</h2>
                                 <p className="text-gray-600 mb-8">
@@ -103,14 +92,10 @@ const Contato = () => {
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* Contact Form */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                        >
+                        <div>
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
                                     <label htmlFor="nome" className="block text-sm font-medium text-gray-700 mb-2">
@@ -167,7 +152,7 @@ const Contato = () => {
                                     <div className="absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
                                 </button>
                             </form>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -175,12 +160,7 @@ const Contato = () => {
             {/* CTA Section */}
             <section className="bg-[#11111A] py-20">
                 <div className="max-w-7xl mx-auto px-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center relative overflow-hidden rounded-3xl bg-[#11111A] p-12"
-                    >
+                    <div className="text-center relative overflow-hidden rounded-3xl bg-[#11111A] p-12">
                         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
                         
                         <h2 className="text-3xl font-bold text-white mb-6 relative">
@@ -203,7 +183,7 @@ const Contato = () => {
                             </span>
                             <div className="absolute inset-0 bg-customPink/5 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
                         </button>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
         </>

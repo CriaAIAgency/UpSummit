@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight, Building2, Globe, BadgeDollarSign, Target, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
@@ -90,15 +89,7 @@ const Patrocinar = () => {
         <>
             <section className="relative bg-gray-50 py-32">
                 <div className="max-w-4xl mx-auto px-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ 
-                            duration: 0.6,
-                            ease: "easeOut"
-                        }}
-                        className="text-center mb-16"
-                    >
+                    <div className="text-center mb-16">
                         <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                             Seja parte do maior evento empresarial do Centro-Oeste
                         </span>
@@ -120,46 +111,29 @@ const Patrocinar = () => {
                             acelere o crescimento do seu negócio através do{' '}
                             <span className="text-customPink font-semibold">UP Summit</span>.
                         </p>
-                    </motion.div>
+                    </div>
 
                     {formErrors.length > 0 && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4 }}
-                            className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg"
-                        >
+                        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
                             <div className="flex items-center gap-2 text-red-600 mb-2">
-                            <AlertCircle className="w-5 h-5" />
-                            <span className="font-medium">Por favor, corrija os seguintes erros:</span>
+                                <AlertCircle className="w-5 h-5" />
+                                <span className="font-medium">Por favor, corrija os seguintes erros:</span>
                             </div>
                             <ul className="list-disc list-inside text-red-600 text-sm">
-                            {formErrors.map((error, index) => (
-                                <li key={index}>{error}</li>
-                            ))}
+                                {formErrors.map((error, index) => (
+                                    <li key={index}>{error}</li>
+                                ))}
                             </ul>
-                        </motion.div>
+                        </div>
                     )}
 
-                    <motion.form 
+                    <form 
                         onSubmit={handleSubmit}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ 
-                            duration: 0.6,
-                            delay: 0.2,
-                            ease: "easeOut"
-                        }}
                         className="bg-white rounded-2xl p-8 md:p-12 shadow-lg"
                     >
                         <div className="space-y-8">
                             {/* Step 1: Informações Básicas */}
-                            <motion.div
-                                initial={{ opacity: 0, x: formStep === 1 ? 20 : -20 }}
-                                animate={{ opacity: formStep === 1 ? 1 : 0, x: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className={formStep === 1 ? 'block' : 'hidden'}
-                            >
+                            <div className={formStep === 1 ? 'block' : 'hidden'}>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -235,25 +209,18 @@ const Patrocinar = () => {
                                     </div>
                                 </div>
                                 
-                                <motion.button
+                                <button
                                     type="button"
                                     onClick={handleNextStep}
-                                    className="mt-8 w-full bg-gradient-to-r from-customPink to-customPink2 text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition flex items-center justify-center gap-2"
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
+                                    className="mt-8 w-full bg-gradient-to-r from-customPink to-customPink2 text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
                                 >
                                     Próximo passo
                                     <ArrowRight className="w-5 h-5" />
-                                </motion.button>
-                            </motion.div>
+                                </button>
+                            </div>
 
                             {/* Step 2: Investimento e Objetivos */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: formStep === 2 ? 1 : 0, x: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className={formStep === 2 ? 'block' : 'hidden'}
-                            >
+                            <div className={formStep === 2 ? 'block' : 'hidden'}>
                                 <div className="space-y-8">
                                     <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-4">
@@ -323,41 +290,33 @@ const Patrocinar = () => {
                                     </div>
 
                                     <div className="flex gap-4">
-                                    <motion.button
+                                    <button
                                         type="button"
                                         onClick={() => setFormStep(1)}
-                                        className="flex-1 bg-gray-100 text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition"
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.98 }}
+                                        className="flex-1 bg-gray-100 text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition hover:scale-[1.02] active:scale-[0.98]"
                                     >
                                         Voltar
-                                    </motion.button>
-                                    <motion.button
+                                    </button>
+                                    <button
                                         type="submit"
-                                        className="flex-1 bg-gradient-to-r from-customPink to-customPink2 text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition flex items-center justify-center gap-2"
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.98 }}
+                                        className="flex-1 bg-gradient-to-r from-customPink to-customPink2 text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
                                     >
                                         Enviar solicitação
                                         <ArrowRight className="w-5 h-5" />
-                                    </motion.button>
+                                    </button>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         </div>
-                    </motion.form>
+                    </form>
+                </div>
+
+                <div className="mt-32">
+                    <LogoHero />
                 </div>
 
                 <div className="max-w-4xl mx-auto px-6 mt-32">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ 
-                            duration: 0.6,
-                            ease: "easeOut"
-                        }}
-                        className="text-center"
-                    >
+                    <div className="text-center">
                         <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                             Dúvidas sobre patrocínio?
                         </span>
@@ -379,11 +338,9 @@ const Patrocinar = () => {
                                 <span>Descobrir Benefícios</span>
                             </button>
                         </Link>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
-
-            <LogoHero />
         </>
     );
 }

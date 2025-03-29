@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import imagem8 from '../../assets/imagem8.png';
 import imagem14 from '../../assets/imagem14.png';
 import wasley from '../../assets/wasley/wasley6.jpeg';
@@ -29,13 +28,7 @@ const Historia = () => {
                 <div className="grid md:grid-cols-3 gap-8 items-center">
                     {/* Texto */}
                     <div className="md:col-span-1">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="space-y-6"
-                        >
+                        <div className="space-y-6">
                             <span className="text-customPink text-sm font-semibold uppercase tracking-wider">
                                 Nossa História
                             </span>
@@ -56,20 +49,16 @@ const Historia = () => {
                                 e experiências imersivas, nos consolidamos como o principal evento de marketing e 
                                 negócios do Centro-Oeste.
                             </p>
-                        </motion.div>
+                        </div>
                     </div>
 
                     {/* Grid de Imagens */}
                     <div className="md:col-span-2">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {images.map((image, index) => (
-                                <motion.div
+                                <div
                                     key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                                    className={`relative rounded-2xl overflow-hidden ${
+                                    className={`relative rounded-2xl overflow-hidden group ${
                                         index === 0 
                                             ? "col-span-1 sm:col-span-2" 
                                             : "col-span-1"
@@ -78,10 +67,10 @@ const Historia = () => {
                                     <img
                                         src={image.src}
                                         alt={image.alt}
-                                        className="w-full h-full object-cover aspect-video"
+                                        className="w-full h-full object-cover aspect-video transition-transform duration-500 group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                                </motion.div>
+                                </div>
                             ))}
                         </div>
                     </div>
