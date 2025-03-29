@@ -48,7 +48,7 @@ const Home = () => {
     return (
         <>
             <section className="relative h-screen">
-                {/* Background Container - Agora sempre mostra a imagem */}
+                {/* Background Container */}
                 <div className="absolute inset-0 bg-black/50">
                     <ProgressiveImage
                         src={capa}

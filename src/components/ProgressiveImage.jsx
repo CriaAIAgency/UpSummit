@@ -7,35 +7,34 @@ const ProgressiveImage = ({
     className, 
     objectPosition = "center" 
 }) => {
-    const [imageLoaded, setImageLoaded] = useState(false);
+    const [isMainLoaded, setIsMainLoaded] = useState(false);
+
+    useEffect(() => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+            setIsMainLoaded(true);
+        };
+    }, [src]);
 
     return (
         <div className="relative w-full h-full">
-            {/* Placeholder/Low Quality Image */}
+            {/* Base/WebP image - sempre visível inicialmente */}
             <img
                 src={placeholderSrc}
                 alt={alt}
-                className={`w-full h-full object-cover transition-opacity duration-500 ${
-                    imageLoaded ? 'opacity-0' : 'opacity-100'
-                } ${className}`}
-                style={{ 
-                    position: 'absolute',
-                    objectPosition 
-                }}
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition }}
             />
             
-            {/* High Quality Image */}
+            {/* Main image - aparece com fade quando carregada */}
             <img
                 src={src}
                 alt={alt}
-                className={`w-full h-full object-cover transition-opacity duration-500 ${
-                    imageLoaded ? 'opacity-100' : 'opacity-0'
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                    isMainLoaded ? 'opacity-100' : 'opacity-0'
                 } ${className}`}
-                style={{ 
-                    position: 'absolute',
-                    objectPosition 
-                }}
-                onLoad={() => setImageLoaded(true)}
+                style={{ objectPosition }}
             />
         </div>
     );
