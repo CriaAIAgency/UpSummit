@@ -8,9 +8,6 @@ import Historia from '../components/homeSections/Historia';
 import Features from '../components/homeSections/Features';
 import Patrocinadores from '../components/homeSections/Patrocinadores';
 import { useNavigate } from 'react-router-dom';
-import capa from '../assets/bg.jpg';
-import capaWebp from '../assets/bg.webp';
-import ProgressiveImage from '../components/ProgressiveImage';
 import VideoPlayer from '../components/VideoPlayer';
 import VideoModal from '../components/VideoModal';
 import { Link } from 'react-router-dom';
@@ -57,15 +54,16 @@ const Home = () => {
     return (
         <>
             <section className="relative h-screen">
-                {/* Background Container */}
-                <div className="absolute inset-0 bg-black/50">
-                    <ProgressiveImage
+                {/* Background Container - Mudado de bg-black/50 para bg-white */}
+                <div className="absolute inset-0 bg-white">
+                    <img
                         src='https://minio-minio.m7nkeb.easypanel.host/upsummit2025/bg.jpg'
-                        placeholderSrc={capaWebp}
                         alt="Background"
-                        className="w-full h-full"
-                        objectPosition="46% center"
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: "46% center" }}
                     />
+                    {/* Overlay escuro em cima da imagem */}
+                    <div className="absolute inset-0 bg-black/40"></div>
                 </div>
 
                 {/* Decorative Lines */}
