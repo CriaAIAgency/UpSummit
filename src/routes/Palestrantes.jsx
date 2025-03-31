@@ -84,7 +84,7 @@ const Palestrantes = () => {
             name: 'FÁBIO OLIVEIRA',
             role: 'CEO do Sales Clube',
             description: 'Idealizador do método Vendedorismo e referência em operações comerciais no Brasil, Fábio tem uma trajetória que fala por si: empresário, fundador da MasterDoc, CEO e Co-Fundador do Sales Clube, a maior comunidade de vendas do país. Com mais de 25 anos de experiência, ele já transformou milhares de empresários e equipes de vendas por todo o Brasil.',
-            image: fabioImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/fabio.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Vendas'

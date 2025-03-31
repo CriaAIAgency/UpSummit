@@ -60,7 +60,7 @@ const Home = () => {
                 {/* Background Container */}
                 <div className="absolute inset-0 bg-black/50">
                     <ProgressiveImage
-                        src={capa}
+                        src='https://minio-minio.m7nkeb.easypanel.host/upsummit2025/bg.jpg'
                         placeholderSrc={capaWebp}
                         alt="Background"
                         className="w-full h-full"
@@ -255,7 +255,7 @@ const Home = () => {
                     <SocialProof />
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
-                        {[Dep1, Dep3, Dep2, Dep7, Dep9, Dep6].map((image, index) => (
+                        {[Dep1, Dep2, Dep3, Dep7, Dep6, Dep9].map((image, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 30 }}
