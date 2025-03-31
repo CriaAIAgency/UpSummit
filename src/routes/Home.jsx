@@ -17,7 +17,16 @@ import { Link } from 'react-router-dom';
 import up2024Image from '../assets/up2024.jpg';
 import up2023Image from '../assets/2023apolinario.jpg';
 import SocialProof from '../components/homeSections/SocialProof';
-import imagem5 from '../assets/imagem5.png';
+import imagem5 from '../assets/caitoimg.jpg';
+import Dep1 from '../assets/depoimentos/dep1.jpeg';
+import Dep2 from '../assets/depoimentos/dep2.jpeg';
+import Dep3 from '../assets/depoimentos/dep3.jpeg';
+import Dep4 from '../assets/depoimentos/dep4.jpeg';
+import Dep5 from '../assets/depoimentos/dep5.jpeg';
+import Dep6 from '../assets/depoimentos/dep6.jpeg';
+import Dep7 from '../assets/depoimentos/dep7.jpeg';
+import Dep8 from '../assets/depoimentos/dep8.jpeg';
+import Dep9 from '../assets/depoimentos/dep9.jpeg';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -241,11 +250,32 @@ const Home = () => {
             <CountUpStats />
             <Frases />
             <Historia />
-            <SocialProof />
+            <section className="py-16 bg-white">
+                <div className="max-w-7xl mx-auto px-6">
+                    <SocialProof />
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
+                        {[Dep1, Dep3, Dep2, Dep4, Dep5, Dep8, Dep7, Dep9, Dep6].map((image, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                            >
+                                <img
+                                    src={image}
+                                    alt={`Depoimento ${index + 1}`}
+                                    className="w-full h-auto"
+                                />
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
-            {/* Nova seção de Dúvidas - Movida para antes de Features */}
             <section id="duvidas" className="bg-[#11111A] py-20 relative">
-                {/* Decorative Lines */}
                 <div className="absolute top-0 left-0 right-0 h-[8px] overflow-hidden">
                     <motion.div 
                         initial={{ opacity: 0, width: 0 }}
@@ -294,9 +324,7 @@ const Home = () => {
                 <Patrocinadores />
             </section>
 
-            {/* Seção de Edições */}
             <section className="bg-[#11111A] py-20 relative">
-                {/* Decorative Lines */}
                 <div className="absolute top-0 left-0 right-0 h-[8px] overflow-hidden">
                     <motion.div 
                         initial={{ opacity: 0, width: 0 }}
@@ -362,7 +390,6 @@ const Home = () => {
                         </motion.div>
                     </div>
 
-                    {/* Preview das últimas edições */}
                     <motion.div 
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -413,7 +440,6 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Video Modal para todos os dispositivos */}
             <VideoModal 
                 isOpen={showVideoModal}
                 onClose={() => setShowVideoModal(false)}

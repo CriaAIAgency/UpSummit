@@ -64,7 +64,7 @@ const SocialProof = () => {
   ];
 
   return (
-    <section className="relative bg-white py-24">
+    <section className="relative bg-white pt-10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Testimonials Section */}
         <motion.div

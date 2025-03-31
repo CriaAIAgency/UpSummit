@@ -6,6 +6,7 @@ import joelJotaImg from '../assets/joeljota.jpeg';
 import rodsonImg from '../assets/rodson.png';
 import brunoCunhaImg from '../assets/brunocunha.png';
 import WasleySection from '../components/WasleySection';
+import { motion } from 'framer-motion';
 
 const stats = [
     {
@@ -202,7 +203,7 @@ const Sobre = () => {
                     </div>
 
                     {/* Stats Section */}
-                    <div className="mb-20">
+                    <div className="mb-40">
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                             {stats.map((stat, index) => (
                                 <div 
@@ -228,7 +229,7 @@ const Sobre = () => {
                     </div>
 
                     {/* Testimonials Section */}
-                    <div className="mb-20" id="depoimentos">
+                    <div className="mt-16" id="depoimentos">
                         <div className="text-center mb-12">
                             <span className="inline-block text-sm font-semibold text-customPink uppercase tracking-wider mb-4">
                                 Depoimentos
@@ -257,33 +258,44 @@ const Sobre = () => {
 
             <WasleySection />
 
+            {/* Linha animada antes da seção de dúvidas */}
+            <div className="h-[8px] bg-[#11111A]">
+                <div className="relative w-full h-full">
+                    <motion.div 
+                        initial={{ opacity: 0, width: 0 }}
+                        whileInView={{ opacity: 1, width: "100%" }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, delay: 0.5 }}
+                        className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-customPink via-purple-800 to-purple-800"
+                    ></motion.div>
+                </div>
+            </div>
+
             {/* FAQ Section */}
-            <section className="w-full bg-[#11111A]">
-                <div className="py-20" id="faq">
-                    <div className="max-w-7xl mx-auto px-6">
-                        <div className="text-center max-w-3xl mx-auto mb-12">
-                            <span className="text-purple-800 text-sm font-semibold uppercase tracking-wider">
-                                Dúvidas Frequentes
+            <section id="faq" className="bg-[#11111A] py-20">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center max-w-3xl mx-auto mb-12">
+                        <span className="text-purple-800 text-sm font-semibold uppercase tracking-wider">
+                            Dúvidas Frequentes
+                        </span>
+                        
+                        <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white">
+                            Tire todas as suas{' '}
+                            <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
+                                dúvidas
                             </span>
-                            
-                            <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white">
-                                Tire todas as suas{' '}
-                                <span className="bg-gradient-to-r from-purple-800 to-purple-900 bg-clip-text text-transparent">
-                                    dúvidas
-                                </span>
-                            </h2>
+                        </h2>
 
-                            <p className="text-gray-300 mb-8">
-                                Encontre respostas para as principais perguntas sobre o UP Summit, 
-                                desde informações sobre ingressos até detalhes sobre a programação e local do evento.
-                            </p>
-                        </div>
+                        <p className="text-gray-300 mb-8">
+                            Encontre respostas para as principais perguntas sobre o UP Summit, 
+                            desde informações sobre ingressos até detalhes sobre a programação e local do evento.
+                        </p>
+                    </div>
 
-                        <div className="max-w-3xl mx-auto">
-                            {faqs.map((faq, index) => (
-                                <FAQItem key={index} {...faq} />
-                            ))}
-                        </div>
+                    <div className="max-w-3xl mx-auto">
+                        {faqs.map((faq, index) => (
+                            <FAQItem key={index} {...faq} />
+                        ))}
                     </div>
                 </div>
             </section>

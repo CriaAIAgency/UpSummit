@@ -1,5 +1,5 @@
 import React from 'react';
-import wasleyImage from '../assets/palestrantes/wasley.jpg';
+import wasleyImage from '../assets/wasley/wasley7.jpeg';
 
 const WasleySection = () => {
   return (

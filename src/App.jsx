@@ -5,6 +5,7 @@ import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import ScrollToTop from "./components/ScrollToTop";
 import SplashScreen from "./components/SplashScreen";
+import Depoimentos from './routes/Depoimentos';
 
 function App() {
   const [showSplash, setShowSplash] = useState(false);

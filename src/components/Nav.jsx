@@ -30,6 +30,7 @@ const FlyoutNav = () => {
   
   const isPurplePage = location.pathname === '/motivos' || 
                       location.pathname === '/edicoes' ||
+                      location.pathname === '/depoimentos' ||
                       (location.pathname === '/' && isPurpleSection) ||
                       (location.pathname === '/sobre' && isPurpleSection);
 
@@ -115,6 +116,7 @@ const NavLink = ({ children, href, FlyoutContent, setMenuOpen, isPurpleSection }
   const location = useLocation();
   const isPurplePage = location.pathname === '/motivos' || 
                       location.pathname === '/edicoes' ||
+                      location.pathname === '/depoimentos' ||
                       (location.pathname === '/' && isPurpleSection) ||
                       (location.pathname === '/sobre' && isPurpleSection);
 
@@ -189,6 +191,7 @@ const AboutUsContent = ({ setMenuOpen, isPurpleSection }) => {
   const navigate = useNavigate();
   const isPurplePage = location.pathname === '/motivos' || 
                       location.pathname === '/edicoes' ||
+                      location.pathname === '/depoimentos' ||
                       (location.pathname === '/' && isPurpleSection) ||
                       (location.pathname === '/sobre' && isPurpleSection);
 
@@ -252,8 +255,8 @@ const AboutUsContent = ({ setMenuOpen, isPurpleSection }) => {
           </p>
         </a>
         <a
-          href="/sobre#depoimentos"
-          onClick={(e) => scrollToSection(e, 'depoimentos')}
+          href="/depoimentos"
+          onClick={() => setMenuOpen(false)}
           className="rounded border-2 border-neutral-200 bg-white p-3 transition-colors hover:bg-neutral-100"
         >
           <h3 className="mb-1 font-semibold">Depoimentos</h3>
@@ -291,6 +294,7 @@ const Parceria = ({ setMenuOpen, isPurpleSection }) => {
   const navigate = useNavigate();
   const isPurplePage = location.pathname === '/motivos' || 
                       location.pathname === '/edicoes' ||
+                      location.pathname === '/depoimentos' ||
                       (location.pathname === '/' && isPurpleSection) ||
                       (location.pathname === '/sobre' && isPurpleSection);
 

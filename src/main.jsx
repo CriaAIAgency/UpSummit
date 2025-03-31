@@ -12,7 +12,7 @@ import Midia from './routes/Midia'
 import Edicoes from './routes/Edicoes'
 import Palestrantes from './routes/Palestrantes'
 import Contato from './routes/Contato'
-
+import Depoimentos from './routes/Depoimentos'
 const router = createBrowserRouter ([
   {
     path: '/', element: <App />,
@@ -26,7 +26,8 @@ const router = createBrowserRouter ([
       { path: '/midia', element: <Midia />},
       { path: '/edicoes', element: <Edicoes /> },
       { path: '/palestrantes', element: <Palestrantes /> },
-      { path: '/contato', element: <Contato /> }
+      { path: '/contato', element: <Contato /> },
+      { path: '/depoimentos', element: <Depoimentos /> }
     ]
   }
 ])
