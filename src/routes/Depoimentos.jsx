@@ -24,7 +24,7 @@ const testimonials = {
   sponsors: [
     {
       name: "Bruno Cunha",
-      company: "Vox 2 you",
+      company: "Vox2You",
       videoUrl: "https://www.youtube.com/watch?v=Qc0V0Ewd0Wo"
     },
     {
@@ -117,7 +117,10 @@ const TestimonialSection = ({ title, description, testimonials, onPlayClick }) =
       </p>
     </div>
     
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {/* Adiciona classe de centralização se houver apenas um testimonial */}
+    <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${
+      testimonials.length === 1 ? 'place-items-center' : ''
+    }`}>
       {testimonials.map((testimonial, index) => (
         <motion.div
           key={testimonial.name}
@@ -125,7 +128,9 @@ const TestimonialSection = ({ title, description, testimonials, onPlayClick }) =
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: index * 0.1 }}
-          className="relative group cursor-pointer"
+          className={`relative group cursor-pointer ${
+            testimonials.length === 1 ? 'lg:col-start-2' : ''
+          }`}
           onClick={() => onPlayClick(testimonial.videoUrl)}
         >
           {/* Thumbnail do YouTube */}
@@ -214,8 +219,8 @@ const Depoimentos = () => {
   return (
     <section className="relative bg-gray-50 py-32">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-32">
+        {/* Header - Reduzindo o margin-bottom de mb-32 para mb-16 */}
+        <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-purple-800 uppercase tracking-wider mb-4">
             Depoimentos
           </span>
@@ -235,7 +240,7 @@ const Depoimentos = () => {
         {/* Seções de Depoimentos */}
         <TestimonialSection
           title="Palestrantes"
-          description="O que nossos palestrantes dizem sobre a experiência de compartilhar conhecimento no UP Summit."
+          description="O que nossos palestrantes dizem sobre a experiência de compartilhar conhecimento no Up Summit."
           testimonials={testimonials.speakers}
           onPlayClick={handlePlayClick}
         />
@@ -249,7 +254,7 @@ const Depoimentos = () => {
 
         <InstagramTestimonialSection
           title="O que nosso público diz"
-          description="Comentários de participantes que viveram a experiência UP Summit."
+          description="Comentários de participantes que viveram a experiência Up Summit."
           testimonials={testimonials.attendees}
         />
       </div>

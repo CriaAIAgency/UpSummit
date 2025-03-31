@@ -33,8 +33,8 @@ const stats = [
 
 const faqs = [
     {
-        question: "Onde acontecerá o UP SUMMIT 2025?",
-        answer: "O UP Summit acontece no Centro de Convenções da PUC Goiás – Goiania GO."
+        question: "Onde acontecerá o Up SUMMIT 2025?",
+        answer: "O Up Summit acontece no Centro de Convenções da PUC Goiás – Goiania GO."
     },
     {
         question: "Quais são os dias e os horários do evento?",
@@ -182,7 +182,7 @@ const Sobre = () => {
                                 </span>
                             </h2>
                             <p className="text-gray-600 leading-relaxed">
-                                O UP Summit nasceu com o propósito de transformar o cenário empresarial brasileiro, 
+                                O Up Summit nasceu com o propósito de transformar o cenário empresarial brasileiro, 
                                 conectando líderes, empreendedores e profissionais em torno das mais recentes 
                                 tendências de marketing, inovação e negócios.
                             </p>
@@ -195,7 +195,7 @@ const Sobre = () => {
                             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                                 <img 
                                     src={img1} 
-                                    alt="UP Summit Event"
+                                    alt="Up Summit Event"
                                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                                 />
                             </div>
@@ -237,7 +237,7 @@ const Sobre = () => {
                             <h2 className="text-3xl font-bold text-gray-900 mb-4">
                                 O que dizem sobre o{' '}
                                 <span className="bg-gradient-to-r from-customPink to-customPink2 bg-clip-text text-transparent">
-                                    UP Summit
+                                    Up Summit
                                 </span>
                             </h2>
                             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -287,7 +287,7 @@ const Sobre = () => {
                         </h2>
 
                         <p className="text-gray-300 mb-8">
-                            Encontre respostas para as principais perguntas sobre o UP Summit, 
+                            Encontre respostas para as principais perguntas sobre o Up Summit, 
                             desde informações sobre ingressos até detalhes sobre a programação e local do evento.
                         </p>
                     </div>
@@ -314,7 +314,7 @@ const Sobre = () => {
                         </h2>
                         <p className="text-white/90 mb-8 max-w-2xl mx-auto relative">
                             Junte-se a milhares de profissionais e empresas que já transformaram 
-                            seus negócios através do UP Summit.
+                            seus negócios através do Up Summit.
                         </p>
                         <button 
                             onClick={() => window.open('https://upsummit.com.br/', '_blank')}

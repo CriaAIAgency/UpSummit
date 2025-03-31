@@ -33,15 +33,15 @@ const WasleySection = () => {
 
             <div className="space-y-4 text-gray-600">
               <p>
-                Wasley Costa é o visionário fundador e CEO do UP Summit, o maior evento empresarial do Centro-Oeste brasileiro. Com uma trajetória marcada por inovação e liderança, ele transformou sua visão em um movimento que impacta milhares de empreendedores anualmente.
+                Wasley Costa é o visionário fundador e CEO do Up Summit, o maior evento empresarial do Centro-Oeste brasileiro. Com uma trajetória marcada por inovação e liderança, ele transformou sua visão em um movimento que impacta milhares de empreendedores anualmente.
               </p>
               
               <p>
-                Mentor de negócios e especialista em crescimento empresarial, Wasley combina sua experiência prática com uma profunda compreensão do mercado para criar experiências transformadoras no UP Summit. Sob sua liderança, o evento se tornou uma referência em conteúdo de alta qualidade e networking estratégico.
+                Mentor de negócios e especialista em crescimento empresarial, Wasley combina sua experiência prática com uma profunda compreensão do mercado para criar experiências transformadoras no Up Summit. Sob sua liderança, o evento se tornou uma referência em conteúdo de alta qualidade e networking estratégico.
               </p>
 
               <p>
-                Sua missão é democratizar o acesso ao conhecimento de alto nível e criar um ambiente onde empreendedores possam se conectar, aprender e crescer juntos. O UP Summit é o reflexo desse compromisso, reunindo os maiores especialistas do mercado em um evento que já impactou mais de 5.000 empresários.
+                Sua missão é democratizar o acesso ao conhecimento de alto nível e criar um ambiente onde empreendedores possam se conectar, aprender e crescer juntos. O Up Summit é o reflexo desse compromisso, reunindo os maiores especialistas do mercado em um evento que já impactou mais de 5.000 empresários.
               </p>
             </div>
           </div>
