@@ -186,11 +186,13 @@ const InstagramTestimonialSection = ({ title, description, testimonials }) => (
           transition={{ duration: 0.6, delay: index * 0.1 }}
           className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
         >
-          <img
-            src={testimonial.image}
-            alt="Depoimento"
-            className="w-full h-auto"
-          />
+          <div className="py-5">
+            <img
+              src={testimonial.image}
+              alt="Depoimento"
+              className="w-full h-auto"
+            />
+          </div>
         </motion.div>
       ))}
     </div>

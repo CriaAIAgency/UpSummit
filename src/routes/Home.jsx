@@ -255,7 +255,7 @@ const Home = () => {
                     <SocialProof />
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
-                        {[Dep1, Dep3, Dep2, Dep4, Dep5, Dep8, Dep7, Dep9, Dep6].map((image, index) => (
+                        {[Dep1, Dep3, Dep2, Dep7, Dep9, Dep6].map((image, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 30 }}
@@ -264,11 +264,13 @@ const Home = () => {
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
                             >
-                                <img
-                                    src={image}
-                                    alt={`Depoimento ${index + 1}`}
-                                    className="w-full h-auto"
-                                />
+                                <div className="py-5">
+                                    <img
+                                        src={image}
+                                        alt={`Depoimento ${index + 1}`}
+                                        className="w-full h-auto"
+                                    />
+                                </div>
                             </motion.div>
                         ))}
                     </div>
