@@ -54,16 +54,18 @@ const Home = () => {
     return (
         <>
             <section className="relative h-screen">
-                {/* Background Container - Mudado de bg-black/50 para bg-white */}
+                {/* Background Container - Usando bg-white */}
                 <div className="absolute inset-0 bg-white">
-                    <img
-                        src='https://minio-minio.m7nkeb.easypanel.host/upsummit2025/bg.jpg'
-                        alt="Background"
-                        className="w-full h-full object-cover"
-                        style={{ objectPosition: "46% center" }}
-                    />
-                    {/* Overlay escuro em cima da imagem */}
-                    <div className="absolute inset-0 bg-black/40"></div>
+                    <div className="relative w-full h-full bg-white">
+                        <img
+                            src='https://minio-minio.m7nkeb.easypanel.host/upsummit2025/bg.jpg'
+                            alt="Background"
+                            className="w-full h-full object-cover"
+                            style={{ objectPosition: "46% center" }}
+                        />
+                        {/* Overlay escuro em cima da imagem */}
+                        <div className="absolute inset-0 bg-black/40"></div>
+                    </div>
                 </div>
 
                 {/* Decorative Lines */}

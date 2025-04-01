@@ -32,6 +32,8 @@ import LogoReserva from '../../assets/patrocinadores/reserva35.jpeg';
 import LogoSicoob from '../../assets/patrocinadores/sicoob.jpg';
 import LogoSpa from '../../assets/patrocinadores/spamandarim.png';
 import LogoTollit from '../../assets/patrocinadores/tollit.png';
+import LogoWale from '../../assets/patrocinadores/waleengenharia.png';
+import LogoTalisma from '../../assets/patrocinadores/talisma.png';
 import { Link, useLocation } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -54,6 +56,7 @@ const Patrocinadores = () => {
         patrocinadores: [
             Logo2,  // acai
             LogoVox, // vox2you
+            LogoWale, // wale
             Logo19, // sqz
             Logo21, // karla (vsl)
             Logo16, // maissaude
@@ -62,6 +65,7 @@ const Patrocinadores = () => {
             Logo13, // kami
             Logo15, // lus
             Logo12, // epoca
+            LogoTalisma, // talisma
             Logo9,  // conectada
             Logo7,  // bp
             Logo5,  // atitude
@@ -78,7 +82,7 @@ const Patrocinadores = () => {
             LogoTollit, // tollit
         ],
         ativacoes: [Logo20, Logo21, Logo18], // Support, VSL e Santri
-        parcerias: [Logo8, Logo17, Logo23, Logo6, Logo4] // Comfort, Quality Hotel, Guide, Bally e Alphapark
+        parcerias: [Logo6, Logo17, Logo23, Logo8, Logo4] // Comfort, Quality Hotel, Guide, Bally e Alphapark
     };
 
     // Combinar todos os logos em um único array

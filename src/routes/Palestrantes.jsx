@@ -4,23 +4,6 @@ import { ArrowRight, Instagram } from 'lucide-react';
 import SpeakerModal from '../components/SpeakerModal';
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
-// Importar as imagens
-import pvImage from '../assets/palestrantes/pv.jpg';
-import rayImage from '../assets/palestrantes/ray.png';
-import pabloImage from '../assets/palestrantes/pablo.jpg';
-import alexImage from '../assets/palestrantes/alex.jpeg';
-import barbaraImage from '../assets/palestrantes/barbara.jpg';
-import carolImage from '../assets/palestrantes/carol.jpg';
-import conradoImage from '../assets/palestrantes/conrado.png';
-import crisImage from '../assets/palestrantes/cris.jpeg';
-import edsonImage from '../assets/palestrantes/edson.jpg';
-import janaineImage from '../assets/palestrantes/janaine.jpg';
-import joaokeplerImage from '../assets/palestrantes/joaokepler.jpg';
-import samuelImage from '../assets/palestrantes/samuel.jpg';
-import michelleImage from '../assets/palestrantes/michelle.jpeg';
-import wasleyImage from '../assets/palestrantes/wasley.jpg';
-import fabioImage from '../assets/palestrantes/fabio.jpg';
-import brunoImage from '../assets/palestrantes/bruno.jpg';
 
 const Palestrantes = () => {
     const [selectedSpeaker, setSelectedSpeaker] = useState(null);
@@ -30,7 +13,7 @@ const Palestrantes = () => {
             name: 'PAULO VIEIRA',
             role: 'CEO da Febracis',
             description: 'O coach e fundador da Febracis Escola de Negócios já transformou mais de 1,5 milhão de vidas por meio do famoso Método CIS. Especialista em mudança de mentalidade e desenvolvimento pessoal.',
-            image: pvImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/pv.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Desenvolvimento Pessoal'
@@ -39,7 +22,7 @@ const Palestrantes = () => {
             name: 'WASLEY COSTA',
             role: 'CEO do Up Summit',
             description: 'Empresário, construtor, mentor de negócios e CEO do Up Summit.',
-            image: wasleyImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/wasley.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Empreendedorismo'
@@ -48,7 +31,7 @@ const Palestrantes = () => {
             name: 'CRIS ARCANGELI',
             role: 'Empreendedora Serial',
             description: 'Uma das maiores referências em inovação e construção de marcas no Brasil, Cris Arcangeli é uma empreendedora serial que transforma mercados. Criadora da categoria ALIMÉTICOS e do primeiro BEAUTYDRINK, ela também idealizou o Comunidades A1000, o primeiro reality show de impacto positivo do mundo.',
-            image: crisImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/cris.jpeg',
             linkedin: '#',
             instagram: '#',
             topic: 'Inovação e Empreendedorismo'
@@ -57,7 +40,7 @@ const Palestrantes = () => {
             name: 'JOÃO KEPLER',
             role: 'Empresário e Investidor-Anjo',
             description: 'Empresário, anjo-investidor e um dos maiores nomes do ecossistema de inovação e tecnologia do Brasil, Kepler é máxima referência no que diz respeito a construir uma empresa sólida e com capacidade de crescimento e expansão.',
-            image: joaokeplerImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/joaokepler.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Inovação e Investimentos'
@@ -66,7 +49,7 @@ const Palestrantes = () => {
             name: 'PABLO MARÇAL',
             role: 'Empresário e Mentor',
             description: 'O empresário, coach, escritor e mentor de negócios e alta performance. De Goiânia para a liderança nacional. Esposo da Carol e pai de quatro filhos. Pablo Marçal é empresário visionário, fundador de múltiplos negócios, mentor de milhões de pessoas impactadas por seus ensinamentos.',
-            image: pabloImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/pablo.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Alta Performance'
@@ -75,7 +58,7 @@ const Palestrantes = () => {
             name: 'BÁRBARA PORTO',
             role: 'CEO da Bárbara Porto',
             description: 'CEO e Diretora Criativa da Bárbara Porto, uma grande marca do universo de semijoias. Bárbara é referência em elegância, autenticidade e empoderamento feminino, esbanjando paixão pela moda e a arte de criar.',
-            image: barbaraImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/barbara.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Empreendedorismo Feminino'
@@ -93,7 +76,7 @@ const Palestrantes = () => {
             name: 'JANAINE VALÉRIA',
             role: 'Advogada Empresarial',
             description: 'Advogada Empresarial e especialista em Assessoria Jurídica para empresas, Janaine atua no âmbito Societário, Contratual e Gestão de Riscos.',
-            image: janaineImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/janaine.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Direito Empresarial'
@@ -102,7 +85,7 @@ const Palestrantes = () => {
             name: 'EDSON MACKEENZY',
             role: 'CEO da Business Design Academy',
             description: 'Educador, conselheiro de negócios, autor best seller e especialista em investimento. Ao longo da sua jornada, fundou a Business Design Academy, atuou como diretor no fundo de investimentos americano The Venture City e na Bossa Nova Investimentos, e fundou o Videolog.tv, a primeira plataforma global de compartilhamento de vídeo - lugar este que atua como CEO.',
-            image: edsonImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/edson.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Investimentos'
@@ -111,7 +94,7 @@ const Palestrantes = () => {
             name: 'ALEX MONTEIRO',
             role: 'Especialista em Marketing de Influência',
             description: 'Fundador da maior agência especializada em marketing de influência da América Latina, Alex Monteiro já impulsionou carreiras como Whindersson Nunes, Gkay, Tirullipa, Rezende e muitos outros.',
-            image: alexImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/alex.jpeg',
             linkedin: '#',
             instagram: '#',
             topic: 'Marketing Digital'
@@ -120,7 +103,7 @@ const Palestrantes = () => {
             name: 'CONRADO ADOLPHO',
             role: 'Mentor de Negócios',
             description: 'Empresário, mentor de negócios, um dos maiores vendedores do Brasil e reconhecido como o "mentor dos mentores", com mais de 1.000 empresas atendidas individualmente.',
-            image: conradoImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/conrado.png',
             linkedin: '#',
             instagram: '#',
             topic: 'Mentoria'
@@ -129,7 +112,7 @@ const Palestrantes = () => {
             name: 'BRUNO AVELAR',
             role: 'Chief Visionary Officer',
             description: 'Empresário, coach, palestrante, escritor, mestre em networking, mentor e CVO (Chief Visionary Officer) de centenas de empresas.',
-            image: brunoImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/bruno.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Networking'
@@ -138,7 +121,7 @@ const Palestrantes = () => {
             name: 'RAY GONÇALVES',
             role: 'Especialista em Marketing Digital',
             description: 'Ray Gonçalves é uma especialista em marketing e vendas que auxilia empresários a aumentarem suas vendas utilizando estratégias digitais. Com mais de 900 empresas atendidas, Ray se destaca por colocar seus clientes à frente no mercado, oferecendo diagnósticos personalizados para identificar oportunidades de crescimento.',
-            image: rayImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/ray.png',
             linkedin: '#',
             instagram: '#',
             topic: 'Marketing Digital'
@@ -147,7 +130,7 @@ const Palestrantes = () => {
             name: 'CAROL IASMIN',
             role: 'Especialista em Neurovendas',
             description: 'Com mais de 16 anos de experiência no mercado de vendas, Carol é especialista em neurovendas e a mulher palestrante Top 1 em treinamentos de vendas no Brasil. Com uma linguagem clara e direta, transforma teorias em estratégias práticas que qualquer um pode usar.',
-            image: carolImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/carol.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Neurovendas'
@@ -156,7 +139,7 @@ const Palestrantes = () => {
             name: 'SAMUEL PEREIRA',
             role: 'Fundador da SDA Holding',
             description: 'Empresário, investidor, fundador da SDA Holding e criador do Segredos da Audiência Ao Vivo, o maior Espetáculo de Tráfego e Audiência do Brasil. Com mais de 14 anos de experiência no digital, ele tem mais de 16 milhões de visitas em um de seus sites.',
-            image: samuelImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/samuel.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Tráfego Digital'
@@ -165,7 +148,7 @@ const Palestrantes = () => {
             name: 'MICHELLE WADHY',
             role: 'Co-fundadora da Fast Escova',
             description: 'Co-fundadora da Fast Escova, uma franqueadora de sucesso com mais de 350 unidades e 4.500 colaboradores em apenas 6 anos. Com formação em Administração de Empresas e MBA em Gestão Comercial, Michelle acumula mais de 25 anos de experiência liderando grandes empresas, incluindo a Avon Cosméticos, onde gerenciou mais de 30 mil pessoas.',
-            image: michelleImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/michelle.jpeg',
             linkedin: '#',
             instagram: '#',
             topic: 'Franquias'

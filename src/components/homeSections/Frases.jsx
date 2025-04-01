@@ -3,15 +3,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Instagram } from 'lucide-react';
 import SpeakerModal from '../SpeakerModal';
 import { Link } from 'react-router-dom';
-// Importar as imagens
-import pvImage from '../../assets/palestrantes/pv.jpg';
-import crisImage from '../../assets/palestrantes/cris.jpeg';
-import joaokeplerImage from '../../assets/palestrantes/joaokepler.jpg';
-import pabloImage from '../../assets/palestrantes/pablo.jpg';
-import wasleyImage from '../../assets/palestrantes/wasley.jpg';
-import barbaraImage from '../../assets/palestrantes/barbara.jpg';
-import fabioImage from '../../assets/palestrantes/fabio.jpg';
-import janaineImage from '../../assets/palestrantes/janaine.jpg';
 
 const Frases = () => {
     const [selectedSpeaker, setSelectedSpeaker] = useState(null);
@@ -21,7 +12,7 @@ const Frases = () => {
             name: 'PAULO VIEIRA',
             role: 'CEO da Febracis',
             description: 'O coach e fundador da Febracis Escola de Negócios já transformou mais de 1,5 milhão de vidas por meio do famoso Método CIS. Especialista em mudança de mentalidade e desenvolvimento pessoal.',
-            image: pvImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/pv.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Desenvolvimento Pessoal'
@@ -30,7 +21,7 @@ const Frases = () => {
             name: 'WASLEY COSTA',
             role: 'CEO do Up Summit',
             description: 'Empresário, construtor, mentor de negócios e CEO do Up Summit.',
-            image: wasleyImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/wasley.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Empreendedorismo'
@@ -39,7 +30,7 @@ const Frases = () => {
             name: 'CRIS ARCANGELI',
             role: 'Empreendedora Serial',
             description: 'Uma das maiores referências em inovação e construção de marcas no Brasil, Cris Arcangeli é uma empreendedora serial que transforma mercados. Criadora da categoria ALIMÉTICOS e do primeiro BEAUTYDRINK, ela também idealizou o Comunidades A1000, o primeiro reality show de impacto positivo do mundo.',
-            image: crisImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/cris.jpeg',
             linkedin: '#',
             instagram: '#',
             topic: 'Inovação e Empreendedorismo'
@@ -48,7 +39,7 @@ const Frases = () => {
             name: 'JOÃO KEPLER',
             role: 'Empresário e Investidor-Anjo',
             description: 'Empresário, anjo-investidor e um dos maiores nomes do ecossistema de inovação e tecnologia do Brasil, Kepler é máxima referência no que diz respeito a construir uma empresa sólida e com capacidade de crescimento e expansão.',
-            image: joaokeplerImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/joaokepler.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Inovação e Investimentos'
@@ -57,7 +48,7 @@ const Frases = () => {
             name: 'PABLO MARÇAL',
             role: 'Empresário e Mentor',
             description: 'O empresário, coach, escritor e mentor de negócios e alta performance. De Goiânia para a liderança nacional. Esposo da Carol e pai de quatro filhos. Pablo Marçal é empresário visionário, fundador de múltiplos negócios, mentor de milhões de pessoas impactadas por seus ensinamentos.',
-            image: pabloImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/pablo.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Alta Performance'
@@ -66,7 +57,7 @@ const Frases = () => {
             name: 'BÁRBARA PORTO',
             role: 'CEO da Bárbara Porto',
             description: 'CEO e Diretora Criativa da Bárbara Porto, uma grande marca do universo de semijoias. Bárbara é referência em elegância, autenticidade e empoderamento feminino, esbanjando paixão pela moda e a arte de criar.',
-            image: barbaraImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/barbara.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Empreendedorismo Feminino'
@@ -75,7 +66,7 @@ const Frases = () => {
             name: 'FÁBIO OLIVEIRA',
             role: 'CEO do Sales Clube',
             description: 'Idealizador do método Vendedorismo e referência em operações comerciais no Brasil, Fábio tem uma trajetória que fala por si: empresário, fundador da MasterDoc, CEO e Co-Fundador do Sales Clube, a maior comunidade de vendas do país. Com mais de 25 anos de experiência, ele já transformou milhares de empresários e equipes de vendas por todo o Brasil.',
-            image: fabioImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/fabio.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Vendas'
@@ -84,7 +75,7 @@ const Frases = () => {
             name: 'JANAINE VALÉRIA',
             role: 'Advogada Empresarial',
             description: 'Advogada Empresarial e especialista em Assessoria Jurídica para empresas, Janaine atua no âmbito Societário, Contratual e Gestão de Riscos.',
-            image: janaineImage,
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/janaine.jpg',
             linkedin: '#',
             instagram: '#',
             topic: 'Direito Empresarial'
