@@ -8,7 +8,6 @@ import caitoImage from '../assets/caito.jpg';
 import paulomuzyImage from '../assets/paulomuzy.jpg';
 import apolinarioImage from '../assets/apolinario.jpeg';
 import felipetitoImage from '../assets/felipetito.jpg';
-import crisImage from '../assets/palestrantes/cris.jpeg';
 import palcoImage from '../assets/palco.jpg';
 import up2024Image from '../assets/up2024.jpg';
 import up2023Image from '../assets/2023apolinario.jpg';
@@ -80,7 +79,7 @@ const editions = [
       },
       {
         title: "Cris Arcangeli",
-        image: crisImage,
+        image: "https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/cris.jpeg",
         role: "Empreendedora Serial"
       },
       {
