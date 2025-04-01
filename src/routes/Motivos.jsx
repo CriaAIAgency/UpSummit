@@ -58,7 +58,7 @@ const sponsorshipTiers = [
       'Veiculação da marca do patrocinador nos horários de break nos telões laterais do palco',
       'Logotipo exposto na aba de expositores do site oficial',
       'Liberação de 5 staffs no stand',
-      '6 ingressos executives',
+      '6 ingressos executivos',
       '2 ingressos UP BLACK - Experiência premium com acesso VIP'
     ]
   },
@@ -69,7 +69,7 @@ const sponsorshipTiers = [
     bgGradient: 'from-gray-400/20 to-transparent',
     bgUrl: platinaImage,
     benefits: [
-      'Espaço para estande de 5x3 metros',
+      'Espaço para estande de 6x3 metros',
       'Exibição de anúncio de 20" segundos nos telões da feira de negócios',
       'Logotipo exposto na aba de expositores do site oficial',
       'Acesso à lista de leads do evento',

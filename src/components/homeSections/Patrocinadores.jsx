@@ -58,7 +58,6 @@ const Patrocinadores = () => {
             LogoVox, // vox2you
             LogoWale, // wale
             Logo19, // sqz
-            Logo21, // karla (vsl)
             Logo16, // maissaude
             Logo14, // linq
             Logo11, // empresa

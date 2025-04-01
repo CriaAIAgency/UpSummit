@@ -3,13 +3,14 @@ import { ArrowRight, Building2, Globe, BadgeDollarSign, Target, AlertCircle } fr
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 import LogoHero from '../components/homeSections/LogoHero';
+import emailjs from '@emailjs/browser';
 
 const investmentRanges = [
   { id: 1, value: 'R$10.000 - R$50.000', label: 'R$ 10.000 - R$ 50.000' },
   { id: 2, value: 'R$51.000 - R$100.000', label: 'R$ 51.000 - R$ 100.000' },
   { id: 3, value: 'R$101.000 - R$200.000', label: 'R$ 101.000 - R$ 200.000' },
   { id: 4, value: 'R$201.000 - R$400.000', label: 'R$ 201.000 - R$ 400.000' },
-  { id: 5, value: 'ABOVE_400K', label: 'Acima de R$ 400.000' },
+  { id: 5, value: 'Acima de R$400.000', label: 'Acima de R$ 400.000' },
 ];
 
 const objectives = [
@@ -25,6 +26,8 @@ const Patrocinar = () => {
     const [selectedObjectives, setSelectedObjectives] = useState([]);
     const [formStep, setFormStep] = useState(1);
     const [formErrors, setFormErrors] = useState([]);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -77,11 +80,59 @@ const Patrocinar = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateStep2()) {
-        console.log({ ...formData, objectives: selectedObjectives });
-        // Aqui você pode adicionar a lógica para envio do formulário.
+            setIsSubmitting(true);
+            setSubmitStatus(null);
+
+            try {
+                const templateParams = {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    position: formData.position,
+                    company: formData.company,
+                    instagram: formData.website,
+                    investment_range: formData.investmentRange,
+                    objectives: objectives
+                        .filter(obj => selectedObjectives.includes(obj.id))
+                        .map(obj => obj.label)
+                        .join(' / '),
+                    message: formData.message
+                };
+
+                await emailjs.send(
+                    'service_zwr1qxt',
+                    'template_ceyg5it',
+                    templateParams,
+                    'C4IMsV-mAhy04hjyi'
+                );
+
+                setSubmitStatus('success');
+                // Limpar o formulário
+                setFormData({
+                    name: '',
+                    email: '',
+                    position: '',
+                    company: '',
+                    website: '',
+                    investmentRange: '',
+                    message: ''
+                });
+                setSelectedObjectives([]);
+                setFormStep(1);
+                
+                // Scroll suave para o topo
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } catch (error) {
+                console.error('Erro ao enviar email:', error);
+                setSubmitStatus('error');
+            } finally {
+                setIsSubmitting(false);
+            }
         }
     };
 
@@ -124,6 +175,32 @@ const Patrocinar = () => {
                                     <li key={index}>{error}</li>
                                 ))}
                             </ul>
+                        </div>
+                    )}
+
+                    {submitStatus === 'success' && (
+                        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                            <div className="flex items-center gap-2 text-green-600">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span className="font-medium">Solicitação enviada com sucesso!</span>
+                            </div>
+                            <p className="text-green-600 text-sm mt-2">
+                                Entraremos em contato em breve.
+                            </p>
+                        </div>
+                    )}
+
+                    {submitStatus === 'error' && (
+                        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                            <div className="flex items-center gap-2 text-red-600">
+                                <AlertCircle className="w-5 h-5" />
+                                <span className="font-medium">Erro ao enviar solicitação</span>
+                            </div>
+                            <p className="text-red-600 text-sm mt-2">
+                                Por favor, tente novamente mais tarde.
+                            </p>
                         </div>
                     )}
 
@@ -194,12 +271,14 @@ const Patrocinar = () => {
                                     </div>
                                     <div className="md:col-span-2">
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Website
+                                        Instagram
                                     </label>
                                     <div className="relative">
-                                        <Globe className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                                        <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.012-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                        </svg>
                                         <input
-                                        type="url"
+                                        type="text"
                                         name="website"
                                         value={formData.website}
                                         onChange={handleInputChange}

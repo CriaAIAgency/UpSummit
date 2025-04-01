@@ -40,7 +40,7 @@ const editions = [
       speakers: "60",
       partners: "45"
     },
-    videoUrl: "https://www.youtube.com/watch?v=tnhu3K0OMYU",
+    videoUrl: "https://www.youtube.com/watch?v=tE1uCwiPs20",
     highlights: [
       {
         title: "Joel Jota",
