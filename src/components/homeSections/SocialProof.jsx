@@ -85,7 +85,7 @@ const SocialProof = () => {
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Histórias reais de quem já viveu a experiência transformadora do maior evento de marketing do Brasil
+              Histórias reais de quem já viveu a experiência transformadora do maior evento de marketing do Brasil.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
