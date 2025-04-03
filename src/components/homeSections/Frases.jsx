@@ -63,22 +63,22 @@ const Frases = () => {
             topic: 'Empreendedorismo Feminino'
         },
         {
-            name: 'FÁBIO OLIVEIRA',
-            role: 'CEO do Sales Clube',
-            description: 'Idealizador do método Vendedorismo e referência em operações comerciais no Brasil, Fábio tem uma trajetória que fala por si: empresário, fundador da MasterDoc, CEO e Co-Fundador do Sales Clube, a maior comunidade de vendas do país. Com mais de 25 anos de experiência, ele já transformou milhares de empresários e equipes de vendas por todo o Brasil.',
-            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/fabio.jpg',
+            name: 'DOUGLAS NINJA',
+            role: 'Deputado Federal e Influenciador',
+            description: 'Ex-jogador profissional de basquete, influenciador digital e deputado federal por São Paulo, Ninja é referência em comunicação autêntica e transformação social. Criador do canal "Nunca Mexa com um Ninja", leva mensagens de superação, autoestima e poder pessoal a milhões de seguidores.',
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/douglas.jpeg',
             linkedin: '#',
             instagram: '#',
-            topic: 'Vendas'
+            topic: 'Comunicação e Liderança'
         },
         {
-            name: 'JANAINE VALÉRIA',
-            role: 'Advogada Empresarial',
-            description: 'Advogada Empresarial e especialista em Assessoria Jurídica para empresas, Janaine atua no âmbito Societário, Contratual e Gestão de Riscos.',
-            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/janaine.jpg',
+            name: 'RENNER SILVA',
+            role: 'Palestrante Internacional',
+            description: 'Eleito o melhor palestrante do Brasil pelo prêmio Top of Mind em Londres, Renner Silva impactou mais de 1 milhão de pessoas com suas palavras. Com mais de 1.300 palestras e 600 empresas atendidas, é referência em performance, comunicação e faturamento milionário no palco.',
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/renner.jpeg',
             linkedin: '#',
             instagram: '#',
-            topic: 'Direito Empresarial'
+            topic: 'Performance e Comunicação'
         }
     ];
 

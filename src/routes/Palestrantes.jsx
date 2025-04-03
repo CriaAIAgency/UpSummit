@@ -64,21 +64,30 @@ const Palestrantes = () => {
             topic: 'Empreendedorismo Feminino'
         },
         {
-            name: 'FÁBIO OLIVEIRA',
-            role: 'CEO do Sales Clube',
-            description: 'Idealizador do método Vendedorismo e referência em operações comerciais no Brasil, Fábio tem uma trajetória que fala por si: empresário, fundador da MasterDoc, CEO e Co-Fundador do Sales Clube, a maior comunidade de vendas do país. Com mais de 25 anos de experiência, ele já transformou milhares de empresários e equipes de vendas por todo o Brasil.',
-            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/fabio.jpg',
-            linkedin: '#',
-            instagram: '#',
-            topic: 'Vendas'
+            name: 'DOUGLAS VIEGAS',
+            role: 'Deputado Federal e Influenciador',
+            description: 'Referência em carisma, autenticidade e impacto social, Douglas Viegas, o Poderosíssimo Ninja, é ex-jogador de basquete e influenciador que alcança milhões. Hoje, como deputado federal por São Paulo, defende o esporte, a juventude e a transformação nas periferias.',
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/douglas.jpeg',
+            linkedin: 'https://www.youtube.com/watch?v=tB--iIKTU8c',
+            instagram: 'https://www.instagram.com/douglasviegas/?hl=pt-br',
+            topic: 'Comunicação e Liderança'
+        },
+        {
+            name: 'RENNER SILVA',
+            role: 'Palestrante Internacional',
+            description: 'Eleito o melhor palestrante do Brasil pelo prêmio Top of Mind em Londres, Renner Silva é referência em performance, comunicação e faturamento milionário no palco. Já realizou mais de 1.300 palestras, atendeu 600 empresas e se apresentou em sete países, incluindo na sede da ONU.',
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/renner.jpeg',
+            linkedin: 'https://www.linkedin.com/in/rennersilvaoficial/?originalSubdomain=br',
+            instagram: 'https://www.instagram.com/rennersilvaoficial/',
+            topic: 'Performance e Comunicação'
         },
         {
             name: 'JANAINE VALÉRIA',
             role: 'Advogada Empresarial',
             description: 'Advogada Empresarial e especialista em Assessoria Jurídica para empresas, Janaine atua no âmbito Societário, Contratual e Gestão de Riscos.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/janaine.jpg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.youtube.com/watch?v=UDHbxbVDxtc',
+            instagram: 'https://www.instagram.com/janainevaleria/',
             topic: 'Direito Empresarial'
         },
         {
@@ -86,8 +95,8 @@ const Palestrantes = () => {
             role: 'CEO da Business Design Academy',
             description: 'Educador, conselheiro de negócios, autor best seller e especialista em investimento. Ao longo da sua jornada, fundou a Business Design Academy, atuou como diretor no fundo de investimentos americano The Venture City e na Bossa Nova Investimentos, e fundou o Videolog.tv, a primeira plataforma global de compartilhamento de vídeo - lugar este que atua como CEO.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/edson.jpg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.linkedin.com/in/mackeenzy/?locale=pt_BR',
+            instagram: 'https://www.instagram.com/mackeenzy/',
             topic: 'Investimentos'
         },
         {
@@ -95,8 +104,8 @@ const Palestrantes = () => {
             role: 'Especialista em Marketing de Influência',
             description: 'Fundador da maior agência especializada em marketing de influência da América Latina, Alex Monteiro já impulsionou carreiras como Whindersson Nunes, Gkay, Tirullipa, Rezende e muitos outros.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/alex.jpeg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.linkedin.com/in/alexmmonteiro/?originalSubdomain=br',
+            instagram: 'https://www.instagram.com/alexmmonteiro/',
             topic: 'Marketing Digital'
         },
         {
@@ -104,8 +113,8 @@ const Palestrantes = () => {
             role: 'Mentor de Negócios',
             description: 'Empresário, mentor de negócios, um dos maiores vendedores do Brasil e reconhecido como o "mentor dos mentores", com mais de 1.000 empresas atendidas individualmente.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/conrado.png',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.linkedin.com/in/conradoadolpho/?originalSubdomain=br',
+            instagram: 'https://www.instagram.com/conradoadolpho/',
             topic: 'Mentoria'
         },
         {
@@ -113,8 +122,8 @@ const Palestrantes = () => {
             role: 'Chief Visionary Officer',
             description: 'Empresário, coach, palestrante, escritor, mestre em networking, mentor e CVO (Chief Visionary Officer) de centenas de empresas.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/bruno.jpg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://brunoavelar.com.br/?fbclid=PAZXh0bgNhZW0CMTEAAaYvyO75H-vflBuRXFpwOsQI3HEcxSeKLTnDeAVa5Z__RZHUnbc7PvUJtco_aem_VQwwnIPq1xT9CnqTkmITXA',
+            instagram: 'https://www.instagram.com/brunoavelar/',
             topic: 'Networking'
         },
         {
@@ -122,8 +131,8 @@ const Palestrantes = () => {
             role: 'Especialista em Marketing Digital',
             description: 'Ray Gonçalves é uma especialista em marketing e vendas que auxilia empresários a aumentarem suas vendas utilizando estratégias digitais. Com mais de 900 empresas atendidas, Ray se destaca por colocar seus clientes à frente no mercado, oferecendo diagnósticos personalizados para identificar oportunidades de crescimento.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/ray.png',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.linkedin.com/in/ray-gon%C3%A7alves-678685223/?originalSubdomain=br',
+            instagram: 'https://www.instagram.com/raygoncalvesoficial/',
             topic: 'Marketing Digital'
         },
         {
@@ -131,8 +140,8 @@ const Palestrantes = () => {
             role: 'Especialista em Neurovendas',
             description: 'Com mais de 16 anos de experiência no mercado de vendas, Carol é especialista em neurovendas e a mulher palestrante Top 1 em treinamentos de vendas no Brasil. Com uma linguagem clara e direta, transforma teorias em estratégias práticas que qualquer um pode usar.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/carol.jpg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.linkedin.com/in/%F0%9F%A7%A0-carol-iasmim-05662318a/?originalSubdomain=br',
+            instagram: 'https://www.instagram.com/carol.iasmim/?hl=pt',
             topic: 'Neurovendas'
         },
         {
@@ -140,8 +149,8 @@ const Palestrantes = () => {
             role: 'Fundador da SDA Holding',
             description: 'Empresário, investidor, fundador da SDA Holding e criador do Segredos da Audiência Ao Vivo, o maior Espetáculo de Tráfego e Audiência do Brasil. Com mais de 14 anos de experiência no digital, ele tem mais de 16 milhões de visitas em um de seus sites.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/samuel.jpg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.linkedin.com/in/samuelpereirasda/?originalSubdomain=br',
+            instagram: 'https://www.instagram.com/segredosdaaudiencia/?hl=pt-br',
             topic: 'Tráfego Digital'
         },
         {
@@ -149,9 +158,18 @@ const Palestrantes = () => {
             role: 'Co-fundadora da Fast Escova',
             description: 'Co-fundadora da Fast Escova, uma franqueadora de sucesso com mais de 350 unidades e 4.500 colaboradores em apenas 6 anos. Com formação em Administração de Empresas e MBA em Gestão Comercial, Michelle acumula mais de 25 anos de experiência liderando grandes empresas, incluindo a Avon Cosméticos, onde gerenciou mais de 30 mil pessoas.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/michelle.jpeg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.linkedin.com/in/michelle-wadhy-872427119/?originalSubdomain=br',
+            instagram: 'https://www.instagram.com/michellefastescova/',
             topic: 'Franquias'
+        },
+        {
+            name: 'PADRE MARCOS',
+            role: 'Sacerdote, Cantor e Escritor',
+            description: 'Sacerdote católico, cantor e escritor, Padre Marcos Rogério é pároco da Paróquia Nossa Senhora da Assunção em Goiânia. Com três CDs e quatro livros publicados, destaca-se por sua atuação na evangelização através da música e da literatura.',
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/padremarcos.jpeg',
+            linkedin: 'https://linktr.ee/padremarcos?fbclid=PAZXh0bgNhZW0CMTEAAabpEzv2qABdvtcUhwk2oTPU62dYSGUn_exg0OERpSl45FqyqJ1bfQ-k3XY_aem_RaVX7pLTObH5k97r7UvLyw',
+            instagram: 'https://www.instagram.com/padremarcos/',
+            topic: 'Espiritualidade'
         }
     ];
 
