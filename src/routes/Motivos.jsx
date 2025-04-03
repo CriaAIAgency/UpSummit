@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Crown, Star, Diamond, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, X, Play } from 'lucide-react';
+import { Crown, Star, Diamond, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, X, Play, TrendingUp, Users, Globe, Target, Award, Gem } from 'lucide-react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import upblackImage from '../assets/upblack.jpg';
@@ -10,39 +10,36 @@ import diamanteImage from '../assets/diamante.jpg';
 import Patrocinadores from '../components/homeSections/Patrocinadores';
 
 const benefits = [
-  {
-    title: 'Visibilidade',
-    highlight: 'destacada em um dos maiores eventos de empreendedorismo do Brasil.',
-    color: 'from-purple-800'
-  },
-  {
-    title: 'Oportunidades estratégicas',
-    highlight: 'de networking com líderes empresariais e investidores influentes.',
-    color: 'from-purple-900'
-  },
-  {
-    title: 'Fortalecimento da reputação da marca',
-    highlight: 'e aumento do reconhecimento no mercado.',
-    color: 'from-purple-800'
-  },
-  {
-    title: 'Potencial para',
-    highlight: 'geração de leads qualificados ',
-    description: 'e oportunidades de negócios.',
-    color: 'from-purple-900'
-  },
-  {
-    title: 'Elevada possibilidade de',
-    highlight: 'retorno sobre o investimento (ROI)',
-    description: ', comprovado pelos resultados positivos dos patrocinadores anteriores.',
-    color: 'from-purple-800'
-  },
-  {
-    title: 'Experiência Premium',
-    highlight: 'UP BLACK: acesso exclusivo a todas as áreas VIP e benefícios especiais',
-    description: ', incluindo networking com palestrantes.',
-    color: 'from-purple-800'
-  }
+    {
+        icon: Target,
+        title: 'Visibilidade Premium',
+        description: 'Destaque-se em um dos maiores eventos de empreendedorismo do Brasil, alcançando um público altamente qualificado.'
+    },
+    {
+        icon: Users,
+        title: 'Networking Estratégico',
+        description: 'Conecte-se com líderes empresariais e investidores influentes, criando oportunidades únicas de negócio.'
+    },
+    {
+        icon: Award,
+        title: 'Fortalecimento da Marca',
+        description: 'Aumente o reconhecimento e a reputação da sua marca no mercado através de uma exposição premium.'
+    },
+    {
+        icon: TrendingUp,
+        title: 'Geração de Leads',
+        description: 'Acesse um público altamente qualificado e gere leads valiosos para seu negócio.'
+    },
+    {
+        icon: Globe,
+        title: 'Retorno Sobre Investimento',
+        description: 'Histórico comprovado de excelente ROI, demonstrado pelos resultados expressivos de nossos patrocinadores.'
+    },
+    {
+        icon: Gem,
+        title: 'Experiência UP BLACK',
+        description: 'Acesso exclusivo a todas as áreas VIP e benefícios especiais, incluindo networking com palestrantes.'
+    }
 ];
 
 const sponsorshipTiers = [
@@ -462,18 +459,23 @@ const Motivos = () => {
             </p>
           </div>
 
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mb-16">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className={`w-full max-w-md ${
-                  index >= benefits.length - 2 ? 'lg:col-span-1.5 lg:mx-auto' : ''
-                }`}
-              >
-                <BenefitCard {...benefit} />
-              </div>
-            ))}
+          {/* Benefits Grid - New Style */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {benefits.map((benefit) => {
+              const Icon = benefit.icon;
+              return (
+                <div
+                  key={benefit.title}
+                  className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="w-12 h-12 bg-purple-800/10 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-purple-800" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-gray-600">{benefit.description}</p>
+                </div>
+              );
+            })}
           </div>
 
           {/* CTA Button após os benefícios */}
