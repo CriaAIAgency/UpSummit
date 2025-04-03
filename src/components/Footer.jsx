@@ -20,14 +20,29 @@ const Footer = () => {
                             visionários e profissionais para compartilhar conhecimento e criar oportunidades.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-gray-400 hover:text-customPink transition-colors">
+                            <a 
+                                href="https://www.facebook.com/upsummiteventos" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="text-gray-400 hover:text-customPink transition-colors"
+                            >
                                 <SocialIcons.Facebook />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-customPink transition-colors">
-                                <SocialIcons.Twitter />
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-customPink transition-colors">
+                            <a 
+                                href="https://www.instagram.com/upsummitoficial/" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="text-gray-400 hover:text-customPink transition-colors"
+                            >
                                 <SocialIcons.Instagram />
+                            </a>
+                            <a 
+                                href="https://www.youtube.com/@upsummit" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="text-gray-400 hover:text-customPink transition-colors"
+                            >
+                                <SocialIcons.Youtube />
                             </a>
                         </div>
                     </div>
@@ -43,19 +58,24 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                    <Link to="/palestrantes" className="text-gray-400 hover:text-white transition-colors">
                                         Palestrantes
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                                        Programação
-                                    </a>
+                                    <Link to="/edicoes" className="text-gray-400 hover:text-white transition-colors">
+                                        Edições
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                    <Link to="/depoimentos" className="text-gray-400 hover:text-white transition-colors">
+                                        Depoimentos
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/sobre#faq" className="text-gray-400 hover:text-white transition-colors">
                                         Dúvidas
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -73,9 +93,9 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                                        Mídia Kit
-                                    </a>
+                                    <Link to="/contato" className="text-gray-400 hover:text-white transition-colors">
+                                        Contato
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -88,19 +108,17 @@ const Footer = () => {
                             <li className="flex items-start gap-3 text-gray-400">
                                 <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
                                 <span>
-                                    Av. Principal, 1000
-                                    <br />
-                                    Setor Bueno, Goiânia - GO
+                                    Pontifícia Universidade Católica de Goiás - Câmpus II, Av. Engler, 507 - Jardim Mariliza, Goiânia - GO, 74885-460
                                 </span>
                             </li>
                             <li className="flex items-center gap-3 text-gray-400">
                                 <Phone className="w-5 h-5" />
-                                <span>(62) 9999-9999</span>
+                                <span>(62) 8172-3047</span>
                             </li>
                             <li className="flex items-center gap-3 text-gray-400">
                                 <Mail className="w-5 h-5" />
                                 <a href="mailto:contato@upsummit.com.br" className="hover:text-white transition-colors">
-                                    contato@upsummit.com.br
+                                comercialupsummit@gmail.com
                                 </a>
                             </li>
                         </ul>
@@ -121,6 +139,9 @@ const Footer = () => {
                             </a>
                             <a href="#" className="text-gray-400 hover:text-white transition-colors">
                                 Termos de Uso
+                            </a>
+                            <a href="https://wa.me/5511914106730" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-customPink transition-colors">
+                                Desenvolvido por Guilherme Costa
                             </a>
                         </div>
                     </div>
