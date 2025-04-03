@@ -10,7 +10,7 @@ const SplashScreen = ({ onComplete }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#11111A]"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#010102]"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
@@ -19,7 +19,7 @@ const SplashScreen = ({ onComplete }) => {
         {/* Quadrado com cor de fundo - Sem animação */}
         <div className="absolute -top-6 right-14 z-10">
           {/* Quadrado de recorte */}
-          <div className="absolute h-20 w-20 bg-[#11111A]" />
+          <div className="absolute h-20 w-20 bg-[#010102]" />
         </div>
 
         {/* Quadrado externo usando SVG com path personalizado */}
