@@ -36,15 +36,6 @@ const Frases = () => {
             topic: 'Inovação e Empreendedorismo'
         },
         {
-            name: 'JOÃO KEPLER',
-            role: 'Empresário e Investidor-Anjo',
-            description: 'Empresário, anjo-investidor e um dos maiores nomes do ecossistema de inovação e tecnologia do Brasil, Kepler é máxima referência no que diz respeito a construir uma empresa sólida e com capacidade de crescimento e expansão.',
-            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/joaokepler.jpg',
-            linkedin: '#',
-            instagram: '#',
-            topic: 'Inovação e Investimentos'
-        },
-        {
             name: 'PABLO MARÇAL',
             role: 'Empresário e Mentor',
             description: 'O empresário, coach, escritor e mentor de negócios e alta performance. De Goiânia para a liderança nacional. Esposo da Carol e pai de quatro filhos. Pablo Marçal é empresário visionário, fundador de múltiplos negócios, mentor de milhões de pessoas impactadas por seus ensinamentos.',
@@ -52,6 +43,15 @@ const Frases = () => {
             linkedin: '#',
             instagram: '#',
             topic: 'Alta Performance'
+        },
+        {
+            name: 'JOÃO KEPLER',
+            role: 'Empresário e Investidor-Anjo',
+            description: 'Empresário, anjo-investidor e um dos maiores nomes do ecossistema de inovação e tecnologia do Brasil, Kepler é máxima referência no que diz respeito a construir uma empresa sólida e com capacidade de crescimento e expansão.',
+            image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/joaokepler.jpg',
+            linkedin: '#',
+            instagram: '#',
+            topic: 'Inovação e Investimentos'
         },
         {
             name: 'BÁRBARA PORTO',
