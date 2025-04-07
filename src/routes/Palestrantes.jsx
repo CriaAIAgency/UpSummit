@@ -14,8 +14,8 @@ const Palestrantes = () => {
             role: 'CEO da Febracis',
             description: 'O coach e fundador da Febracis Escola de Negócios já transformou mais de 1,5 milhão de vidas por meio do famoso Método CIS. Especialista em mudança de mentalidade e desenvolvimento pessoal.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/pv.jpg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.linkedin.com/in/paulovcoach/?originalSubdomain=br',
+            instagram: 'https://www.instagram.com/paulovcoach/?hl=pt-br',
             topic: 'Desenvolvimento Pessoal'
         },
         {
@@ -23,8 +23,8 @@ const Palestrantes = () => {
             role: 'CEO do Up Summit',
             description: 'Empresário, construtor, mentor de negócios e CEO do Up Summit.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/wasley.jpg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.youtube.com/@upsummit',
+            instagram: 'https://www.instagram.com/wasleyjr/',
             topic: 'Empreendedorismo'
         },
         {
@@ -32,8 +32,8 @@ const Palestrantes = () => {
             role: 'Empreendedora Serial',
             description: 'Uma das maiores referências em inovação e construção de marcas no Brasil, Cris Arcangeli é uma empreendedora serial que transforma mercados. Criadora da categoria ALIMÉTICOS e do primeiro BEAUTYDRINK, ela também idealizou o Comunidades A1000, o primeiro reality show de impacto positivo do mundo.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/cris.jpeg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.linkedin.com/in/crisarcangeli/?originalSubdomain=br',
+            instagram: 'https://www.instagram.com/crisarcangeli/?hl=pt-br',
             topic: 'Inovação e Empreendedorismo'
         },
         {
@@ -41,8 +41,8 @@ const Palestrantes = () => {
             role: 'Empresário e Mentor',
             description: 'O empresário, coach, escritor e mentor de negócios e alta performance. De Goiânia para a liderança nacional. Esposo da Carol e pai de quatro filhos. Pablo Marçal é empresário visionário, fundador de múltiplos negócios, mentor de milhões de pessoas impactadas por seus ensinamentos.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/pablo.jpg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://pablomarcal.com.br/',
+            instagram: 'https://www.instagram.com/pablomarcal1/?hl=pt-br',
             topic: 'Alta Performance'
         },
         {
@@ -50,8 +50,8 @@ const Palestrantes = () => {
             role: 'Empresário e Investidor-Anjo',
             description: 'Empresário, anjo-investidor e um dos maiores nomes do ecossistema de inovação e tecnologia do Brasil, Kepler é máxima referência no que diz respeito a construir uma empresa sólida e com capacidade de crescimento e expansão.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/joaokepler.jpg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.linkedin.com/in/joaokepler/?originalSubdomain=br',
+            instagram: 'https://www.instagram.com/joaokepler/?hl=pt-br',
             topic: 'Inovação e Investimentos'
         },
         {
@@ -59,8 +59,8 @@ const Palestrantes = () => {
             role: 'CEO da Bárbara Porto',
             description: 'CEO e Diretora Criativa da Bárbara Porto, uma grande marca do universo de semijoias. Bárbara é referência em elegância, autenticidade e empoderamento feminino, esbanjando paixão pela moda e a arte de criar.',
             image: 'https://minio-minio.m7nkeb.easypanel.host/upsummit2025/palestrantes/barbara.jpg',
-            linkedin: '#',
-            instagram: '#',
+            linkedin: 'https://www.barbaraporto.com.br/?srsltid=AfmBOooouoR9sUXOC6fSglXA3t07SXgbq0KhZ2uXV8Cdg9-NoqTzfPTF',
+            instagram: 'https://www.instagram.com/barbaraportoacessorios/',
             topic: 'Empreendedorismo Feminino'
         },
         {
