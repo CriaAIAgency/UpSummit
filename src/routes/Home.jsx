@@ -58,7 +58,7 @@ const Home = () => {
                 <div className="absolute inset-0 bg-white">
                     <div className="relative w-full h-full bg-white">
                         <img
-                            src='https://minio-minio.m7nkeb.easypanel.host/upsummit2025/bg.jpg'
+                            src='https://minio-minio.m7nkeb.easypanel.host/upsummit2025/bg.webp'
                             alt="Background"
                             className="w-full h-full object-cover"
                             style={{ objectPosition: "46% center" }}
